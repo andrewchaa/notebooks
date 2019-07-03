@@ -2,6 +2,10 @@
 
 * [Coding in the wild](README.md)
 
+## ASP.NET Core
+
+* [Typed Configuration Settings](asp.net-core/typed-configuration-settings.md)
+
 ## Git
 
 * [Set up](git/set-up.md)
