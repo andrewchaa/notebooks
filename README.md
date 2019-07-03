@@ -1,12 +1,12 @@
-# Setting up Git
+---
+description: >-
+  Tips and tricks to survive as developer in the wild, where bugs haunt and
+  legacy chokes your neck ...
+---
 
-## Use VS Code as your Diff / Merge editor
+# Coding in the wild
 
-![GitExtensions Settings Screen](.gitbook/assets/image.png)
-
-{% hint style="info" %}
-[GitExtensions](https://github.com/gitextensions/gitextensions) supports VS Code out of box
-{% endhint %}
+## 
 
 
 
