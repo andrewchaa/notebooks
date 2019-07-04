@@ -2,8 +2,9 @@
 
 * [Introduction](README.md)
 * [ASP.NET Core](typed-configuration-settings.md)
-* [React](react.md)
+* [C\#](c.md)
 * [Powershell](powershell.md)
+* [React](react.md)
 
 ## SQL Server
 
