@@ -14,4 +14,5 @@
 
 * [Git](tools/set-up.md)
 * [API Development with Postman](tools/api-development-with-postman.md)
+* [VS Code](tools/vs-code.md)
 
