@@ -1,10 +1,10 @@
 # Table of contents
 
 * [Coding in the wild](README.md)
+* [ASP.NET Core](typed-configuration-settings.md)
+* [React](react.md)
 
 ## API Development
-
-* [ASP.NET Core](api-development/typed-configuration-settings.md)
 
 ## SQL Server
 
