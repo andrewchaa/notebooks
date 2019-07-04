@@ -21,7 +21,7 @@
 "editor.detectIndentation": false
 ```
 
-#### Recommended Extensions
+#### Install recommended extensions
 
 * PowerShell
 * Terraform
@@ -30,5 +30,7 @@
 * jshint
 * ESLint
 
+### Keyboard Shortcuts
 
+* Shift + Alt + F: format document. You can format your JSON document
 
