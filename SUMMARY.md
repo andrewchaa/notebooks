@@ -3,8 +3,7 @@
 * [Coding in the wild](README.md)
 * [ASP.NET Core](typed-configuration-settings.md)
 * [React](react.md)
-
-## API Development
+* [Powershell](powershell.md)
 
 ## SQL Server
 
