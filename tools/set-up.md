@@ -1,4 +1,6 @@
-# Set up
+# Git
+
+### Set up
 
 #### Use VS Code as your Diff / Merge editor
 

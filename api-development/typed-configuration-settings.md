@@ -1,4 +1,6 @@
-# Typed Configuration Settings
+# ASP.NET Core
+
+#### Typed Configuration Settings
 
 By default, [app configuration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2) is supported and configured out of the box. Just create a class for your config setting and do services.Configure
 

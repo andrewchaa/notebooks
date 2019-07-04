@@ -2,13 +2,9 @@
 
 * [Coding in the wild](README.md)
 
-## ASP.NET Core
+## API Development
 
-* [Typed Configuration Settings](asp.net-core/typed-configuration-settings.md)
-
-## Git
-
-* [Set up](git/set-up.md)
+* [ASP.NET Core](api-development/typed-configuration-settings.md)
 
 ## SQL Server
 
@@ -16,5 +12,6 @@
 
 ## Tools
 
+* [Git](tools/set-up.md)
 * [API Development with Postman](tools/api-development-with-postman.md)
 
