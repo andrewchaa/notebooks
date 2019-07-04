@@ -21,3 +21,14 @@
 "editor.detectIndentation": false
 ```
 
+#### Recommended Extensions
+
+* PowerShell
+* Terraform
+* markdownlint
+* Beautify
+* jshint
+* ESLint
+
+
+
