@@ -13,6 +13,6 @@
 ## Tools
 
 * [Git](tools/set-up.md)
-* [API Development with Postman](tools/api-development-with-postman.md)
+* [Postman](tools/postman.md)
 * [VS Code](tools/vs-code.md)
 

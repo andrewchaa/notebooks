@@ -1,5 +1,9 @@
-# API Development with Postman
+# Postman
 
+### Contents
+
+* [Shortcuts](postman.md#shortcuts)
+* 
 ### Shortcuts
 
 Becoming a super user is a fairly straight forward process: just remember and use shortcuts
@@ -14,4 +18,6 @@ Becoming a super user is a fairly straight forward process: just remember and us
 | ⌘ D | Duplicate Item |
 | ⌘ + | Zoom In |
 | ⌘ - | Zoom Out |
+
+
 
