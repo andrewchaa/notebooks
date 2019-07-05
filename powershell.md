@@ -152,3 +152,13 @@ Get-ChildItem -Recurse | ?{ $_.PSIsContainer }
 Get-ChildItem -Recurse | ?{ $_.PSIsContainer } | Select-Object FullName
 ```
 
+#### Output to Console
+
+```bash
+if (!$targetDirectory) {
+  write-host "Please specify your target repo directory.`r`n"
+}
+```
+
+
+
