@@ -39,7 +39,28 @@ if (!$targetDirectory) {
 }
 ```
 
-## Search texts in string and files
+## String
+
+### Substitution
+
+#### Variable substitution
+
+```c
+$message = "Hello, $first $last."
+```
+
+#### Format string
+
+```csharp
+$appNames `
+  | % { 
+    '        ' `
+    + '<arg transform-app-name="{0}" value="{0}.{1}" xdt:Transform="SetAttributes" xdt:Locator="Match(transform-app-name)" />' `
+    -f $_, $location
+  }
+```
+
+### 
 
 ### select-string for a case-sensitive match in string
 
