@@ -2,7 +2,7 @@
 
 This is the minimum powershell knowledge you need to have to survive as developer if you work on windows machine.
 
-* [Passing parameters](powershell.md#passing-parameters)
+* [Parameters](powershell.md#parameters)
 * [Finds text in strings and files](powershell.md#finds-text-in-strings-and-files)
 * [Removing duplicate values from an array](powershell.md#removing-duplicate-values-from-an-array)
 * [Sends output to a file](powershell.md#sends-output-to-a-file)
