@@ -2,7 +2,7 @@
 
 This is the minimum powershell knowledge you need to have to survive as developer if you work on windows machine.
 
-## Using parameters
+## Function
 
 ### Passing parameters
 
@@ -37,6 +37,14 @@ Param(
 if (!$targetDirectory) {
   write-host "Please specify your target repo directory.`r`n"
 }
+```
+
+### Call function in another script
+
+Use dot sourcing
+
+```text
+. .\functions.ps1
 ```
 
 ## String
@@ -102,14 +110,14 @@ $foundStrings = get-childItem -recurse -path $path -include app.config, web.conf
 
 ## Array
 
-#### Removing duplicate values from an array
+### Removing duplicate values from an array
 
-```text
+```c
 $a = @(1,2,3,4,5,5,6,7,8,9,0,0)
 $a = $a | select -Unique
 ```
 
-```text
+```c
 $services = $foundStrings `
     | select-string -pattern "fabric:\/[A-Za-z\.]*" -AllMatches `
     | foreach-object { $_.Matches.Value } `
@@ -120,7 +128,13 @@ $services = $foundStrings `
         } `
     | ? {$_} `
     | select-object -unique
+```
 
+### Concatenate array into string
+
+```c
+$OFS = [Environment]::NewLine
+"$transformers"
 ```
 
 ## File
@@ -186,6 +200,28 @@ Get-ChildItem -Recurse | ?{ $_.PSIsContainer } | Select-Object FullName
 if (!$targetDirectory) {
   write-host "Please specify your target repo directory.`r`n"
 }
+```
+
+## Object
+
+### Get an object's property by name
+
+```c
+[xml]$config = get-content $path
+$config.configuration.common.logging.factoryAdapter.arg `
+  | where-object { $_.key -eq "AppName" } `
+  | select -expand "value"
+```
+
+## XML
+
+### Load into XML object
+
+```c
+[xml]$config = get-content $path
+$config.configuration.common.logging.factoryAdapter.arg `
+  | where-object { $_.key -eq "AppName" } `
+  | select -expand "value"
 ```
 
 
