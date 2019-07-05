@@ -10,6 +10,8 @@ This is the minimum powershell knowledge you need to have to survive as develope
 * [Writing new lines to a text file](powershell.md#writing-new-lines-to-a-text-file)
 * [Get only directories using Get-ChildItem](powershell.md#get-only-directories-using-get-childitem)
 
+## Parameters
+
 ### Passing parameters
 
 Pass arguments to a script or cmdlet by separating them with spaces:
@@ -31,6 +33,18 @@ Param(
 $hostService = split-path $path -leaf `
     | % { $_    -replace("\.", "_") `
                 -replace("-", "_") ` }
+```
+
+#### Check if the parameter is null
+
+```bash
+Param(
+  [string]$targetDirectory
+)
+
+if (!$targetDirectory) {
+  write-host "Please specify your target repo directory.`r`n"
+}
 ```
 
 ### Finds text in strings and files
