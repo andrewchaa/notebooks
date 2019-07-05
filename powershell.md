@@ -2,15 +2,7 @@
 
 This is the minimum powershell knowledge you need to have to survive as developer if you work on windows machine.
 
-* [Parameters](powershell.md#parameters)
-* [Finds text in strings and files](powershell.md#finds-text-in-strings-and-files)
-* [Removing duplicate values from an array](powershell.md#removing-duplicate-values-from-an-array)
-* [Sends output to a file](powershell.md#sends-output-to-a-file)
-* [Display file name from the given path](powershell.md#display-file-name-from-the-given-path)
-* [Writing new lines to a text file](powershell.md#writing-new-lines-to-a-text-file)
-* [Get only directories using Get-ChildItem](powershell.md#get-only-directories-using-get-childitem)
-
-## Parameters
+## Using parameters
 
 ### Passing parameters
 
@@ -20,7 +12,7 @@ Pass arguments to a script or cmdlet by separating them with spaces:
 PS C:\> Get-ChildItem -Path $env:windir -Filter *.dll -Recurse
 ```
 
-#### Param
+### Param
 
 To define arguments by name, use a param statement, which is simply a comma separated list of variables, optionally prefixed with a \[data type\] and/or with = default values.
 
@@ -35,7 +27,7 @@ $hostService = split-path $path -leaf `
                 -replace("-", "_") ` }
 ```
 
-#### Check if the parameter is null
+### Check if the parameter is null
 
 ```bash
 Param(
@@ -47,9 +39,9 @@ if (!$targetDirectory) {
 }
 ```
 
-### Finds text in strings and files
+## Search texts in string and files
 
-#### Find a case-sensitive match
+### select-string for a case-sensitive match in string
 
 This command performs a case-sensitive match of the text that was sent down the pipeline to the Select-String cmdlet.
 
@@ -57,7 +49,7 @@ This command performs a case-sensitive match of the text that was sent down the 
 'Hello', 'HELLO' | Select-String -Pattern 'HELLO' -CaseSensitive -SimpleMatch
 ```
 
-#### Find matches in text files
+### select-string in text files
 
 This command searches all files with the .txt file name extension in the current directory. The output displays the lines in those files that include the specified string.
 
@@ -79,20 +71,17 @@ $foundStrings = get-childItem -recurse -path $path -include app.config, web.conf
     | select-object Line -uniq `
 ```
 
-#### Search a string in multiple files
+### Search a string in multiple files
 
-```text
-Get-ChildItem $path `
-    | ? { $_.PSIsContainer } `
-    | resolve-path `
-    | % { 
-        $output = .\find-sfservices-graphviz $_ $false
-        write-host $output
-        add-content .\"$directoryName.md" $output
-    }
+```csharp
+$foundStrings = get-childItem -recurse -path $path -include app.config, web.config `
+    | select-string -pattern "fabric:/" `
+    | select-object Line -uniq `
 ```
 
-### Removing duplicate values from an array
+## Array
+
+#### Removing duplicate values from an array
 
 ```text
 $a = @(1,2,3,4,5,5,6,7,8,9,0,0)
@@ -112,6 +101,8 @@ $services = $foundStrings `
     | select-object -unique
 
 ```
+
+## File
 
 ### Sends output to a file
 
@@ -165,6 +156,8 @@ Add-Content -Path $logpath $errorMsg
 Get-ChildItem -Recurse | ?{ $_.PSIsContainer }
 Get-ChildItem -Recurse | ?{ $_.PSIsContainer } | Select-Object FullName
 ```
+
+### Console
 
 #### Output to Console
 
