@@ -8,7 +8,7 @@ This is the minimum powershell knowledge you need to have to survive as develope
 
 Pass arguments to a script or cmdlet by separating them with spaces:
 
-```text
+```powershell
 PS C:\> Get-ChildItem -Path $env:windir -Filter *.dll -Recurse
 ```
 
@@ -29,7 +29,7 @@ $hostService = split-path $path -leaf `
 
 ### Check if the parameter is null
 
-```bash
+```powershell
 Param(
   [string]$targetDirectory
 )
