@@ -8,7 +8,7 @@ This is the minimum powershell knowledge you need to have to survive as develope
 
 Pass arguments to a script or cmdlet by separating them with spaces:
 
-```powershell
+```text
 PS C:\> Get-ChildItem -Path $env:windir -Filter *.dll -Recurse
 ```
 
@@ -29,7 +29,7 @@ $hostService = split-path $path -leaf `
 
 ### Check if the parameter is null
 
-```powershell
+```text
 Param(
   [string]$targetDirectory
 )
@@ -67,8 +67,6 @@ $appNames `
     -f $_, $location
   }
 ```
-
-### 
 
 ### select-string for a case-sensitive match in string
 
@@ -174,7 +172,6 @@ Pass2.log
 $hostService = split-path $path -leaf `
     | % { $_    -replace("\.", "_") `
                 -replace("-", "_") ` }
-
 ```
 
 ### Writing new lines to a text file
@@ -223,6 +220,4 @@ $config.configuration.common.logging.factoryAdapter.arg `
   | where-object { $_.key -eq "AppName" } `
   | select -expand "value"
 ```
-
-
 
