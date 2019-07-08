@@ -2,6 +2,18 @@
 
 This is the minimum powershell knowledge you need to have to survive as developer if you work on windows machine.
 
+## Operators
+
+### Logical Operators
+
+| Operator | Description | Example |
+| :--- | :--- | :--- |
+| `-and` | Logical AND. TRUE when both statements are TRUE | `(1 -eq 1) -and (1 -eq 2)` |
+| `-or` | Logical OR. TRUE when either stement is TRUE | `(1 -eq 1) -or (1 -eq 2)` |
+| `-xor` | Logical EXCLUSIVE OR. TRUE when only one statement is TRUE | `(1 -eq 1) -xor (2 -eq 2)` |
+| `-not` | Logical not. Negates the statement that follows | `-not (1 -eq 1)` |
+| `!` | Same as `-not` | `!(1 -eq 1)` |
+
 ## Function
 
 ### Passing parameters
