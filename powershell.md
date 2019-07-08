@@ -147,7 +147,25 @@ $OFS = [Environment]::NewLine
 "$transformers"
 ```
 
-## File
+## File / Directory
+
+### Directory
+
+#### Get only directories using Get-ChildItem
+
+```text
+Get-ChildItem -Recurse | ?{ $_.PSIsContainer }
+Get-ChildItem -Recurse | ?{ $_.PSIsContainer } | Select-Object FullName
+```
+
+#### Create a directory
+
+```c
+if (!(Test-Path "$directory\build")) {
+  write-host creating a directory "$directory\build"
+  new-item "$directory\build" -ItemType directory
+}
+```
 
 ### Sends output to a file
 
@@ -192,13 +210,6 @@ $hostService = split-path $path -leaf `
 $errorMsg =  "{0} Error {1}{2} key {3} expected: {4}{5} local value is: {6}" -f `
                (Get-Date),$keyPath,$value,$key,$policyValue,([Environment]::NewLine),$localValue
 Add-Content -Path $logpath $errorMsg
-```
-
-### Get only directories using Get-ChildItem
-
-```text
-Get-ChildItem -Recurse | ?{ $_.PSIsContainer }
-Get-ChildItem -Recurse | ?{ $_.PSIsContainer } | Select-Object FullName
 ```
 
 ### Console
