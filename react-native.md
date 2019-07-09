@@ -15,10 +15,11 @@ brew install node
 brew install watchman
 ```
 
-#### The React Native CLI
+#### The React Native CLI & Expo CLI
 
 ```bash
 npm install -g react-native-cli
+npm install -g expo-cli
 ```
 
 #### Xcode
@@ -33,6 +34,11 @@ Command Line Tools
 react-native init AwesomeProject
 cd AwesomeProject
 react-native run-ios
+
+// or
+expo init AwesomeProject
+cd AwesomeProject
+npm starat
 ```
 
 ![](.gitbook/assets/image%20%285%29.png)
