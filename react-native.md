@@ -4,6 +4,41 @@ description: Build native mobile apps using JavaScript and React
 
 # React Native
 
+## Getting Started
+
+### Installing dependencies
+
+#### Node, Watchman
+
+```bash
+brew install node
+brew install watchman
+```
+
+#### The React Native CLI
+
+```bash
+npm install -g react-native-cli
+```
+
+#### Xcode
+
+Command Line Tools
+
+![](.gitbook/assets/image%20%284%29.png)
+
+### Creating and running a new application
+
+```bash
+react-native init AwesomeProject
+cd AwesomeProject
+react-native run-ios
+```
+
+![](.gitbook/assets/image%20%285%29.png)
+
+
+
 ## The Basics
 
 ### Height and Width
