@@ -59,6 +59,14 @@ Use dot sourcing
 . .\functions.ps1
 ```
 
+#### Suppressing return values
+
+It's because PS writes return values to console by default. You want to silence the output often.
+
+```text
+$appName.Attributes.Append($attrib) | out-null
+```
+
 ## String
 
 ### Substitution
@@ -165,6 +173,12 @@ if (!(Test-Path "$directory\build")) {
   write-host creating a directory "$directory\build"
   new-item "$directory\build" -ItemType directory
 }
+```
+
+#### Join Path
+
+```c
+Join-Path -Path "path" -ChildPath "childpath"
 ```
 
 ### Sends output to a file
