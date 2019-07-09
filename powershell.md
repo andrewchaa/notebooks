@@ -168,7 +168,11 @@ Get-ChildItem -Recurse | ?{ $_.PSIsContainer } | Select-Object FullName
 
 #### Create a directory
 
+You can create directories recursively
+
 ```c
+$targetDirectory = $directory + "Build\Build\Hosted\Global\Locations"
+
 if (!(Test-Path "$directory\build")) {
   write-host creating a directory "$directory\build"
   new-item "$directory\build" -ItemType directory
