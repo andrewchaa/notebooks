@@ -42,7 +42,7 @@ var coinbaseApi = RestService.For<ICoinbaseProApi>(_coinbaseSettings.HostUri);
 
 #### App.Config Transformations
 
-In a not-so-idealistic situation, you have to deal with app.config, even though ASP.NET Core supports appSettings.json out of the box. In this case, you can use MSBuild task to convert the config file \(which is an xml\) yourself
+In a not-so-idealistic situation, you have to deal with app.config, even though ASP.NET Core supports appSettings.json out of the box. Still it's possible. You just need a bit of magic to your project file.
 
 Create App.config files
 
@@ -59,36 +59,21 @@ Those files should begin with
 </configuration>
 ```
 
-Use Dot.Ndt.Tools
+Update your project .csproj file
 
 ```markup
 <ItemGroup>
-  <DotNetCliToolReference Include="Microsoft.DotNet.Xdt.Tools" Version="2.0.0" />
+  <None Update="App.config">
+    <TransformOnBuild>true</TransformOnBuild>
+  </None>
+  <None Update="App.Debug.config">
+    <IsTransformFile>true</IsTransformFile>
+    <DependentUpon>App.config</DependentUpon>
+  </None>
+  <None Update="App.Release.config">
+    <IsTransformFile>true</IsTransformFile>
+    <DependentUpon>App.config</DependentUpon>
+  </None>
 </ItemGroup>
-
-<Target Name="ApplyXdtConfigTransform" BeforeTargets="_CopyAppConfigFile">
-  <PropertyGroup>
-    <_SourceWebConfig>$(MSBuildThisFileDirectory)App.config</_SourceWebConfig>
-    <_XdtTransform>$(MSBuildThisFileDirectory)App.$(Configuration).config</_XdtTransform>
-    <_TargetWebConfig>$(IntermediateOutputPath)$(TargetFileName).config</_TargetWebConfig>
-    </PropertyGroup>
-  <Exec Command="dotnet transform-xdt --xml &quot;$(_SourceWebConfig)&quot; --transform &quot;$(_XdtTransform)&quot; --output &quot;$(_TargetWebConfig)&quot;" Condition="Exists('$(_XdtTransform)')" />
-  <ItemGroup>
-    <AppConfigWithTargetPath Remove="App.config" />
-    <AppConfigWithTargetPath Include="$(IntermediateOutputPath)$(TargetFileName).config">
-    <TargetPath>$(TargetFileName).config</TargetPath>
-    </AppConfigWithTargetPath>
-  </ItemGroup>
-</Target>
-```
-
-Then, dotnet publish will do the transformation
-
-```text
-dotnet publish "{YourProject}.csproj" 
-  -c Release 
-  --framework netcoreapp2.0 
-  --force 
-  --output "obj\Release\Package\" --verbosity d
 ```
 
