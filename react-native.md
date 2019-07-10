@@ -4,6 +4,10 @@ description: Build native mobile apps using JavaScript and React
 
 # React Native
 
+## Resources
+
+* React Native Elements: [https://react-native-training.github.io/react-native-elements/](https://react-native-training.github.io/react-native-elements/)
+
 ## Getting Started
 
 ### Installing dependencies
