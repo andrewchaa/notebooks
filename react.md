@@ -14,7 +14,5 @@ cd my-app
 npm start
 ```
 
-## Redux
 
-This library is described as "a predictable state container for JavaScript apps."
 

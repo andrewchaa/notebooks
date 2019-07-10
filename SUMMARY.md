@@ -6,6 +6,7 @@
 * [Powershell](powershell.md)
 * [React](react.md)
 * [React Native](react-native.md)
+* [Redux](redux.md)
 * [AWS Amplify](aws-amplify.md)
 
 ## SQL Server

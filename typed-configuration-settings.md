@@ -42,7 +42,7 @@ var coinbaseApi = RestService.For<ICoinbaseProApi>(_coinbaseSettings.HostUri);
 
 #### App.Config Transformations
 
-In a not-so-idealistic situation, you have to deal with app.config, even though ASP.NET Core supports appSettings.json out of the box. Still it's possible. You just need a bit of magic to your project file.
+In a not-so-idealistic situation, you have to deal with app.config, even though ASP.NET Core supports appSettings.json out of the box. Still it's possible. You just need a bit of magic to your project file. 
 
 Create App.config files
 
@@ -59,7 +59,7 @@ Those files should begin with
 </configuration>
 ```
 
-Update your project .csproj file
+Update your project .csproj file. This works out of the box for ASP.NET Core. For console app, you have to install [slow-cheetah](https://github.com/Microsoft/slow-cheetah)
 
 ```markup
 <ItemGroup>
