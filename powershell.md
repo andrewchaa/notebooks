@@ -253,7 +253,7 @@ $config.configuration.common.logging.factoryAdapter.arg `
 
 ## XML
 
-### Load into XML object
+#### Load into XML object
 
 ```c
 [xml]$config = get-content $path
@@ -261,4 +261,22 @@ $config.configuration.common.logging.factoryAdapter.arg `
   | where-object { $_.key -eq "AppName" } `
   | select -expand "value"
 ```
+
+#### Add Attribute
+
+```c
+  [xml]$config = get-content $path
+  $appName = $config.configuration.common.logging.factoryAdapter.arg `
+    | where-object { $_.key -eq "AppName" }
+
+  $attrib = $appName.OwnerDocument.CreateAttribute('transform-app-name')
+  $attrib.Value = $appname.value
+  $appName.Attributes.Append($attrib) | out-null
+  
+  write-host "to $path"
+
+  $config.Save($path)
+```
+
+
 
