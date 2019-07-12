@@ -1,13 +1,14 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [AWS Amplify](aws-amplify.md)
 * [ASP.NET Core](typed-configuration-settings.md)
 * [C\#](c.md)
 * [Powershell](powershell.md)
 * [React](react.md)
 * [React Native](react-native.md)
 * [Redux](redux.md)
-* [AWS Amplify](aws-amplify.md)
+* [D3](d3.md)
 
 ## SQL Server
 
