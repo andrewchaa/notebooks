@@ -125,6 +125,39 @@ static navigationOptions = ({ navigation }) => {
 
 ```
 
+## Using Components
+
+### React Native Cross-Platform WebView
+
+{% embed url="https://github.com/react-native-community/react-native-webview" %}
+
+```text
+npm i --save react-native-webview
+react-native link react-native-webview
+```
+
+#### Showing indicator while loading
+
+```javascript
+render() {
+  return (
+    <WebView 
+      source={{ uri: 'https://navienuk.com/news/' }}
+      startInLoadingState={true}
+      renderLoading={() => {
+        return (
+        <View style={{flex: 1, padding: 20}}>
+          <ActivityIndicator/>
+        </View>
+        )
+      }}
+      style={{  }}
+    />
+  );
+}
+
+```
+
 ## iOS Simulator
 
 #### Suddenly starts running very slow
