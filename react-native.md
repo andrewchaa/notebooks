@@ -125,3 +125,9 @@ static navigationOptions = ({ navigation }) => {
 
 ```
 
+## iOS Simulator
+
+#### Suddenly starts running very slow
+
+Check atd the menu clicking on Debug -&gt; Toggle Slow Animations. Chances are you accidentally toggled it on.
+
