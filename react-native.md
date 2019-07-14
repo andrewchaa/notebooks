@@ -49,7 +49,7 @@ npm starat
 
 
 
-## The Basics
+## Styling
 
 ### Height and Width
 
@@ -79,5 +79,49 @@ export default class FlexDimensionsBasics extends Component {
     );
   }
 }
+```
+
+#### Declaring stylesheets in a separate file
+
+Be sure to name the file in .js extension. It's handy when you want to have the same styles across elements
+
+```css
+import { StyleSheet } from 'react-native'
+
+const headerStyle = StyleSheet.create({
+  primary: {
+    backgroundColor: '#f8fbff',
+    height: 70,
+    elevation: 0,
+    shadowOpacity: 0
+  }
+})
+
+export { styles, headerStyle }
+```
+
+Then you can import and use it
+
+```javascript
+import { headerStyle } from '../components/styles';
+
+static navigationOptions = ({ navigation }) => {
+  return {
+    headerStyle: headerStyle.primary,
+    headerTitle: (
+      <HeaderLogoTitle>Registration List</HeaderLogoTitle>
+    ),
+    headerRight: (
+      <IconIon.Button
+        name="ios-add-circle"
+        backgroundColor='transparent'
+        style={{marginRight: 0}}
+        iconStyle={{color:'#F5740E', fontSize: 35}}
+        onPress={() => navigation.navigate('Form')}
+      />
+    ),
+  };
+};
+
 ```
 
