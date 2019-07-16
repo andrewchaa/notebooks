@@ -158,9 +158,17 @@ render() {
 
 ```
 
+## Debugging
+
+Use "Pause On Caught Exceptions" on Source tab
+
+![](.gitbook/assets/image%20%286%29.png)
+
+
+
 ## iOS Simulator
 
 #### Suddenly starts running very slow
 
-Check atd the menu clicking on Debug -&gt; Toggle Slow Animations. Chances are you accidentally toggled it on.
+Check at the menu clicking on Debug -&gt; Toggle Slow Animations. Chances are you accidentally toggled it on.
 
