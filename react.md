@@ -14,5 +14,14 @@ cd my-app
 npm start
 ```
 
+### Basics
 
+#### importing packages
+
+```javascript
+import React, { Component } from 'react';
+
+import * as d3 from 'd3';
+import * as d3Graphviz from 'd3-graphviz';
+```
 

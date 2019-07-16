@@ -6,7 +6,11 @@ description: >-
 
 # Introduction
 
-## 
+## Resources
+
+|  |  |  |
+| :--- | :--- | :--- |
+| [react graph vis](https://github.com/crubier/react-graph-vis) | A react component to render nice graphs using vis.js | javascript, graph, react |
 
 
 
