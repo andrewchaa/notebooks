@@ -77,3 +77,23 @@ Update your project .csproj file. This works out of the box for ASP.NET Core. Fo
 </ItemGroup>
 ```
 
+## Controller
+
+### Response types
+
+#### Plain Text result
+
+```csharp
+[HttpGet("[action]")]
+public ContentResult Fps()
+{
+    var content = @"digraph G {
+        ServiceBus [shape=box, label="""", image=""/azure-service-bus.svg""]
+        ServiceBus -> Manager
+        }";
+    return Content(content);
+}
+```
+
+
+

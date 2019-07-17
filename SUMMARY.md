@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Resources](README.md)
 * [AWS](aws.md)
 * [AWS Amplify](aws-amplify.md)
 * [ASP.NET Core](typed-configuration-settings.md)
@@ -10,6 +10,7 @@
 * [React Native](react-native.md)
 * [Redux](redux.md)
 * [D3](d3.md)
+* [GraphViz](graphviz.md)
 
 ## SQL Server
 

@@ -4,9 +4,7 @@ description: >-
   legacy chokes your neck ...
 ---
 
-# Introduction
-
-## Resources
+# Resources
 
 |  |  |  |
 | :--- | :--- | :--- |
