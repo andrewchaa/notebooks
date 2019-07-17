@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [AWS](aws.md)
 * [AWS Amplify](aws-amplify.md)
 * [ASP.NET Core](typed-configuration-settings.md)
 * [C\#](c.md)
