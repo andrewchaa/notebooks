@@ -127,3 +127,22 @@ const rootReducer = combineReducers({
 export default rootReducer;
 ```
 
+#### Accessing data
+
+Map state to props and get data from the storage from props
+
+```javascript
+render() {
+  const { registrations } = this.props;
+  <FlatList
+    data={registrations}
+    renderItem={this.renderItem}
+    keyExtractor={({registrationId}, index) => registrationId}
+  />
+
+const mapStateToProps = (state) => ({ registrations: state.registrationReducer.registrations })
+const mapDispatchToProps = { dispatchInitializeRegistrations: (registrations) => initializeRegistrations(registrations) }
+export default connect(mapStateToProps, mapDispatchToProps)(BoilerRegistrationList);
+
+```
+
