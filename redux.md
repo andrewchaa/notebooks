@@ -69,3 +69,61 @@ const styles = StyleSheet.create({
 })
 ```
 
+## Getting started
+
+#### Create store and add Provider
+
+```javascript
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+const store = createStore(rootReducer);
+
+class App extends React.Component {
+  render() {
+      return (
+        <Provider store={store}>
+          <AppContainer screenProps={{...this.props}} />
+        </Provider>
+      );
+  }
+  
+```
+
+#### Create reducers
+
+```javascript
+// registration reducer
+import { ADD_REGISTRATION, INITIALIZE_REGISTRATIONS } from '../actions/action';
+
+const initialState = {
+  registrations: []
+}
+
+const registrationReducer = ( state = initialState, action ) => {
+  switch(action.type) {
+    case ADD_REGISTRATION:
+      return {
+        registrations: [
+          ...state.registrations,
+          action.registration
+        ]
+      }
+    default: 
+      return state
+  }
+}
+
+export default registrationReducer;
+
+// combine reducers
+import { combineReducers } from 'redux';
+import registrationReducer from './registrationReducer';
+
+const rootReducer = combineReducers({
+  registrationReducer
+});
+
+export default rootReducer;
+```
+
