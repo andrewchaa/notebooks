@@ -127,11 +127,13 @@ const rootReducer = combineReducers({
 export default rootReducer;
 ```
 
-#### Accessing data
+#### Accessing data from store
 
 Map state to props and get data from the storage from props
 
 ```javascript
+import { connect } from 'react-redux';
+
 render() {
   const { registrations } = this.props;
   <FlatList
@@ -144,5 +146,23 @@ const mapStateToProps = (state) => ({ registrations: state.registrationReducer.r
 const mapDispatchToProps = { dispatchInitializeRegistrations: (registrations) => initializeRegistrations(registrations) }
 export default connect(mapStateToProps, mapDispatchToProps)(BoilerRegistrationList);
 
+```
+
+#### Updating / Inserting data into store
+
+```javascript
+import { connect } from 'react-redux';
+import { addRegistration } from '../actions/action';
+
+this.props.dispatchAddRegistration(this.state)
+const mapDispatchToProps = {
+  dispatchAddRegistration: (registration) => addRegistration(registration),
+}
+
+const mapStateToProps = (state) => ({
+  books: state.registrationReducer.registrations
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(BoilerRegistrationForm);
 ```
 
