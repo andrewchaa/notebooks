@@ -1,16 +1,19 @@
 # Table of contents
 
 * [Resources](README.md)
+* [ASP.NET Core](typed-configuration-settings.md)
 * [AWS](aws.md)
 * [AWS Amplify](aws-amplify.md)
-* [ASP.NET Core](typed-configuration-settings.md)
 * [C\#](c.md)
+* [Azure DevOps](azure-devops.md)
 * [Powershell](powershell.md)
+* [D3](d3.md)
+* [Git](set-up.md)
+* [GraphViz](graphviz.md)
+* [Postman](postman.md)
 * [React](react.md)
 * [React Native](react-native.md)
 * [Redux](redux.md)
-* [D3](d3.md)
-* [GraphViz](graphviz.md)
 
 ## SQL Server
 
@@ -18,7 +21,5 @@
 
 ## Tools
 
-* [Git](tools/set-up.md)
-* [Postman](tools/postman.md)
-* [VS Code](tools/vs-code.md)
+* [VS Code](vs-code.md)
 
