@@ -95,5 +95,23 @@ public ContentResult Fps()
 }
 ```
 
+## Handling files
 
+### File Providers
+
+#### Read file content
+
+```csharp
+var fileInfo = provider.GetFileInfo("content.json");
+var stream = fileInfo.CreateReadStream();
+var serializer = new JsonSerializer();
+
+ServicesManifest manifest;
+using (var reader = new StreamReader(stream))
+using (var textReader = new JsonTextReader(reader))
+{
+    manifest = serializer.Deserialize<ServicesManifest>(textReader);
+}
+
+```
 
