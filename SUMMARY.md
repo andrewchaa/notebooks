@@ -10,6 +10,7 @@
 * [D3](d3.md)
 * [Git](set-up.md)
 * [GraphViz](graphviz.md)
+* [javascript](javascript.md)
 * [Postman](postman.md)
 * [React](react.md)
 * [React Native](react-native.md)
