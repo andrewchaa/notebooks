@@ -1,5 +1,13 @@
 # ASP.NET Core
 
+## Command Line
+
+#### Run app with file watch
+
+```bash
+dotnet watch run
+```
+
 ## Configuration
 
 #### Typed Configuration Settings

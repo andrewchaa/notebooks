@@ -10,6 +10,7 @@
 * [D3](d3.md)
 * [Git](set-up.md)
 * [GraphViz](graphviz.md)
+* [HTML](html.md)
 * [Json.NET](json.net.md)
 * [javascript](javascript.md)
 * [Postman](postman.md)
