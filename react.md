@@ -25,3 +25,20 @@ import * as d3 from 'd3';
 import * as d3Graphviz from 'd3-graphviz';
 ```
 
+#### unique keys for array
+
+Put unique key value so that react can draw the node effectively
+
+```typescript
+<select className="form-control" 
+ onChange={this.selectApp}
+ defaultValue={''}
+ >
+  <option value="">All apps</option>
+  {
+    JsonToDotConverter.getAppNames()
+      .map((name: string) => <option key={name}>{name}</option> ) 
+  }
+</select>
+```
+

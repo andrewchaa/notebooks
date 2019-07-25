@@ -30,3 +30,15 @@ const formatNumber = (number) => {
 } 
 ```
 
+### String
+
+#### to lowercase
+
+```typescript
+const definitions = this.flattenManifest(manifest);
+const names = definitions
+    .map(({name}) => name)
+    .map((name: string) => name.toLowerCase())
+    .sort();
+```
+
