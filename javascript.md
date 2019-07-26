@@ -15,6 +15,14 @@ var merged1 = [].concat.apply([], arrays);
 const merged2 = arrays.flat();
 ```
 
+#### Extract property values as array from objects array
+
+```typescript
+const definitions = this.flattenManifest(manifest);
+const names = definitions
+    .map(({name}) => name);
+```
+
 ### Number
 
 #### Format number

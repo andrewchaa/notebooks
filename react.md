@@ -25,9 +25,7 @@ import * as d3 from 'd3';
 import * as d3Graphviz from 'd3-graphviz';
 ```
 
-#### unique keys for array
-
-Put unique key value so that react can draw the node effectively
+#### Rendering Options from Array
 
 ```typescript
 <select className="form-control" 
@@ -41,4 +39,6 @@ Put unique key value so that react can draw the node effectively
   }
 </select>
 ```
+
+Make sure you put unique key value so that react can draw the node effectively
 
