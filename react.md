@@ -14,6 +14,20 @@ cd my-app
 npm start
 ```
 
+### Deploying App
+
+#### Increase memory if npm install fails on build pipeline
+
+I use azure devops build pipeline to publich .NET core app with react. Its ubuntu hosted agent doesn't seem to cope well with npm install, often failing with the message "**Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory**". You can increase the memory size
+
+```javascript
+"scripts": {
+  ...
+  "build": "react-scripts --max_old_space_size=4096 build",
+  ...
+},
+```
+
 ### Basics
 
 #### importing packages
