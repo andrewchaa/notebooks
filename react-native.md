@@ -172,3 +172,7 @@ Use "Pause On Caught Exceptions" on Source tab
 
 Check at the menu clicking on Debug -&gt; Toggle Slow Animations. Chances are you accidentally toggled it on.
 
+#### All simulator are missing and unavailable
+
+Simply restart your MacBook
+
