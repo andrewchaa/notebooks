@@ -66,5 +66,22 @@ class Account extends Component {
 
 ```
 
+#### handling possible promise rejection
 
+```text
+Possible Unhandled Promise Rejection (id: 0):
+Error: No credentials, applicationId or region
+```
+
+This happens with AWS Analytics. Disable it for now
+
+```text
+import awsExports from './aws-exports';
+Amplify.configure({
+   ...awsExports,
+   Analytics: { 
+       disabled: true
+   }
+});
+```
 
