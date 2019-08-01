@@ -2,16 +2,16 @@
 
 ## Installation
 
-#### Install the latest Xcode command line tools
-
 ```bash
-xcode-select --install
-```
+# install xcode commandline tool
+xcode-select --install     
 
-#### Install fastlane
+# install fastlane
+brew cask install fastlane 
 
-```bash
-brew cask install fastlane
+# add to path
+code ~/.zshrc
+add to path, $HOME/.fastlane/bin
 ```
 
 #### Navigate to your project and run
