@@ -6,6 +6,7 @@
 * [AWS Amplify](aws-amplify.md)
 * [Azure DevOps](azure-devops.md)
 * [C\#](c.md)
+* [Shell](bash.md)
 * [D3](d3.md)
 * [fastlane](fastlane.md)
 * [Git](set-up.md)
@@ -18,7 +19,6 @@
 * [React](react.md)
 * [React Native](react-native.md)
 * [Redux](redux.md)
-* [Shell](bash.md)
 * [slow-cheetah](slow-cheetah.md)
 
 ## SQL Server
