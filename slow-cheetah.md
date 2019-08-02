@@ -6,5 +6,13 @@ With the extension, you can easily add transformation files and preview them
 
 ![right click and click on &quot;Add Transform&quot;](.gitbook/assets/image.png)
 
-You can preview the transformations.
+The format should be like this.
+
+```aspnet
+<appSettings>
+  <add key="blob" 
+       value="...." 
+       xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+</appSettings>
+```
 
