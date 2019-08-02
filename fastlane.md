@@ -26,7 +26,13 @@ fastlane init
 
 #### Create a Provisioning Profile
 
-Go to [https://developer.apple.com](https://developer.apple.com) and create one
+* Go to [https://developer.apple.com](https://developer.apple.com) and create one
+* Select distribution profile
+
+#### Import the profile
+
+* Open the project. Set the target to the app. Then General tab appear.
+* Import the profile
 
 
 
