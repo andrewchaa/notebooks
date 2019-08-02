@@ -19,6 +19,7 @@
 * [React](react.md)
 * [React Native](react-native.md)
 * [Redux](redux.md)
+* [slow-cheetah](slow-cheetah.md)
 
 ## SQL Server
 
