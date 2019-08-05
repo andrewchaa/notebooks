@@ -4,6 +4,7 @@
 * [ASP.NET Core](typed-configuration-settings.md)
 * [AWS](aws.md)
 * [AWS Amplify](aws-amplify.md)
+* [Azure](azure.md)
 * [Azure DevOps](azure-devops.md)
 * [C\#](c.md)
 * [D3](d3.md)
