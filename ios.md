@@ -4,17 +4,18 @@
 
 In summary, the steps are like the below
 
-1. Create a certificate
-2. Create a provisioning profile based on the certificate
-3. Update info.plist
-   1. Set a correct version
-   2. Make sure you have 
-      1. Privacy - Photo Library Usage Description
-      2. Privacy - Location Always Usage Description
-      3. Privacy - Location When In Use Usage Description
-4. Create an Archive
-5. Validate it and then upload it to iTunes Connect
-6. Upload the app to TestFlight with Application Loader
+1. Understand [Provisioning Profile](ios.md#what-is-provisioning-profile)
+2. Create a [certificate](ios.md#certificate)
+3. [Create a provisioning profile](ios.md#creating-a-profile) based on the certificate
+4. [Update info.plist](ios.md#update-info-plist)
+5. Create an Archive
+6. Validate it and then upload it to iTunes Connect
+7. Choose TestFlight
+8. Add yourself to tester
+
+If you don't have any user, add testers on [Users and Access](https://appstoreconnect.apple.com/access/users)
+
+
 
 #### What is Provisioning Profile
 
@@ -48,18 +49,13 @@ To submit to testflight, you need distribution profile
 3. Generate a provisioning profile by selecting a certificate
 4. Download and install the profile
 
-#### Creating a version
+### Update info.plist
 
-Go do info.plist and edit it
-
-#### Application Loader
-
-To generate app-specific password
-
-1. Go to [https://appleid.apple.com/account/manage](https://appleid.apple.com/account/manage)
-2. In security, Generate Password
-
-#### 
+1. Set a correct version
+2. Make sure you have 
+   1. Privacy - Photo Library Usage Description
+   2. Privacy - Location Always Usage Description
+   3. Privacy - Location When In Use Usage Description
 
 #### Deploy In XCode
 
