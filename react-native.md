@@ -30,7 +30,7 @@ npm install -g expo-cli
 
 Command Line Tools
 
-![](.gitbook/assets/image%20%289%29.png)
+![](.gitbook/assets/image%20%2810%29.png)
 
 ### Creating and running a new application
 

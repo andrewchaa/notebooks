@@ -22,20 +22,6 @@ Navigate to directory where your ios / android project file sits
 fastlane init
 ```
 
-### iOS beta deployment
-
-#### What is Provisioning Profile
-
-> A provisioning profile is a collection of digital entities that uniquely ties developers and devices to an authorised iPhone Development Team and enables a device to be used for testing
-
-![](.gitbook/assets/image.png)
-
-To submit to testflight, you need distribution profile
-
-> TestFlight apps submitted to iTunesConnect need to be signed with an App Store Distribution Profile. TestFlight no longer accepts apps submitted with an Ad Hoc profile.
-
-
-
 To deploy an app as beta to TestFlight. The required steps are
 
 
