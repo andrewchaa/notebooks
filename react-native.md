@@ -30,7 +30,7 @@ npm install -g expo-cli
 
 Command Line Tools
 
-![](.gitbook/assets/image%20%2810%29.png)
+![](.gitbook/assets/image%20%2811%29.png)
 
 ### Creating and running a new application
 
@@ -45,7 +45,7 @@ cd AwesomeProject
 npm starat
 ```
 
-![](.gitbook/assets/image%20%284%29.png)
+![](.gitbook/assets/image%20%285%29.png)
 
 
 
@@ -59,7 +59,7 @@ Use `flex` in a component's style to have the component expand and shrink dynami
 
 
 
-![](.gitbook/assets/image%20%283%29.png)
+![](.gitbook/assets/image%20%284%29.png)
 
 ```javascript
 import React, { Component } from 'react';
@@ -162,7 +162,7 @@ render() {
 
 Use "Pause On Caught Exceptions" on Source tab
 
-![](.gitbook/assets/image%20%287%29.png)
+![](.gitbook/assets/image%20%288%29.png)
 
 
 

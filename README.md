@@ -8,6 +8,7 @@ description: >-
 
 | Title | Description | Tags |
 | :--- | :--- | :--- |
+| [app icon maker](https://appiconmaker.co/) | resizes app icon to all iOS and Android icon sizes | mobile |
 | [d3-graphviz](https://github.com/magjac/d3-graphviz) | Graphviz DOT rendering and animated transitions using D3 | d3, graphviz, javascript |
 | [fastlane](https://fastlane.tools/) | The easiest way to build and release mobile apps | mobile, build |
 | [graphviz-react](https://github.com/DomParfitt/graphviz-react) | React component for displaying Graphviz graphs | javascript, react, graphviz |
