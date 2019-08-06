@@ -69,31 +69,20 @@ const styles = StyleSheet.create({
 })
 ```
 
-## Getting started
+## To use redux
 
-#### Create store and add Provider
+1. Install redux and react-redux
+2. Create [redux reducers](redux.md#redux-reducers)
+3. Add [provider](redux.md#provider-and-store) and create store
+4. Access data using the [connect function](redux.md#connect-function)
+5. [Add actions](redux.md#adding-actions)
+6. Delete items from a redux store in a reducer
 
-```javascript
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+#### Redux reducers
 
-const store = createStore(rootReducer);
-
-class App extends React.Component {
-  render() {
-      return (
-        <Provider store={store}>
-          <AppContainer screenProps={{...this.props}} />
-        </Provider>
-      );
-  }
-  
-```
-
-#### Create reducers
+A reducer is a function that returns an object. Reducers can be thought of as data stores. Each store contains a piece of data. A root reducer will combine all reducers for the store.
 
 ```javascript
-// registration reducer
 import { ADD_REGISTRATION, INITIALIZE_REGISTRATIONS } from '../actions/action';
 
 const initialState = {
@@ -115,38 +104,73 @@ const registrationReducer = ( state = initialState, action ) => {
 }
 
 export default registrationReducer;
-
-// combine reducers
-import { combineReducers } from 'redux';
-import registrationReducer from './registrationReducer';
-
-const rootReducer = combineReducers({
-  registrationReducer
-});
-
-export default rootReducer;
 ```
 
-#### Accessing data from store
+#### Provider and store
 
-Map state to props and get data from the storage from props
+A provider is a parent component that passes data to all child components. In Redux, It passes the global state/store to the rest of the application
 
 ```javascript
-import { connect } from 'react-redux';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-render() {
-  const { registrations } = this.props;
-  <FlatList
-    data={registrations}
-    renderItem={this.renderItem}
-    keyExtractor={({registrationId}, index) => registrationId}
-  />
+const store = createStore(rootReducer);
 
-const mapStateToProps = (state) => ({ registrations: state.registrationReducer.registrations })
-const mapDispatchToProps = { dispatchInitializeRegistrations: (registrations) => initializeRegistrations(registrations) }
-export default connect(mapStateToProps, mapDispatchToProps)(BoilerRegistrationList);
-
+class App extends React.Component {
+  render() {
+      return (
+        <Provider store={store}>
+          <AppContainer screenProps={{...this.props}} />
+        </Provider>
+      );
+  }
+  
 ```
+
+#### connect function
+
+Access Redux store by using connect function 
+
+```text
+connect(func1)(func2)
+```
+
+* func1: a function that gives the global Redux state object
+* func2: a function where you pass the child component
+
+```javascript
+export default connect(
+  (state) => {
+    registrations: state.registrationReducer.registrations
+  }, {
+    initializeReg: (reg) => initializeReg(reg)
+  }
+  
+)(RegistrationList);
+```
+
+#### Adding actions
+
+Actions are functions that return objects that send data to the store and update reducers. They are the only way to change the store.
+
+When you dispatch an action, it's sent to all reducers as the 2nd argument. Reducers will check the action's type and update what the reducer returns accordingly 
+
+```javascript
+function fetchBooks() {
+  return {
+    type: 'FETCH_BOOKS'
+  }
+}
+
+function addBook(book) {
+  return {
+    type: 'Add_BOOK',
+    book: book
+  }
+}
+```
+
+#### 
 
 #### Updating / Inserting data into store
 
