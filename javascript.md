@@ -26,6 +26,13 @@ const names = definitions
 #### Transpose a javascript object into a key/value array
 
 ```javascript
+var data = { firstName: 'John', lastName: 'Doe', email: 'john.doe@gmail.com' }
+var output = Object.entries(data).map(([key, value]) => ({key,value}));
+```
+
+#### Set object property value dynamically
+
+```javascript
 update: (state, action) => {
   state.registrations.map((r, i) => {
     if (r.registrationId === action.payload.registrationId) {
