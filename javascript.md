@@ -1,8 +1,6 @@
 # javascript
 
-## Types
-
-### Array
+## Array
 
 #### Merge / flatten an array of arrays
 
@@ -21,6 +19,23 @@ const merged2 = arrays.flat();
 const definitions = this.flattenManifest(manifest);
 const names = definitions
     .map(({name}) => name);
+```
+
+## Object
+
+#### Transpose a javascript object into a key/value array
+
+```javascript
+update: (state, action) => {
+  state.registrations.map((r, i) => {
+    if (r.registrationId === action.payload.registrationId) {
+     Object.entries(action.payload).map(([key, value]) => {
+       console.log(key + ': ' + value)
+       r[key] = value
+     })
+    }
+  })
+}
 ```
 
 ### Number
