@@ -45,6 +45,16 @@ update: (state, action) => {
 }
 ```
 
+#### return an object, updating a single property
+
+```javascript
+<FormLabelInput
+  label="Address"
+  value={registration.houseNoName}
+  onChangeText={houseNoName => update({ ...registration, houseNoName: houseNoName})}
+/>
+```
+
 ### Number
 
 #### Format number
