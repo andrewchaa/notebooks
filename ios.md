@@ -9,9 +9,10 @@ In summary, the steps are like the below
 3. [Create a provisioning profile](ios.md#creating-a-profile) based on the certificate
 4. [Update info.plist](ios.md#update-info-plist)
 5. Create an Archive
-6. Validate it and then upload it to iTunes Connect
-7. Choose TestFlight
-8. Add yourself to tester
+6. Validate it 
+7. Upload it to iTunes Connect by "Distribute App"
+8. Choose TestFlight
+9. Add yourself to tester
 
 If you don't have any user, add testers on [Users and Access](https://appstoreconnect.apple.com/access/users)
 
@@ -51,7 +52,9 @@ To submit to testflight, you need distribution profile
 
 ### Update info.plist
 
-1. Set a correct version
+1. Open info.plist and update the version number
+   1. CFBundleShortVersionString
+   2. CFBundleVersion
 2. Make sure you have 
    1. Privacy - Photo Library Usage Description
    2. Privacy - Location Always Usage Description
