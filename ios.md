@@ -1,6 +1,6 @@
 # iOS
 
-### iOS beta deployment
+## iOS beta deployment
 
 In summary, the steps are like the below
 
@@ -11,14 +11,12 @@ In summary, the steps are like the below
 5. Create an Archive
 6. Validate it 
 7. Upload it to iTunes Connect by "Distribute App"
-8. Choose TestFlight
+8. Choose TestFlight and [check if the new version is there](ios.md#check-the-new-version-on-app-connect)
 9. Add yourself to tester
 
 If you don't have any user, add testers on [Users and Access](https://appstoreconnect.apple.com/access/users)
 
-
-
-#### What is Provisioning Profile
+### What is Provisioning Profile
 
 > A provisioning profile is a collection of digital entities that uniquely ties developers and devices to an authorised iPhone Development Team and enables a device to be used for testing
 
@@ -60,9 +58,27 @@ To submit to testflight, you need distribution profile
    2. Privacy - Location Always Usage Description
    3. Privacy - Location When In Use Usage Description
 
-#### Deploy In XCode
+### Deploy In XCode
 
 1. Create an app icon, if it doesn't have it yet. use [app icon generator](https://appiconmaker.co/).
 2. Product &gt; Archive
 3. Upload and select profile
-4. 
+
+### Check the new version on App Connect
+
+* Check if the new version is there
+* If the new version doesn't appear, it might have some issues on info.plist. The common reason is lack of permission description.
+
+```markup
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>To correctly locate installation place</string>
+<key>NSMicrophoneUsageDescription</key>
+<string>Need microphone access for uploading audios</string>
+<key>NSCameraUsageDescription</key>
+<string>To scan barcode</string>
+<key>NSSpeechRecognitionUsageDescription</key>
+<string>To understand user speech</string>
+<key>NSPhotoLibraryAddUsageDescription</key>
+<string>To load image gallery</string>
+```
+
