@@ -53,8 +53,8 @@ To submit to testflight, you need distribution profile
 ### Update info.plist
 
 1. Open info.plist and update the version number
-   1. CFBundleShortVersionString
-   2. CFBundleVersion
+   1. CFBundleShortVersionString: increase the version
+   2. CFBundleVersion: same
 2. Make sure you have 
    1. Privacy - Photo Library Usage Description
    2. Privacy - Location Always Usage Description
