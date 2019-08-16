@@ -56,3 +56,28 @@ import * as d3Graphviz from 'd3-graphviz';
 
 Make sure you put unique key value so that react can draw the node effectively
 
+## Navigation
+
+#### Opening a full screen modal
+
+Use a stack with mode: 'modal', headerMode: 'none'
+
+```javascript
+const AddNewStack = createStackNavigator(
+  { New: BoilerRegistrationForm}, 
+  { headerLayoutPreset: 'center' }
+);
+const ModalStack = createStackNavigator(
+  { Form: AddNewStack, Scan: ScanBoilerBarcode }, 
+  { headerMode: 'none', mode: 'modal' }
+);
+
+const RootStack = createBottomTabNavigator({
+  MyList: RegistrationStack,
+  Home: HomeStack,
+  New: ModalStack,
+  Account: AccountStack,
+  Settings: SettingStack
+},
+```
+
