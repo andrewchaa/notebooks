@@ -1,5 +1,11 @@
 # VS Code
 
+## Table of Contents
+
+* [Set up](vs-code.md#table-of-contents)
+* [Keyboard Shortcuts](vs-code.md#keyboard-shortcuts)
+* [Debugging](vs-code.md#debugging)
+
 ## Set up
 
 #### Set tab-to-space to 2 spaces
@@ -30,7 +36,7 @@
 * jshint
 * ESLint
 
-### Keyboard Shortcuts
+## Keyboard Shortcuts
 
 | Keys | Description |
 | :--- | :--- |
@@ -38,4 +44,18 @@
 | ctrl + 1, ctrl + 2 | switch across split panes |
 | shft + alt | column select |
 | shft + alt + f | format document. You can format your JSON document |
+
+## Debugging
+
+* Install React Native Tools on VS Code
+* Go to Debug tab. Add Configuration. It'll create launch.json
+* Turn off Remote Debugging on Simulator. 
+* On Debug tab, select Attach to packager, as the simulator is already running. 
+* On Debug console, you will see all the outputs.
+
+## Troubleshooting
+
+#### React Native Debug JS Remotely Error window.deltaUrlToBlobUrl is not a function
+
+Just close the debugger tab and refresh the simulator
 
