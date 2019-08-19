@@ -182,3 +182,15 @@ xcrun simctl list
 
 Simply restart your MacBook
 
+## Platform Specific Code
+
+#### Check platform
+
+```javascript
+import {Platform, StyleSheet} from 'react-native';
+
+const styles = StyleSheet.create({
+  height: Platform.OS === 'ios' ? 200 : 100,
+});
+```
+
