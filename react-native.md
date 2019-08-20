@@ -158,6 +158,12 @@ render() {
 
 ```
 
+#### Scroll up when the keyboard hides inputs
+
+use [https://github.com/APSL/react-native-keyboard-aware-scroll-view](https://github.com/APSL/react-native-keyboard-aware-scroll-view)
+
+
+
 ## Debugging
 
 Use "Pause On Caught Exceptions" on Source tab
