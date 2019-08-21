@@ -21,6 +21,16 @@ const names = definitions
     .map(({name}) => name);
 ```
 
+#### Sort
+
+```javascript
+action.payload.sort(
+  (a,b) => moment(a.installationDate, 'DD/MM/YYYY').isBefore(moment(b.installationDate, 'DD/MM/YYYY')) 
+    ? 1 
+    : -1
+  )
+```
+
 ## Object
 
 #### Transpose a javascript object into a key/value array
