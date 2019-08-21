@@ -190,3 +190,27 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(BoilerRegistrationForm);
 ```
 
+## Redux Start Kit
+
+#### createSlice
+
+It returns an object that looks like this:
+
+```javascript
+{
+    reducer: (state, action) => newState,
+    actions: {
+        addTodo: (payload) => ({type: "todos/addTodo", payload}),
+        toggleTodo: (payload) => ({type: "todos/toggleTodo", payload})
+    }
+}
+```
+
+So, use the action functions to generate action type.
+
+```javascript
+yield put(registrations.actions.populateList(list));
+// is the same as
+yield put({type: 'registrations/populateList', payload: list});
+```
+
