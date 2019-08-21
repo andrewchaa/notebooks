@@ -15,6 +15,7 @@
 * [iOS](ios.md)
 * [Json.NET](json.net.md)
 * [javascript](javascript.md)
+* [Kibana](kibana.md)
 * [moment.js](moment.js.md)
 * [Postman](postman.md)
 * [Powershell](powershell.md)
