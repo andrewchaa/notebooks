@@ -30,7 +30,7 @@ npm install -g expo-cli
 
 Command Line Tools
 
-![](.gitbook/assets/image%20%2811%29.png)
+![](.gitbook/assets/image%20%2813%29.png)
 
 ### Creating and running a new application
 
@@ -45,7 +45,7 @@ cd AwesomeProject
 npm starat
 ```
 
-![](.gitbook/assets/image%20%285%29.png)
+![](.gitbook/assets/image%20%286%29.png)
 
 
 
@@ -168,7 +168,7 @@ use [https://github.com/APSL/react-native-keyboard-aware-scroll-view](https://gi
 
 Use "Pause On Caught Exceptions" on Source tab
 
-![](.gitbook/assets/image%20%288%29.png)
+![](.gitbook/assets/image%20%2810%29.png)
 
 
 
