@@ -27,14 +27,12 @@
 "editor.detectIndentation": false
 ```
 
-#### Install recommended extensions
+### Extensions to install
 
-* PowerShell
-* Terraform
-* markdownlint
-* Beautify
-* jshint
-* ESLint
+**JavaScript**
+
+* Live Server
+* Bracket Pair Colorizer
 
 ## Keyboard Shortcuts
 
