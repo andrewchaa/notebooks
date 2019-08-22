@@ -16,6 +16,7 @@
 * [Json.NET](json.net.md)
 * [javascript](javascript.md)
 * [Kibana](kibana.md)
+* [lodash](lodash.md)
 * [moment.js](moment.js.md)
 * [Postman](postman.md)
 * [Powershell](powershell.md)
