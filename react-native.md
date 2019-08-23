@@ -125,6 +125,34 @@ static navigationOptions = ({ navigation }) => {
 
 ```
 
+#### Flex box
+
+* flexDirection: column. default option. It renders child components in the column, vertically.
+* flexDirection: row. renders child components in the same row.
+
+#### Round shape view
+
+```javascript
+<View style={{
+    marginTop: 15,
+    marginBottom: 10,
+    width: 52,
+    height: 52,
+    borderRadius: 150/2,
+    backgroundColor: '#F5740E',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }}>
+  <Text style={{
+    fontFamily: 'Segoe UI',
+    fontSize: 20,
+    fontWeight: '300',
+    color: '#FFFFFF'
+  }}>+</Text>
+</View>
+
+```
+
 ## Using Components
 
 ### React Native Cross-Platform WebView
