@@ -92,3 +92,9 @@ When you lost the provisioning profile, you would need to download it again.
 <string>To load image gallery</string>
 ```
 
+## Set iOS App Icon for App Store Publish
+
+* Select Images.xcassets
+* Click on AppIcon
+* Add icons
+
