@@ -194,11 +194,49 @@ use [https://github.com/APSL/react-native-keyboard-aware-scroll-view](https://gi
 
 ## Debugging
 
+### On Chrome Browser
+
 Use "Pause On Caught Exceptions" on Source tab
 
 ![](.gitbook/assets/image%20%2810%29.png)
 
+### On VS Code
 
+* Install React Native Tools on VS Code
+* add to .vscode/launch.json, 
+* on launch.json, click "Add Configuration" button.
+* Add relevant debug settings
+
+```javascript
+{
+    "name": "Debug in Exponent",
+    "cwd": "${workspaceFolder}",
+    "type": "reactnative",
+    "request": "launch",
+    "platform": "exponent"
+  },
+  {
+    "name": "Debug Android",
+    "cwd": "${workspaceFolder}",
+    "type": "reactnative",
+    "request": "launch",
+    "platform": "android"
+  },
+  {
+    "name": "Debug iOS",
+    "cwd": "${workspaceFolder}",
+    "type": "reactnative",
+    "request": "launch",
+    "platform": "ios"
+  },
+  {
+    "name": "Attach to packager",
+    "cwd": "${workspaceFolder}",
+    "type": "reactnative",
+    "request": "attach"
+  }
+
+```
 
 ## iOS Simulator
 
@@ -226,5 +264,18 @@ import {Platform, StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   height: Platform.OS === 'ios' ? 200 : 100,
 });
+```
+
+## Troubleshooting
+
+#### .xcodeproj is damaged
+
+Remove ios/ folder and regenerated the project
+
+```text
+rm -rf ios/
+react-native eject // to generate the project as placeholder
+react-native link // to link all packages again
+react-native run-ios
 ```
 
