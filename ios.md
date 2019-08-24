@@ -48,6 +48,16 @@ To submit to testflight, you need distribution profile
 3. Generate a provisioning profile by selecting a certificate
 4. Download and install the profile
 
+#### Downloading a profile
+
+When you lost the provisioning profile, you would need to download it again. 
+
+* Go to [https://developer.apple.com](https://developer.apple.com)
+* Select Profile
+* Click on download
+* Import from xcode project settings &gt; general
+* if the profile's appId doesn't match what you have on the project, change the project's appId. Go to project settings. select target. General. Update Bundle Identifier
+
 ### Update info.plist
 
 1. Open info.plist and update the version number
