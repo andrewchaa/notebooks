@@ -19,5 +19,5 @@ Shows log counts by log level. Very handy to check if errors or warnings are hap
 
 Use Filter AppName is one of 
 
-![](.gitbook/assets/image%20%285%29.png)
+![](.gitbook/assets/image%20%286%29.png)
 

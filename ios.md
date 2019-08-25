@@ -39,7 +39,7 @@ To submit to testflight, you need distribution profile
 3. Choose signing request file and continue
 4. Now the certificate is ready. download and install it by double-clicking it.
 
-![](.gitbook/assets/image%20%2812%29.png)
+![](.gitbook/assets/image%20%2813%29.png)
 
 #### Creating a Profile
 
@@ -91,6 +91,17 @@ When you lost the provisioning profile, you would need to download it again.
 <key>NSPhotoLibraryAddUsageDescription</key>
 <string>To load image gallery</string>
 ```
+
+### Create a certificate signing request
+
+1. Launch Keychain Access located in `/Applications/Utilities`.
+2. Choose Keychain Access &gt; Certificate Assistant &gt; Request a Certificate from a Certificate Authority.
+3. In the Certificate Assistant dialog, enter an email address in the User Email Address field.
+4. In the Common Name field, enter a name for the key \(for example, Gita Kumar Dev Key\).
+5. Leave the CA Email Address field empty.
+6. Choose “Saved to disk”, and click Continue.
+
+![](.gitbook/assets/image%20%284%29.png)
 
 ## Set iOS App Icon for App Store Publish
 
