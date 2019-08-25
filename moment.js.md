@@ -8,8 +8,10 @@ npm i moment
 
 moment() // now
 const day = moment('2019-08-23')
+const day = moment(1318781876406);
 moment('20130208T080910') //Short date and time up to seconds
 
+moment().utc() // utc
 ```
 
 #### Format date string
