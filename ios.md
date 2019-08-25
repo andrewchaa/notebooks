@@ -92,6 +92,13 @@ When you lost the provisioning profile, you would need to download it again.
 <string>To load image gallery</string>
 ```
 
+### Create a new certificate
+
+1. Go to [developer portal](https://developer.apple.com).
+2. Create a [certificate signing request](ios.md#create-a-certificate-signing-request)
+3. Choose the csr file and click on Continue
+4. download the certificate
+
 ### Create a certificate signing request
 
 1. Launch Keychain Access located in `/Applications/Utilities`.
