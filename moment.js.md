@@ -1,5 +1,17 @@
 # moment.js
 
+#### Getting Started
+
+```javascript
+// install
+npm i moment
+
+moment() // now
+const day = moment('2019-08-23')
+moment('20130208T080910') //Short date and time up to seconds
+
+```
+
 #### Format date string
 
 ```javascript
