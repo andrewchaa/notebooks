@@ -1,6 +1,8 @@
 # javascript
 
-## Array
+## Types
+
+### Array
 
 #### Merge / flatten an array of arrays
 
@@ -31,7 +33,7 @@ action.payload.sort(
   )
 ```
 
-## Object
+### Object
 
 #### Transpose a javascript object into a key/value array
 
@@ -82,7 +84,7 @@ const formatNumber = (number) => {
 
 ### String
 
-#### to lowercase
+#### lowercase\(\)
 
 ```typescript
 const definitions = this.flattenManifest(manifest);
@@ -90,5 +92,13 @@ const names = definitions
     .map(({name}) => name)
     .map((name: string) => name.toLowerCase())
     .sort();
+```
+
+#### includes\(\)
+
+Determines whether one string may be found within another string, returning `true` or `false` as appropriate.
+
+```text
+list.filter(l => l.firstName.includes(filteredText))
 ```
 
