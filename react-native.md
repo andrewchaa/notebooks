@@ -279,3 +279,7 @@ react-native link // to link all packages again
 react-native run-ios
 ```
 
+#### library not found for -lRNCPushNotificationIOS
+
+Select push notification as build target. Sync target ios version with app's ios version. In this case, push notification had 12.0 as ios version and the app had 9.0. 
+

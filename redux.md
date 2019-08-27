@@ -139,14 +139,22 @@ connect(func1)(func2)
 * func2: a function where you pass the child component
 
 ```javascript
-export default connect(
-  (state) => {
-    registrations: state.registrationReducer.registrations
-  }, {
-    initializeReg: (reg) => initializeReg(reg)
-  }
-  
-)(RegistrationList);
+const mapStateToProps = (state) => {
+  return { 
+    registrations: state.registrations.list,
+    loading: state.registrations.loading,
+    filterText: state.registrations.filterText
+  };
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchListComplete:  registrations.actions.fetchListComplete,
+    fetchListStart:     registrations.actions.fetchListStart,
+    filter:             registrations.actions.filter,
+    test:               registrations.selectors
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(RegistrationList);
 ```
 
 #### Adding actions
