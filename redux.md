@@ -221,3 +221,36 @@ yield put(registrations.actions.populateList(list));
 yield put({type: 'registrations/populateList', payload: list});
 ```
 
+## Store
+
+### createSelector
+
+[Reselect](https://github.com/reduxjs/reselect) is a simple library for creating memoized, composable **selector** functions. Reselect selectors can be used to efficiently compute derived data from the Redux store
+
+```javascript
+export const filteredListSelector = createSelector(
+  ["registrations.list", "registrations.filterText"],
+  (list, filterText) => {
+    if (!filterText) 
+      return list;
+
+    return list.filter(l => l.firstName.includes(filterText))
+  }
+);
+```
+
+#### Connecting a Selector to the Redux Store
+
+If you are using [React Redux](https://github.com/reduxjs/react-redux), you can call selectors as regular functions inside `mapStateToProps()`:
+
+```javascript
+const mapStateToProps = (state) => {
+  return { 
+    registrations: state.registrations.list,
+    loading: state.registrations.loading,
+    filterText: state.registrations.filterText,
+    filteredListSelector: filteredListSelector(state)
+  };
+}
+```
+
