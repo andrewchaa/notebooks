@@ -15,9 +15,9 @@ tags: (success and info and security)
 
 #### Logs Count Histogram
 
-Shows log counts by log level. Very handy to check if errors or warnings are happening. Filter by AppName
-
-Use Filter AppName is one of 
+1. Add Metrics, Y-Axis: Count
+2. Add Buckets, X-Axis: Aggregation of Date Histogram, Field: Timestamp, and Interval: Auto
+3. Split Series, Sub Aggregation of Terms, Field: Level.keyword, and Order: by Count, Descending
 
 ![](.gitbook/assets/image%20%286%29.png)
 
