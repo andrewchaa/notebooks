@@ -146,14 +146,13 @@ const mapStateToProps = (state) => {
     filterText: state.registrations.filterText
   };
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchListComplete:  registrations.actions.fetchListComplete,
-    fetchListStart:     registrations.actions.fetchListStart,
-    filter:             registrations.actions.filter,
-    test:               registrations.selectors
-  };
-}
+
+const mapDispatchToProps = {
+  fetchListComplete:  registrations.actions.fetchListComplete,
+  fetchListStart:     registrations.actions.fetchListStart,
+  filter:             registrations.actions.filter
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(RegistrationList);
 ```
 
