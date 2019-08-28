@@ -26,6 +26,8 @@ npm i --save aws-amplify-react
 
 #### Set Up Your Backend
 
+Initialise the project on the cloud
+
 ```bash
 amplify init
 ```
