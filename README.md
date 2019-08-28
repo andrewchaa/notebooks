@@ -12,6 +12,7 @@ description: >-
 | [d3-graphviz](https://github.com/magjac/d3-graphviz) | Graphviz DOT rendering and animated transitions using D3 | d3, graphviz, javascript |
 | [fastlane](https://fastlane.tools/) | The easiest way to build and release mobile apps | mobile, build |
 | [graphviz-react](https://github.com/DomParfitt/graphviz-react) | React component for displaying Graphviz graphs | javascript, react, graphviz |
+| [immer](https://github.com/immerjs/immer) | Create the next immutable state by mutating the current one | javascript, react |
 | [react navigation](https://reactnavigation.org/en/) | Routing and navigation for your React Native apps | react, react native |
 | [react-native-circular-progress](https://github.com/bartgryszko/react-native-circular-progress) | React Native component for creating animated, circular progress with ReactART | react |
 | [react-native-push-notification](https://github.com/react-native-community/react-native-push-notification-ios) | React Native Push Notification API for iOS | react native |

@@ -33,6 +33,31 @@ action.payload.sort(
   )
 ```
 
+#### filter
+
+```javascript
+var numbers = [1, 3, 6, 8, 11];
+
+var lucky = numbers.filter(function(number) {
+  return number > 7;
+});
+
+export const filteredListSelector = createSelector(
+  ["registrations.list", "registrations.filterText"],
+  (list, filterText) => {
+    if (!filterText) 
+      return list;
+
+    return list.filter(l => 
+      (l.firstName && l.firstName.includes(filterText)) ||
+      (l.lastName && l.lastName.includes(filterText)) ||
+      (l.city && l.city.includes(filterText)) ||
+      (l.postCode && l.postCode.includes(filterText))
+      )
+  }
+);
+```
+
 ### Object
 
 #### Transpose a javascript object into a key/value array
