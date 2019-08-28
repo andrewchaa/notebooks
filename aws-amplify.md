@@ -17,6 +17,19 @@ amplify configure
 
 ## React
 
+#### Create a react app and install amplify
+
+```bash
+npm i --save @aws-amplify/api @aws-amplify/pubsub
+npm i --save aws-amplify-react
+```
+
+#### Set Up Your Backend
+
+```bash
+amplify init
+```
+
 
 
 ## Get Started
