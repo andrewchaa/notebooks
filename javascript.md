@@ -92,6 +92,17 @@ update: (state, action) => {
 />
 ```
 
+#### property null check
+
+```javascript
+return list.filter(l => 
+      (l.firstName && l.firstName.includes(filterText)) ||
+      (l.lastName && l.lastName.includes(filterText)) ||
+      (l.city && l.city.includes(filterText)) ||
+      (l.postCode && l.postCode.includes(filterText))
+      )
+```
+
 ### Number
 
 #### Format number
