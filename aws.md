@@ -1,5 +1,19 @@
 # AWS
 
+## CLI
+
+#### Installation
+
+```bash
+# update pip
+curl https://bootstrap.pypa.io/get-pip.py | python3
+
+# install awscli
+pip install awscli
+```
+
+
+
 ## Route 53
 
 ### Routing Traffic to AWS Resources
