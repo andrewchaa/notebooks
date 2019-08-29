@@ -30,7 +30,31 @@ Initialise the project on the cloud
 
 ```bash
 amplify init
+amplify status
 ```
+
+#### Add API and Database
+
+```bash
+amplify add api
+```
+
+API
+
+* select rest
+* label for category: registrationsapi
+* path: registrations
+
+lambda
+
+* lambda resource: navienlambda
+* lambda function name: registrationslambda
+* function template: CRUD
+
+dynamodb
+
+* 1st column: userId \(string\), partition key
+* 2nd column: registrationId \(string\), sort key
 
 
 
