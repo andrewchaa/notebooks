@@ -85,6 +85,63 @@ Update your project .csproj file. This works out of the box for ASP.NET Core. Fo
 </ItemGroup>
 ```
 
+#### Set environment variable on Service Fabric Web API
+
+**ApplicationPackageRoot / ApplicationManifest.xml**
+
+```markup
+<Parameter Name="WebApi_ASPNETCORE_ENVIRONMENT" DefaultValue="" />
+
+<EnvironmentOverrides CodePackageRef="code">
+  <EnvironmentVariable 
+     Name="ASPNETCORE_ENVIRONMENT" 
+     Value="[WebApi_ASPNETCORE_ENVIRONMENT]" />
+</EnvironmentOverrides>
+```
+
+**ApplicationParameters / Local.1Node.xml, Local.5Node.xml**
+
+```markup
+<Parameter Name="WebApi_ASPNETCORE_ENVIRONMENT" Value="Development" />
+```
+
+**PackageRoot / ServiceManifest.xml**
+
+```markup
+<!-- Code package is your service executable. -->
+<CodePackage Name="Code" Version="1.0.0">
+  <EntryPoint>
+    <ExeHost>
+      <Program>ClearBank.CustomerAccounts.ServiceFabric.WebApi.exe</Program>
+      <WorkingFolder>CodePackage</WorkingFolder>
+    </ExeHost>
+  </EntryPoint>
+  <EnvironmentVariables>
+    <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value=""/>
+  </EnvironmentVariables>
+</CodePackage>
+```
+
+**Api.cs file**
+
+```csharp
+.ConfigureAppConfiguration((context, configBuilder) =>
+{
+    var environment = context.HostingEnvironment.EnvironmentName;
+
+    configBuilder.SetBasePath(context.HostingEnvironment.ContentRootPath);
+    configBuilder.AddJsonFile("appsettings.json", true);
+    configBuilder.AddJsonFile($"appsettings.{environment}.json", true);
+})
+```
+
+**TestApiFactory.cs file**
+
+```csharp
+private static readonly string EnvironmentName = 
+  Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
+```
+
 ## Controller
 
 ### Response types
