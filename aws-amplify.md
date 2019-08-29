@@ -56,6 +56,23 @@ dynamodb
 * 1st column: userId \(string\), partition key
 * 2nd column: registrationId \(string\), sort key
 
+#### Integrate into your app
+
+```javascript
+import API from '@aws-amplify/api'
+import PubSub from '@aws-amplify/pubsub';
+import config from './aws-exports'
+API.configure(config)             // Configure Amplify
+PubSub.configure(config);
+```
+
+#### Launch your App
+
+```bash
+amplify add hosting
+amplify publish
+```
+
 
 
 ## Get Started
