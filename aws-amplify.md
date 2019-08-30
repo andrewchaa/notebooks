@@ -73,7 +73,13 @@ amplify add hosting
 amplify publish
 ```
 
+#### Troubleshooting
 
+If anything goes wrong, remove everything and create it again
+
+```bash
+amplify delete
+```
 
 ## Get Started
 
