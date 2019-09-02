@@ -5,6 +5,40 @@
 * CodeBuild
 * CodePipeline
 
+#### Install dependencies
+
+```bash
+npm i --save aws-sdk
+```
+
+#### Create build pipeline files
+
+{% code-tabs %}
+{% code-tabs-item title="buildspec.yml" %}
+```yaml
+version: 0.2
+phases:
+  install:
+    commands:
+      - npm install
+      - npm test
+
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+#### Create an artefact bucket
+
+```text
+navien-backoffice-dev-artifacts
+```
+
+####  Configure AWS CodeBuild
+
+* Create build project
+
+
+
 ## CLI
 
 #### Installation
