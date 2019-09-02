@@ -39,6 +39,7 @@
 | Keys | Description |
 | :--- | :--- |
 | ctrl - | go back to your previous location |
+| ctrl + 1 | focus on editor |
 | ctrl + 1, ctrl + 2 | switch across split panes |
 | shft + alt | column select |
 | shft + alt + f | format document. You can format your JSON document |
