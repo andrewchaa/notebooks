@@ -160,3 +160,34 @@ Amplify.configure({
 });
 ```
 
+## RESTful API
+
+#### Configure App
+
+```javascript
+import API from '@aws-amplify/api'
+import PubSub from '@aws-amplify/pubsub';
+import config from './aws-exports'
+API.configure(config);
+PubSub.configure(config);
+```
+
+#### Get
+
+```javascript
+let apiName = 'MyApiName';
+let path = '/path'; 
+let myInit = { // OPTIONAL
+    headers: {}, // OPTIONAL
+    response: true, // OPTIONAL (return the entire Axios response object instead of only response.data)
+    queryStringParameters: {  // OPTIONAL
+        name: 'param'
+    }
+}
+API.get(apiName, path, myInit).then(response => {
+    // Add your code here
+}).catch(error => {
+    console.log(error.response)
+});
+```
+
