@@ -1,5 +1,11 @@
 # AWS
 
+## API Gateway
+
+#### Enable CORS for an API Gateway REST API Resource
+
+
+
 ## CI / CD
 
 * CodeBuild

@@ -6,7 +6,7 @@ description: >-
 
 # AWS Amplify
 
-## Common
+## Getting Started
 
 #### Install amplify
 
@@ -14,6 +14,10 @@ description: >-
 npm install -g @aws-amplify/cli
 amplify configure
 ```
+
+## cli
+
+
 
 ## React
 
