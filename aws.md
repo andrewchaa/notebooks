@@ -4,7 +4,19 @@
 
 #### Enable CORS for an API Gateway REST API Resource
 
+[CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) is a browser security feature that restricts cross-origin HTTP requests that are initiated from scripts running in the browser
 
+When a browser receives a non-simple HTTP request, the [CORS protocol](https://fetch.spec.whatwg.org/#http-cors-protocol) requires the browser to send a preflight request to the server and wait for approval \(or a request for credentials\) from the server before sending the actual request. The _preflight request_ appears to your API as an HTTP request that:
+
+* Includes an `Origin` header.
+* Uses the `OPTIONS` method.
+* Includes the following headers:
+  * `Access-Control-Request-Method`
+  * `Access-Control-Request-Headers`
+
+Enable CORS on API Gateway
+
+![](.gitbook/assets/image%20%282%29.png)
 
 ## CI / CD
 
