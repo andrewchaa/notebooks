@@ -85,17 +85,6 @@ If anything goes wrong, remove everything and create it again
 amplify delete
 ```
 
-## Get Started
-
-Install the CLI
-
-Install [Node.js®](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/get-npm) if they are not already on your machine.
-
-```bash
-npm install -g @aws-amplify/cli
-amplify configure
-```
-
 ## Authentication
 
 #### Sign out
@@ -162,6 +151,23 @@ Amplify.configure({
        disabled: true
    }
 });
+```
+
+#### Using Auth Components
+
+For React and React Native apps, the simplest way to add authentication flows into your app is to use the `withAuthenticator` Higher Order Component.
+
+```javascript
+import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
+import Amplify from 'aws-amplify';
+// Get the aws resources configuration parameters
+import awsconfig from './aws-exports'; // if you are using Amplify CLI
+
+Amplify.configure(awsconfig);
+
+// ...
+
+export default withAuthenticator(App);
 ```
 
 ## RESTful API
