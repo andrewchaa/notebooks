@@ -17,6 +17,17 @@ amplify configure
 
 ## cli
 
+#### Set up
+
+```bash
+$ npm install -g @aws-amplify/cli
+$ amplify configure
+```
+
+
+
+
+
 
 
 ## React
@@ -199,5 +210,15 @@ API.get(apiName, path, myInit).then(response => {
 }).catch(error => {
     console.log(error.response)
 });
+```
+
+## Troubleshooting
+
+#### IdentityPool 'eu-west-1:ad9e9db8-b2f7-4543-9099-8ee2a746f0c6' not found.
+
+Update auth and go through all options again.
+
+```bash
+amplify update auth
 ```
 

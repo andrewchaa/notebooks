@@ -120,7 +120,7 @@ const formatNumber = (number) => {
 
 ### String
 
-#### lowercase\(\)
+#### lowercase
 
 ```typescript
 const definitions = this.flattenManifest(manifest);

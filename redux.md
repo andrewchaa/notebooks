@@ -254,3 +254,7 @@ const mapStateToProps = (state) => {
 }
 ```
 
+## Saga
+
+Saga is a middleware connected to Store. Sagas are implemented as [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) that _yield_ objects to the redux-saga middleware. Once the Promise is resolved, the middleware will resume the Saga, executing code until the next yield.
+
