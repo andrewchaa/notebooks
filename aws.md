@@ -73,6 +73,17 @@ pip install awscli
 
 ## DynamoDb
 
+#### Scanning a table
+
+Retrieve all items in the table. As a general rule, you should design your applications to avoid performing scans.
+
+```text
+// Return all of the data in the table
+{
+    TableName:  "Music"
+}
+```
+
 
 
 ## Route 53
