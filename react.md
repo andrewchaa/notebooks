@@ -56,28 +56,27 @@ import * as d3Graphviz from 'd3-graphviz';
 
 Make sure you put unique key value so that react can draw the node effectively
 
-## Navigation
+## Routing
 
-#### Opening a full screen modal
+#### Install router
 
-Use a stack with mode: 'modal', headerMode: 'none'
+```bash
+npm i --save react-router-dom
+```
+
+#### Define routes
 
 ```javascript
-const AddNewStack = createStackNavigator(
-  { New: BoilerRegistrationForm}, 
-  { headerLayoutPreset: 'center' }
-);
-const ModalStack = createStackNavigator(
-  { Form: AddNewStack, Scan: ScanBoilerBarcode }, 
-  { headerMode: 'none', mode: 'modal' }
-);
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Registration from './pages/Registration'
 
-const RootStack = createBottomTabNavigator({
-  MyList: RegistrationStack,
-  Home: HomeStack,
-  New: ModalStack,
-  Account: AccountStack,
-  Settings: SettingStack
-},
+  render() {
+    return (
+      <Router>
+        <Route path="/" exact component={Registration} />
+      </Router>
+    )
+  }
+
 ```
 
