@@ -18,6 +18,7 @@
 * [Kibana](kibana.md)
 * [lodash](lodash.md)
 * [moment.js](moment.js.md)
+* [Moq](moq.md)
 * [Postman](postman.md)
 * [Powershell](powershell.md)
 * [React](react.md)
