@@ -138,3 +138,20 @@ Determines whether one string may be found within another string, returning `tru
 list.filter(l => l.firstName.includes(filteredText))
 ```
 
+## Destruction
+
+#### Nested destruction
+
+```javascript
+handleSave(event) {
+  const { updateRegistration, match: { params: { registrationid }} } = this.props
+  
+  updateRegistration({ registrationid, 
+    warrantyYear: this.state.warrantyYear,
+    warrantyDate: this.state.warrantyDate
+    })
+}
+```
+
+
+

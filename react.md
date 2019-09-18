@@ -28,8 +28,6 @@ I use azure devops build pipeline to publich .NET core app with react. Its ubunt
 },
 ```
 
-### Basics
-
 #### importing packages
 
 ```javascript
@@ -89,4 +87,65 @@ import Registration from './pages/Registration'
 
 <Link to={`/warranty/${r.registrationId}`}>{r.postCode}</Link>
 ```
+
+#### Retrieve parameter
+
+```javascript
+const { updateRegistration, match: { params: { registrationid }} } = this.props
+
+updateRegistration({ registrationid, 
+  warrantyYear: this.state.warrantyYear,
+  warrantyDate: this.state.warrantyDate
+  })
+```
+
+## Basics
+
+#### Binding this to class function
+
+```javascript
+constructor(props) {
+  super(props)
+  this.handleWarrantyChange = this.handleWarrantyChange.bind(this)
+
+handleWarrantyChange(event) {
+  const year = parseInt(event.target.value)
+  this.setState({ 
+    warrantyYear : year,
+    warrantyDate : moment().add(year, 'year').format('DD/MM/YYYY') 
+  })
+}
+```
+
+#### Show / Hide
+
+```javascript
+loading() {
+  return (
+    <HashLoader
+      sizeUnit={"px"}
+      size={50}
+      color={'#123abc'}
+      loading={true}
+    />
+  )
+}
+
+showForm() {
+  const { registrations } = this.props
+  const { firstName, lastName, postCode, installationDate, serialNumber, model } = registrations[0]
+
+  return (
+    <form>
+      <div className="form-row">
+        <div className="form-group col-md-4">
+          <label>First name</label>
+          <input type="text" className="form-control" readOnly value={firstName} />
+
+{(registrations.length === 0) 
+  ? this.loading() 
+  : this.showForm()}
+```
+
+
 
