@@ -77,6 +77,16 @@ import Registration from './pages/Registration'
       </Router>
     )
   }
+```
 
+#### Link with parameter
+
+```markup
+<Router>
+  <Route path="/" exact component={Registration} />
+  <Route path="/warranty/:registrationId" exact component={Warranty} />
+</Router>
+
+<Link to={`/warranty/${r.registrationId}`}>{r.postCode}</Link>
 ```
 

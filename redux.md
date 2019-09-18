@@ -199,6 +199,127 @@ export default connect(mapStateToProps, mapDispatchToProps)(BoilerRegistrationFo
 
 ## Redux Start Kit
 
+#### Install
+
+```bash
+npm i --save redux react-redux
+npm i --save redux-starter-kit redux-saga
+```
+
+#### Set up Store
+
+```javascript
+import { configureStore, getDefaultMiddleware } from 'redux-starter-kit'
+import { combineReducers } from "redux"
+import registrations from './reducers/registrations'
+import createSagaMiddleware from 'redux-saga'
+import apiSaga from './sagas/apiSaga';
+
+const sagaMiddleware = createSagaMiddleware()
+const middleware = [...getDefaultMiddleware(), sagaMiddleware]
+
+const reducer = combineReducers({
+  registrations: registrations.reducer
+})
+
+const store = configureStore({ 
+  reducer,
+  middleware: middleware,
+  devTools: process.env.NODE_ENV !== "production"
+}); 
+
+sagaMiddleware.run(apiSaga);
+
+export default store;
+```
+
+#### Provide Store
+
+```javascript
+import { Provider } from 'react-redux';
+
+<Provider store={store}>
+  <AppContainer screenProps={{ ...this.props }} />
+</Provider>
+```
+
+#### Add reducer
+
+```javascript
+import { createSlice } from 'redux-starter-kit';
+
+const registration = createSlice({
+  slice: 'registration',
+  initialState: { 
+    loading: false,
+    registrations: []
+  },
+  reducers: {
+    fetchStart: (state) => { state.loading = true; },
+    fetchComplete: (state, action) => {
+      action.payload.map(r => state.registrations.push(r));
+      state.loading = false;
+    }
+  }
+})
+
+export default registration
+```
+
+#### Use saga to retrieve data from api
+
+```javascript
+import { call, put, takeLatest } from 'redux-saga/effects'
+import Amplify, { API } from 'aws-amplify';
+
+import aws_exports from '../../aws-exports'
+import { fetchRegistrationsStart, fetchRegistrationsComplete } from '../reducers/registration'
+
+Amplify.configure(aws_exports);
+
+ function* fetchRegistrations() {
+  try {
+    const list = yield call(() => API.get('apis', '/registrations', {}).then(r => r));
+    yield put(fetchRegistrationsComplete(list));
+  } catch (error) {
+    throw error    
+  }
+}
+
+function* apiSaga() {
+  yield takeLatest(fetchRegistrationsStart().type, fetchRegistrations);
+}
+
+export default apiSaga;
+```
+
+#### Dispatch actions on page or component
+
+```javascript
+import { connect } from 'react-redux';
+
+  componentDidMount() {
+    const { fetchRegistrations } = this.props;
+    fetchRegistrations();
+  }
+
+  render() {
+    const { registrations } = this.props;
+    return (
+
+
+const mapStateToProps = (state) => ({
+  loading: state.registration.loading,
+  registrations: state.registration.registrations
+});
+
+const mapDisptachToProps = {
+  fetchRegistrations: fetchRegistrationsStart
+}
+
+export default connect(mapStateToProps, mapDisptachToProps)(Registration);
+```
+
 #### createSlice
 
 It returns an object that looks like this:

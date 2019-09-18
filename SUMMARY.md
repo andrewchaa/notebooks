@@ -33,5 +33,6 @@
 
 ## Tools
 
-* [VS Code](vs-code.md)
+* [Visual Studio](tools/visual-studio.md)
+* [VS Code](tools/vs-code.md)
 
