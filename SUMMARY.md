@@ -8,6 +8,7 @@
 * [Azure DevOps](azure-devops.md)
 * [C\#](c.md)
 * [D3](d3.md)
+* [dynamodb](dynamodb.md)
 * [fastlane](fastlane.md)
 * [Git](set-up.md)
 * [GraphViz](graphviz.md)

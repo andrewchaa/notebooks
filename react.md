@@ -88,6 +88,17 @@ import Registration from './pages/Registration'
 <Link to={`/warranty/${r.registrationId}`}>{r.postCode}</Link>
 ```
 
+#### Multiple parameters
+
+```javascript
+<Route path="/warranty/:userId/:registrationId" 
+ exact component={Warranty} />
+
+<Link to={`/warranty/${r.userId}/${r.registrationId}`}>
+  {r.postCode}
+</Link>
+```
+
 #### Retrieve parameter
 
 ```javascript
