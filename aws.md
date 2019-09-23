@@ -16,7 +16,7 @@ When a browser receives a non-simple HTTP request, the [CORS protocol](https://f
 
 Enable CORS on API Gateway
 
-![](.gitbook/assets/image%20%282%29.png)
+![](.gitbook/assets/image%20%283%29.png)
 
 ## CI / CD
 
