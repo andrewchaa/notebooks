@@ -379,3 +379,41 @@ const mapStateToProps = (state) => {
 
 Saga is a middleware connected to Store. Sagas are implemented as [Generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) that _yield_ objects to the redux-saga middleware. Once the Promise is resolved, the middleware will resume the Saga, executing code until the next yield.
 
+#### Set up
+
+```javascript
+// import redux-saga effects
+import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+
+// import redux actions
+const { 
+  addToListStart, 
+  addToListComplete,
+  fetchListStart, 
+  fetchListComplete
+} = registrations.actions;
+
+// handler function
+function* fetchList() {
+  try {
+    const list = yield call(() => API.get('navien', '/boilerregistrations', {}).then(r => r));
+    yield put(fetchListComplete(list));
+
+   } catch (error) {
+      throw error;
+   }
+}
+
+// saga function
+function* registrationSaga() {
+  yield takeLatest(fetchListStart().type, fetchList);
+}
+
+export default registrationSaga;
+```
+
+#### The execution order
+
+* reducer start action
+* saga handler function
+
