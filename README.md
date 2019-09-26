@@ -16,6 +16,7 @@ description: >-
 | [immer](https://github.com/immerjs/immer) | Create the next immutable state by mutating the current one | javascript, react |
 | [react navigation](https://reactnavigation.org/en/) | Routing and navigation for your React Native apps | react, react native |
 | [react-native-circular-progress](https://github.com/bartgryszko/react-native-circular-progress) | React Native component for creating animated, circular progress with ReactART | react |
+| [react native debugger](https://github.com/jhen0409/react-native-debugger) | The standalone app based on official debugger of React Native, and includes React Inspector / Redux DevTools | react native |
 | [react-native-push-notification](https://github.com/react-native-community/react-native-push-notification-ios) | React Native Push Notification API for iOS | react native |
 | [react-fontawesome](https://github.com/FortAwesome/react-fontawesome) | Font Awesome React component | react |
 | [react graph vis](https://github.com/crubier/react-graph-vis) | A react component to render nice graphs using vis.js | javascript, graph, react |

@@ -305,6 +305,21 @@ Use "Pause On Caught Exceptions" on Source tab
 
 ```
 
+### Install standalone react native debugger
+
+{% embed url="https://github.com/jhen0409/react-native-debugger" %}
+
+* Install the latest version
+
+```bash
+brew update && brew cask install react-native-debugger
+```
+
+* Make sure all debugger clients of React Native are closed, usually are `http://localhost:<port>/debugger-ui`
+* Make sure RNDebugger is open and wait state.
+* RNDebugger will try connect to debugger proxy, use port `8081` by default, you can create a new debugger window \(macOS: `Command+T`, Linux/Windows: `Ctrl+T`\) to specify the port if you want.
+* Enable `Debug JS Remotely` of [developer menu](https://facebook.github.io/react-native/docs/debugging.html#accessing-the-in-app-developer-menu) on your app
+
 ## iOS Simulator
 
 #### Suddenly starts running very slow
