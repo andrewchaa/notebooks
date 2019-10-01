@@ -103,6 +103,18 @@ return list.filter(l =>
       )
 ```
 
+#### Remove blank attributes
+
+```javascript
+function clean(obj) {
+  for (var propName in obj) { 
+    if (obj[propName] === null || obj[propName] === undefined) {
+      delete obj[propName];
+    }
+  }
+}
+```
+
 ### Number
 
 #### Format number
