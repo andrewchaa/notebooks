@@ -365,3 +365,12 @@ react-native run-ios
 
 Select push notification as build target. Sync target ios version with app's ios version. In this case, push notification had 12.0 as ios version and the app had 9.0. 
 
+#### Apple will stop accepting submissions of apps that use UIWebView APIs
+
+The latest react-native-webview uses webkit, not UIWebView. Make sure you unlink it first so that it doesn't reference old webview module.
+
+```bash
+react-native unlink react-native-webview
+react-native link react-native-webview
+```
+
