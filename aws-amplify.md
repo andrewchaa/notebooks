@@ -15,21 +15,6 @@ npm install -g @aws-amplify/cli
 amplify configure
 ```
 
-## cli
-
-#### Set up
-
-```bash
-$ npm install -g @aws-amplify/cli
-$ amplify configure
-```
-
-
-
-
-
-
-
 ## React
 
 #### Create a react app and install amplify
@@ -181,6 +166,13 @@ Amplify.configure(awsconfig);
 export default withAuthenticator(App);
 ```
 
+#### Get UserId
+
+```javascript
+const user = yield Auth.currentAuthenticatedUser()
+const { attributes: { sub }} = user
+```
+
 ## RESTful API
 
 #### Configure App
@@ -210,6 +202,28 @@ API.get(apiName, path, myInit).then(response => {
 }).catch(error => {
     console.log(error.response)
 });
+```
+
+## Storage
+
+#### Add storage
+
+```bash
+amplify add storage
+amplify push
+```
+
+#### API Usage
+
+```javascript
+uploadFile = (evt) => {
+    const file = evt.target.files[0];
+    const name = file.name;
+
+    Storage.put(name, file).then(() => {
+      this.setState({ file: name });
+    })
+  }
 ```
 
 ## Troubleshooting
