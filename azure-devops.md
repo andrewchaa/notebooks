@@ -42,5 +42,16 @@ steps:
 
 ```
 
+## Release Pipeline
 
+### Conditions
+
+#### notIn
+
+* Evaluates `True` if left parameter is not equal to any right parameter
+* Min parameters: 1. Max parameters: N
+* Converts right parameters to match type of left parameter. Equality comparison evaluates `False` if conversion fails.
+* Ordinal ignore-case comparison for Strings
+* Short-circuits after first match
+* Example: `notIn('D', 'A', 'B', 'C')` \(returns True\)
 

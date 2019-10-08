@@ -29,12 +29,10 @@
 * [Shell](bash.md)
 * [slow-cheetah](slow-cheetah.md)
 
-## SQL Server
-
-* [Troubleshootings](sql-server/troubleshootings.md)
-
 ## Tools
 
+* [Sql Server](tools/troubleshootings.md)
 * [Visual Studio](tools/visual-studio.md)
 * [VS Code](tools/vs-code.md)
+* [Azure Data Studio](tools/azure-data-studio.md)
 
