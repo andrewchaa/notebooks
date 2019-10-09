@@ -150,9 +150,17 @@ Determines whether one string may be found within another string, returning `tru
 list.filter(l => l.firstName.includes(filteredText))
 ```
 
-## Destruction
+#### replace
 
-#### Nested destruction
+put global option to replace all occurrences
+
+```javascript
+const imageKey = registration.imageUri.replace(/\//gi, '\\')
+```
+
+## Decomposition
+
+#### Nested decomposition
 
 ```javascript
 handleSave(event) {
