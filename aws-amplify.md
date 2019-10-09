@@ -224,6 +224,40 @@ uploadFile = (evt) => {
       this.setState({ file: name });
     })
   }
+
+uploadPhotoToS3 = async (uri, key) => {
+    try {
+      this.setState({ uploading: true });
+      const file = await RNFetchBlob.fs.readFile(uri, 'base64');
+      const buffer = await Buffer.from(file, 'base64');
+      await Storage.put(key, buffer, {
+        contentType: 'image/jpeg',
+      });
+      this.setState({ uploading: false });
+      Analytics.record({ name: 'cameraPhotoUploaded' });
+      console.log('Photo uploaded!');
+    } catch (error) {
+      this.setState({ uploading: false });
+      console.log(error.message);
+    }
+  };
+
+uploadPhoto = async () => {
+    const { photos, index } = this.state;
+    if (index !== null) {
+      const { uri } = photos[index].node.image;
+      const filenameiOS = photos[index].node.image.filename;
+      const filenameAndroid = await RNFetchBlob.wrap(uri);
+      this.uploadPhotoToS3(uri, Platform.OS === 'ios' ? filenameiOS : filenameAndroid);
+    } else {
+      Alert.alert(
+        'Oops',
+        'Please select a photo',
+        [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
+        { cancelable: false },
+      );
+    }
+  };
 ```
 
 ## Troubleshooting
