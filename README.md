@@ -11,6 +11,7 @@ description: >-
 | [amplify console](https://aws.amazon.com/amplify/console/) | Hosting for fullstack serverless web apps with continuous deployment | javascript, react, react native |
 | [app icon maker](https://appiconmaker.co/) | resizes app icon to all iOS and Android icon sizes | mobile |
 | [d3-graphviz](https://github.com/magjac/d3-graphviz) | Graphviz DOT rendering and animated transitions using D3 | d3, graphviz, javascript |
+| [Detox](https://github.com/wix/Detox) | Gray box end-to-end testing and automation framework for mobile apps | react native |
 | [fastlane](https://fastlane.tools/) | The easiest way to build and release mobile apps | mobile, build |
 | [graphviz-react](https://github.com/DomParfitt/graphviz-react) | React component for displaying Graphviz graphs | javascript, react, graphviz |
 | [immer](https://github.com/immerjs/immer) | Create the next immutable state by mutating the current one | javascript, react |
