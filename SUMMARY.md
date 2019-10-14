@@ -16,6 +16,7 @@
 * [fastlane](fastlane.md)
 * [Git](set-up.md)
 * [GraphViz](graphviz.md)
+* [Homebrew](homebrew.md)
 * [HTML](html.md)
 * [iOS](ios.md)
 * [Json.NET](json.net.md)
