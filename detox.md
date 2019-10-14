@@ -39,6 +39,12 @@ npm i -g detox-cli
 },
 ```
 
+The project build will fail if you have installed dependencies by Cocoapod. Update the build script
+
+```javascript
+"build": "xcodebuild -workspace ios/navienapp.xcworkspace -scheme navienapp -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+```
+
 **Install a test runner**
 
 ```bash
