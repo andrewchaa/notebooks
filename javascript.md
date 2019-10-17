@@ -106,13 +106,12 @@ return list.filter(l =>
 #### Remove blank attributes
 
 ```javascript
-function clean(obj) {
-  for (var propName in obj) { 
-    if (obj[propName] === null || obj[propName] === undefined) {
-      delete obj[propName];
-    }
+const registration = { ...action.payload.newItem } 
+Object.entries(registration).map(([key, value]) => {
+  if (!value) {
+    delete registration[key]
   }
-}
+});
 ```
 
 ### Number

@@ -10,3 +10,13 @@
 [GitExtensions](https://github.com/gitextensions/gitextensions) supports VS Code out of box
 {% endhint %}
 
+## Check out
+
+#### Remote branch
+
+```bash
+git fetch
+git branch -a
+git checkout origin/address-issue --track
+```
+
