@@ -39,7 +39,7 @@ To submit to testflight, you need distribution profile
 3. Choose signing request file and continue
 4. Now the certificate is ready. download and install it by double-clicking it.
 
-![](.gitbook/assets/image%20%2815%29.png)
+![](.gitbook/assets/image%20%2819%29.png)
 
 #### Creating a Profile
 
@@ -108,7 +108,7 @@ When you lost the provisioning profile, you would need to download it again.
 5. Leave the CA Email Address field empty.
 6. Choose “Saved to disk”, and click Continue.
 
-![](.gitbook/assets/image%20%286%29.png)
+![](.gitbook/assets/image%20%287%29.png)
 
 ## Set iOS App Icon for App Store Publish
 
