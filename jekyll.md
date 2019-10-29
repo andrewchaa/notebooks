@@ -62,3 +62,10 @@ And check that `GEM PATHS:` points to a path in your home directory
 
 Every time you update Ruby to a version with a different first two digits, you will need to update your path to match.
 
+#### Deeper into bundler
+
+```bash
+bundle show commonmarker
+bundle exec jekyll serve --watch
+```
+
