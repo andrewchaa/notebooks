@@ -126,6 +126,12 @@ $foundStrings = get-childItem -recurse -path $path -include app.config, web.conf
     | select-object Line -uniq `
 ```
 
+### Replace
+
+```bash
+$content -replace "#{database_server_name}#", ".\SQLEXPRESS"
+```
+
 ## Array
 
 ### Removing duplicate values from an array
@@ -220,6 +226,12 @@ Pass2.log
 $hostService = split-path $path -leaf `
     | % { $_    -replace("\.", "_") `
                 -replace("-", "_") ` }
+```
+
+### Reading a text file
+
+```bash
+$content = Get-Content $path
 ```
 
 ### Writing new lines to a text file
