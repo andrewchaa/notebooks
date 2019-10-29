@@ -21,6 +21,7 @@
 * [iOS](ios.md)
 * [Json.NET](json.net.md)
 * [javascript](javascript.md)
+* [Jekyll](jekyll.md)
 * [Kibana](kibana.md)
 * [lodash](lodash.md)
 * [moment.js](moment.js.md)
