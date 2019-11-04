@@ -14,6 +14,7 @@
 * [dynamodb](dynamodb.md)
 * [express.js](express.md)
 * [fastlane](fastlane.md)
+* [Gatsby](gatsby.md)
 * [Git](set-up.md)
 * [GraphViz](graphviz.md)
 * [Homebrew](homebrew.md)
