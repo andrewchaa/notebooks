@@ -37,8 +37,11 @@ react-native run-ios
 
 // or
 expo init AwesomeProject
+cd AwesomeProject/ios
+pod install 
+
 cd AwesomeProject
-npm starat
+npm start
 ```
 
 ![](.gitbook/assets/image%20%2810%29.png)

@@ -9,7 +9,7 @@
 ## Getting Started
 
 ```bash
-sudo gem install cocoapods
+gem install cocoapods --user-install
 pod setup --verbose
 ```
 

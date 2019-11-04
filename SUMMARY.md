@@ -32,6 +32,7 @@
 * [React](react.md)
 * [React Native](react-native.md)
 * [Redux](redux.md)
+* [Ruby](ruby.md)
 * [Shell](bash.md)
 * [slow-cheetah](slow-cheetah.md)
 
