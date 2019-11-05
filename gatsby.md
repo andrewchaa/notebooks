@@ -16,5 +16,19 @@ cd gatsby-site
 gatsby develop
 ```
 
+## Creating a blog
 
+```bash
+gatsby new blog https://github.com/alxshelepenok/gatsby-starter-lumen
+```
+
+### Deploy to Github Pages
+
+* Ensure that your `package.json` file correctly reflects where this repo lives
+* Change the `pathPrefix` in your `config.js`
+* Run the standard deploy command
+
+```bash
+npm run deploy
+```
 
