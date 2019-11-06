@@ -1,8 +1,17 @@
 # lodash
 
+#### Getting Started
+
 ```
 # install lodash
 npm i --save lodash
+```
+
+#### Check if an object is empty
+
+```
+if (_.isEmpty(searchFilter)) 
+  return list;
 ```
 
 #### GroupBy 
