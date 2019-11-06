@@ -79,7 +79,7 @@ When you lost the provisioning profile, you would need to download it again.
 * Check if the new version is there
 * If the new version doesn't appear, it might have some issues on info.plist. The common reason is lack of permission description.
 
-```markup
+```
 <key>NSLocationWhenInUseUsageDescription</key>
 <string>To correctly locate installation place</string>
 <key>NSMicrophoneUsageDescription</key>

@@ -2,7 +2,7 @@
 
 #### Query Language
 
-```javascript
+```
 // and
 response:200 and extension:php
 

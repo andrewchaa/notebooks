@@ -6,7 +6,7 @@
 
 On the root of the repo directory
 
-```yaml
+```
 trigger:
 - master    #build trigger on code commit on master branch
 

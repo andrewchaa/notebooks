@@ -10,7 +10,7 @@ description: >-
 
 #### Install amplify
 
-```bash
+```
 npm install -g @aws-amplify/cli
 amplify configure
 ```
@@ -19,7 +19,7 @@ amplify configure
 
 #### Create a react app and install amplify
 
-```bash
+```
 npm i --save @aws-amplify/api @aws-amplify/pubsub
 npm i --save aws-amplify-react
 ```
@@ -28,14 +28,14 @@ npm i --save aws-amplify-react
 
 Initialise the project on the cloud
 
-```bash
+```
 amplify init
 amplify status
 ```
 
 #### Add API and Database
 
-```bash
+```
 amplify add api
 ```
 
@@ -58,7 +58,7 @@ dynamodb
 
 #### Integrate into your app
 
-```javascript
+```
 import API from '@aws-amplify/api'
 import PubSub from '@aws-amplify/pubsub';
 import config from './aws-exports'
@@ -68,7 +68,7 @@ PubSub.configure(config);
 
 #### Launch your App
 
-```bash
+```
 amplify add hosting
 amplify publish
 ```
@@ -77,7 +77,7 @@ amplify publish
 
 If anything goes wrong, remove everything and create it again
 
-```bash
+```
 amplify delete
 ```
 
@@ -85,7 +85,7 @@ amplify delete
 
 #### Sign out
 
-```javascript
+```
 import { Auth } from 'aws-amplify';
 
 Auth.signOut()
@@ -102,7 +102,7 @@ Auth.signOut({ global: true })
 
 In order to sign out and to go to sign page, you have to pass onStateChange props to the component.
 
-```javascript
+```
 // App.js
 const AppContainer = createAppContainer(RootStack);
 
@@ -132,14 +132,14 @@ class Account extends Component {
 
 #### handling possible promise rejection
 
-```text
+```
 Possible Unhandled Promise Rejection (id: 0):
 Error: No credentials, applicationId or region
 ```
 
 This happens with AWS Analytics. Disable it for now
 
-```text
+```
 import awsExports from './aws-exports';
 Amplify.configure({
    ...awsExports,
@@ -153,7 +153,7 @@ Amplify.configure({
 
 For React and React Native apps, the simplest way to add authentication flows into your app is to use the `withAuthenticator` Higher Order Component.
 
-```javascript
+```
 import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
 import Amplify from 'aws-amplify';
 // Get the aws resources configuration parameters
@@ -168,7 +168,7 @@ export default withAuthenticator(App);
 
 #### Get UserId
 
-```javascript
+```
 const user = yield Auth.currentAuthenticatedUser()
 const { attributes: { sub }} = user
 ```
@@ -177,7 +177,7 @@ const { attributes: { sub }} = user
 
 #### Configure App
 
-```javascript
+```
 import API from '@aws-amplify/api'
 import PubSub from '@aws-amplify/pubsub';
 import config from './aws-exports'
@@ -187,7 +187,7 @@ PubSub.configure(config);
 
 #### Get
 
-```javascript
+```
 let apiName = 'MyApiName';
 let path = '/path'; 
 let myInit = { // OPTIONAL
@@ -208,14 +208,14 @@ API.get(apiName, path, myInit).then(response => {
 
 #### Add storage
 
-```bash
+```
 amplify add storage
 amplify push
 ```
 
 #### API Usage
 
-```javascript
+```
 uploadFile = (evt) => {
     const file = evt.target.files[0];
     const name = file.name;
@@ -266,7 +266,7 @@ uploadPhoto = async () => {
 
 Update auth and go through all options again.
 
-```bash
+```
 amplify update auth
 ```
 

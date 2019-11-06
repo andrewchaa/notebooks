@@ -4,7 +4,7 @@
 
 #### Run app with file watch
 
-```bash
+```
 dotnet watch run
 ```
 
@@ -14,7 +14,7 @@ dotnet watch run
 
 By default, [app configuration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2) is supported and configured out of the box. Just create a class for your config setting and do services.Configure
 
-```csharp
+```
 // typed config class
 public class CoinbaseSettings
 {
@@ -35,7 +35,7 @@ public void ConfigureServices(IServiceCollection services)
 
  The related settings are represented in [option pattern](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-2.2). Inject the option into the class that uses the settings.
 
-```csharp
+```
 private readonly CoinbaseSettings _coinbaseSettings;
 
 public PositionsController(IOptions<CoinbaseSettings> options)
@@ -54,14 +54,14 @@ In a not-so-idealistic situation, you have to deal with app.config, even though 
 
 Create App.config files
 
-```text
+```
 App.Config
 App.Debug.Config
 ```
 
 Those files should begin with
 
-```markup
+```
 <?xml version="1.0"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
 </configuration>
@@ -69,7 +69,7 @@ Those files should begin with
 
 Update your project .csproj file. This works out of the box for ASP.NET Core. For console app, you have to install [slow-cheetah](https://github.com/Microsoft/slow-cheetah)
 
-```markup
+```
 <ItemGroup>
   <None Update="App.config">
     <TransformOnBuild>true</TransformOnBuild>
@@ -89,7 +89,7 @@ Update your project .csproj file. This works out of the box for ASP.NET Core. Fo
 
 **ApplicationPackageRoot / ApplicationManifest.xml**
 
-```markup
+```
 <Parameter Name="WebApi_ASPNETCORE_ENVIRONMENT" DefaultValue="" />
 
 <EnvironmentOverrides CodePackageRef="code">
@@ -101,13 +101,13 @@ Update your project .csproj file. This works out of the box for ASP.NET Core. Fo
 
 **ApplicationParameters / Local.1Node.xml, Local.5Node.xml**
 
-```markup
+```
 <Parameter Name="WebApi_ASPNETCORE_ENVIRONMENT" Value="Development" />
 ```
 
 **PackageRoot / ServiceManifest.xml**
 
-```markup
+```
 <!-- Code package is your service executable. -->
 <CodePackage Name="Code" Version="1.0.0">
   <EntryPoint>
@@ -124,7 +124,7 @@ Update your project .csproj file. This works out of the box for ASP.NET Core. Fo
 
 **Api.cs file**
 
-```csharp
+```
 .ConfigureAppConfiguration((context, configBuilder) =>
 {
     var environment = context.HostingEnvironment.EnvironmentName;
@@ -137,7 +137,7 @@ Update your project .csproj file. This works out of the box for ASP.NET Core. Fo
 
 **TestApiFactory.cs file**
 
-```csharp
+```
 private static readonly string EnvironmentName = 
   Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
 ```
@@ -148,7 +148,7 @@ private static readonly string EnvironmentName =
 
 #### Plain Text result
 
-```csharp
+```
 [HttpGet("[action]")]
 public ContentResult Fps()
 {
@@ -166,7 +166,7 @@ public ContentResult Fps()
 
 #### Read file content
 
-```csharp
+```
 var fileInfo = provider.GetFileInfo("content.json");
 var stream = fileInfo.CreateReadStream();
 var serializer = new JsonSerializer();

@@ -14,7 +14,7 @@
 
 #### Remote branch
 
-```bash
+```
 git fetch
 git branch -a
 git checkout origin/address-issue --track

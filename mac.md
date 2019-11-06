@@ -4,13 +4,13 @@
 
 Install HomeBrew: [https://brew.sh/](https://brew.sh/)
 
-```bash
+```
 brew --verion
 ```
 
 Install Node.js
 
-```bash
+```
 brew install node
 node -–version
 npm --versrion
@@ -18,14 +18,14 @@ npm --versrion
 
 Install Watchman: [https://facebook.github.io/watchman/](https://facebook.github.io/watchman/)
 
-```bash
+```
 brew install watchman
 watchman –version
 ```
 
 Install React Native
 
-```bash
+```
 npm install -g react-native-cli
 react-native --version
 ```
@@ -40,14 +40,14 @@ Make sure to install Command Line Tools
 
 Install Cocoapods: [https://cocoapods.org/](https://cocoapods.org/)
 
-```bash
+```
 sudo gem install cocoapods
 pod --version
 ```
 
 Install JDK
 
-```bash
+```
 brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk8
 java -version
@@ -62,7 +62,7 @@ Set up Android Studio SDK
 
 Set Android Studio Environment Variables
 
-```bash
+```
 export ANDROID_HOME=/usr/local/share/android-sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export PATH=${PATH}:$ANDROID_HOME/tools/bin

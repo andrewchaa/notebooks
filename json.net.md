@@ -2,7 +2,7 @@
 
 #### Serialize / deserialize to / from a stream
 
-```csharp
+```
 public static object DeserializeFromStream(Stream stream)
 {
     var serializer = new JsonSerializer();

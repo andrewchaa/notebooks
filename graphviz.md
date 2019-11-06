@@ -4,7 +4,7 @@
 
 Lay the graph out left to right
 
-```javascript
+```
 graph {
     rankdir=LR; // Left to Right, instead of Top to Bottom
     a -- { b c d };
@@ -18,7 +18,7 @@ graph {
 
 #### Rendering image
 
-```javascript
+```
 d3.graphviz("#graph")
     .addImage("images/first.png", "400px", "300px")
     .addImage("images/second.png", "400px", "300px")

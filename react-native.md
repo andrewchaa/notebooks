@@ -10,14 +10,14 @@ description: Build native mobile apps using JavaScript and React
 
 #### Node, Watchman
 
-```bash
+```
 brew install node
 brew install watchman
 ```
 
 #### The React Native CLI & Expo CLI
 
-```bash
+```
 npm install -g react-native-cli
 npm install -g expo-cli
 ```
@@ -30,7 +30,7 @@ Command Line Tools
 
 ### Creating and running a new application
 
-```bash
+```
 react-native init AwesomeProject
 cd AwesomeProject
 react-native run-ios
@@ -60,31 +60,29 @@ Use `flex` in a component's style to have the component expand and shrink dynami
 
 ![](.gitbook/assets/image%20%288%29.png)
 
-```javascript
-import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+    import React, { Component } from 'react';
+    import { AppRegistry, View } from 'react-native';
 
-export default class FlexDimensionsBasics extends Component {
-  render() {
-    return (
-      // Try removing the `flex: 1` on the parent View.
-      // The parent will not have dimensions, so the children can't expand.
-      // What if you add `height: 300` instead of `flex: 1`?
-      <View style={{flex: 1}}>
-        <View style={{flex: 1, backgroundColor: 'powderblue'}} />
-        <View style={{flex: 2, backgroundColor: 'skyblue'}} />
-        <View style={{flex: 3, backgroundColor: 'steelblue'}} />
-      </View>
-    );
-  }
-}
-```
+    export default class FlexDimensionsBasics extends Component {
+      render() {
+        return (
+          // Try removing the `flex: 1` on the parent View.
+          // The parent will not have dimensions, so the children can't expand.
+          // What if you add `height: 300` instead of `flex: 1`?
+          <View style={{flex: 1}}>
+            <View style={{flex: 1, backgroundColor: 'powderblue'}} />
+            <View style={{flex: 2, backgroundColor: 'skyblue'}} />
+            <View style={{flex: 3, backgroundColor: 'steelblue'}} />
+          </View>
+        );
+      }
+    }
 
 #### Declaring stylesheets in a separate file
 
 Be sure to name the file in .js extension. It's handy when you want to have the same styles across elements
 
-```css
+```
 import { StyleSheet } from 'react-native'
 
 const headerStyle = StyleSheet.create({
@@ -101,7 +99,7 @@ export { styles, headerStyle }
 
 Then you can import and use it
 
-```javascript
+```
 import { headerStyle } from '../components/styles';
 
 static navigationOptions = ({ navigation }) => {
@@ -131,7 +129,7 @@ static navigationOptions = ({ navigation }) => {
 
 #### Round shape view
 
-```javascript
+```
 <View style={{
     marginTop: 15,
     marginBottom: 10,
@@ -156,7 +154,7 @@ static navigationOptions = ({ navigation }) => {
 
 #### Navigating to a new screen
 
-```jsx
+```
 <Button
   title="Go to Details"
   onPress={() => this.props.navigation.navigate('Details')}
@@ -165,7 +163,7 @@ static navigationOptions = ({ navigation }) => {
 
 #### Going back
 
-```jsx
+```
 <Button
  title="Go back"
  onPress={() => this.props.navigation.goBack()}
@@ -174,7 +172,7 @@ static navigationOptions = ({ navigation }) => {
 
 #### Passing parameters to routes
 
-```jsx
+```
 <Button
   title="Go to Details"
   onPress={() => {
@@ -200,7 +198,7 @@ class DetailsScreen extends React.Component {
 
 Use a stack with mode: 'modal', headerMode: 'none'
 
-```javascript
+```
 const AddNewStack = createStackNavigator(
   { New: BoilerRegistrationForm}, 
   { headerLayoutPreset: 'center' }
@@ -225,14 +223,14 @@ const RootStack = createBottomTabNavigator({
 
 {% embed url="https://github.com/react-native-community/react-native-webview" %}
 
-```text
+```
 npm i --save react-native-webview
 react-native link react-native-webview
 ```
 
 #### Showing indicator while loading
 
-```javascript
+```
 render() {
   return (
     <WebView 
@@ -273,7 +271,7 @@ Use "Pause On Caught Exceptions" on Source tab
 * on launch.json, click "Add Configuration" button.
 * Add relevant debug settings
 
-```javascript
+```
 {
     "name": "Debug in Exponent",
     "cwd": "${workspaceFolder}",
@@ -310,7 +308,7 @@ Use "Pause On Caught Exceptions" on Source tab
 
 * Install the latest version
 
-```bash
+```
 brew update && brew cask install react-native-debugger
 ```
 
@@ -327,7 +325,7 @@ Check at the menu clicking on Debug -&gt; Toggle Slow Animations. Chances are yo
 
 #### See the list of all available simulators
 
-```bash
+```
 xcrun simctl list
 ```
 
@@ -339,7 +337,7 @@ Simply restart your MacBook
 
 #### Check platform
 
-```javascript
+```
 import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
@@ -353,7 +351,7 @@ const styles = StyleSheet.create({
 
 Remove ios/ folder and regenerated the project
 
-```text
+```
 rm -rf ios/
 react-native eject // to generate the project as placeholder
 react-native link // to link all packages again
@@ -368,7 +366,7 @@ Select push notification as build target. Sync target ios version with app's ios
 
 The latest react-native-webview uses webkit, not UIWebView. Make sure you unlink it first so that it doesn't reference old webview module.
 
-```bash
+```
 react-native unlink react-native-webview
 react-native link react-native-webview
 ```

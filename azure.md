@@ -9,7 +9,7 @@
 
 #### Terraform for APIM
 
-```bash
+```
 resource "azurerm_template_deployment" "cust_api" {
   name                = "cust_api_template"
   resource_group_name = "${var.api_management_rg_name}"
@@ -29,7 +29,7 @@ resource "azurerm_template_deployment" "cust_api" {
 
 #### Azure API Manager Definition json
 
-```javascript
+```
 {
   "type": "Microsoft.ApiManagement/service/apis/operations",
   "name": "[concat(parameters('apimInstanceName'), '/', variables('custApiName'), '/create-cust')]",

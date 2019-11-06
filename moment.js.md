@@ -2,7 +2,7 @@
 
 #### Getting Started
 
-```javascript
+```
 // install
 npm i moment
 
@@ -20,7 +20,7 @@ moment().utc() // utc
 var date = new Date();
 ```
 
-```javascript
+```
 var formattedDate = moment(date).format('DD/MM/YYYY');
 ```
 
@@ -28,14 +28,14 @@ var formattedDate = moment(date).format('DD/MM/YYYY');
 
 The parser ignores non-alphanumeric characters, so both of the following will return the same thing
 
-```javascript
+```
 moment("12-25-1995", "MM-DD-YYYY");
 moment("12/25/1995", "MM-DD-YYYY");
 ```
 
 ## Add
 
-```javascript
+```
 {moment(r.installationDate, 'DD/MM/YYYY')
   .add(7, 'year')
   .format('DD/MM/YYYY')}

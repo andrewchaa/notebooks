@@ -10,7 +10,7 @@ Redux is basically a global state object that’s the single source of truth in 
 
 Context is a React API that creates global variables that can be accessed anywhere in the application, as long as the component receiving the context is a child of the component that created it. Normally you’d have to do this by passing props down each level of the component structure. With context, you don’t need to use props. You can use the context anywhere in the app and access it without passing it down to each level.
 
-```javascript
+```
 const ThemeContext = React.createContext() // new context variable 
 
 
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
 
 A reducer is a function that returns an object. Reducers can be thought of as data stores. Each store contains a piece of data. A root reducer will combine all reducers for the store.
 
-```javascript
+```
 import { ADD_REGISTRATION, INITIALIZE_REGISTRATIONS } from '../actions/action';
 
 const initialState = {
@@ -110,7 +110,7 @@ export default registrationReducer;
 
 A provider is a parent component that passes data to all child components. In Redux, It passes the global state/store to the rest of the application
 
-```javascript
+```
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
@@ -131,14 +131,14 @@ class App extends React.Component {
 
 Access Redux store by using connect function 
 
-```text
+```
 connect(func1)(func2)
 ```
 
 * func1: a function that gives the global Redux state object
 * func2: a function where you pass the child component
 
-```javascript
+```
 const mapStateToProps = (state) => {
   return { 
     registrations: state.registrations.list,
@@ -162,7 +162,7 @@ Actions are functions that return objects that send data to the store and update
 
 When you dispatch an action, it's sent to all reducers as the 2nd argument. Reducers will check the action's type and update what the reducer returns accordingly 
 
-```javascript
+```
 function fetchBooks() {
   return {
     type: 'FETCH_BOOKS'
@@ -181,7 +181,7 @@ function addBook(book) {
 
 #### Updating / Inserting data into store
 
-```javascript
+```
 import { connect } from 'react-redux';
 import { addRegistration } from '../actions/action';
 
@@ -201,14 +201,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(BoilerRegistrationFo
 
 #### Install
 
-```bash
+```
 npm i --save redux react-redux
 npm i --save redux-starter-kit redux-saga
 ```
 
 #### Set up Store
 
-```javascript
+```
 import { configureStore, getDefaultMiddleware } from 'redux-starter-kit'
 import { combineReducers } from "redux"
 import registrations from './reducers/registrations'
@@ -235,7 +235,7 @@ export default store;
 
 #### Provide Store
 
-```javascript
+```
 import { Provider } from 'react-redux';
 
 <Provider store={store}>
@@ -245,7 +245,7 @@ import { Provider } from 'react-redux';
 
 #### Add reducer
 
-```javascript
+```
 import { createSlice } from 'redux-starter-kit';
 
 const registration = createSlice({
@@ -268,7 +268,7 @@ export default registration
 
 #### Use saga to retrieve data from api
 
-```javascript
+```
 import { call, put, takeLatest } from 'redux-saga/effects'
 import Amplify, { API } from 'aws-amplify';
 
@@ -295,7 +295,7 @@ export default apiSaga;
 
 #### Dispatch actions on page or component
 
-```javascript
+```
 import { connect } from 'react-redux';
 
   componentDidMount() {
@@ -324,7 +324,7 @@ export default connect(mapStateToProps, mapDisptachToProps)(Registration);
 
 It returns an object that looks like this:
 
-```javascript
+```
 {
     reducer: (state, action) => newState,
     actions: {
@@ -336,7 +336,7 @@ It returns an object that looks like this:
 
 So, use the action functions to generate action type.
 
-```javascript
+```
 yield put(registrations.actions.populateList(list));
 // is the same as
 yield put({type: 'registrations/populateList', payload: list});
@@ -348,7 +348,7 @@ yield put({type: 'registrations/populateList', payload: list});
 
 [Reselect](https://github.com/reduxjs/reselect) is a simple library for creating memoized, composable **selector** functions. Reselect selectors can be used to efficiently compute derived data from the Redux store
 
-```javascript
+```
 export const filteredListSelector = createSelector(
   ["registrations.list", "registrations.filterText"],
   (list, filterText) => {
@@ -364,7 +364,7 @@ export const filteredListSelector = createSelector(
 
 If you are using [React Redux](https://github.com/reduxjs/react-redux), you can call selectors as regular functions inside `mapStateToProps()`:
 
-```javascript
+```
 const mapStateToProps = (state) => {
   return { 
     registrations: state.registrations.list,
@@ -381,7 +381,7 @@ Saga is a middleware connected to Store. Sagas are implemented as [Generator fun
 
 #### Set up
 
-```javascript
+```
 // import redux-saga effects
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
 

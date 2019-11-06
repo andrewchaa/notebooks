@@ -25,15 +25,13 @@ Enable CORS on API Gateway
 
 #### Install dependencies
 
-```bash
+```
 npm i --save aws-sdk
 ```
 
 #### Create build pipeline files
 
-{% code-tabs %}
-{% code-tabs-item title="buildspec.yml" %}
-```yaml
+```
 version: 0.2
 phases:
   install:
@@ -42,12 +40,10 @@ phases:
       - npm test
 
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 #### Create an artefact bucket
 
-```text
+```
 navien-backoffice-dev-artifacts
 ```
 
@@ -61,7 +57,7 @@ navien-backoffice-dev-artifacts
 
 #### Installation
 
-```bash
+```
 # update pip
 curl https://bootstrap.pypa.io/get-pip.py | python3
 
@@ -77,7 +73,7 @@ pip install awscli
 
 Retrieve all items in the table. As a general rule, you should design your applications to avoid performing scans.
 
-```text
+```
 // Return all of the data in the table
 {
     TableName:  "Music"

@@ -4,7 +4,7 @@
 
 When you mock async method and use callback, make sure you set up return as well, so that the async method can return the initiated task.
 
-```csharp
+```
 Business business = null; 
 _api.BusinessRepositoryMock.Setup(r => r.UpdateBusiness(It.IsAny<Business>()))
     .Callback<Business>(r => business = r)

@@ -1,6 +1,6 @@
 # lodash
 
-```text
+```
 # install lodash
 npm i --save lodash
 ```
@@ -9,7 +9,7 @@ npm i --save lodash
 
 monthly
 
-```javascript
+```
 import _ from 'lodash';
 
 const dates = action.payload.map(({installationDate}) => installationDate);

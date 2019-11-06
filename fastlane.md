@@ -2,7 +2,7 @@
 
 ## Installation
 
-```bash
+```
 # install xcode commandline tool
 xcode-select --install     
 
@@ -18,7 +18,7 @@ add to path, $HOME/.fastlane/bin
 
 Navigate to directory where your ios / android project file sits
 
-```text
+```
 fastlane init
 ```
 
@@ -40,7 +40,7 @@ To deploy an app as beta to TestFlight. The required steps are
 
 
 
-```text
+```
 fastlane beta
 ```
 
