@@ -34,7 +34,12 @@ npm i --save aws-sdk
 {% tabs %}
 {% tab title="buildspec.yml" %}
 ```yaml
-version: 0.2phases:  install:    commands:      - npm install      - npm test
+version: 0.2
+phases:
+  install:
+    commands:
+      - npm install
+      - npm test
 
 ```
 {% endtab %}
@@ -57,7 +62,11 @@ navien-backoffice-dev-artifacts
 #### Installation
 
 ```bash
-# update pipcurl https://bootstrap.pypa.io/get-pip.py | python3# install awsclipip install awscli
+# update pip
+curl https://bootstrap.pypa.io/get-pip.py | python3
+
+# install awscli
+pip install awscli
 ```
 
 
@@ -69,7 +78,10 @@ navien-backoffice-dev-artifacts
 Retrieve all items in the table. As a general rule, you should design your applications to avoid performing scans.
 
 ```text
-// Return all of the data in the table{    TableName:  "Music"}
+// Return all of the data in the table
+{
+    TableName:  "Music"
+}
 ```
 
 

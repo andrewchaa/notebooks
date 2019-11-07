@@ -3,7 +3,14 @@
 #### Query Language
 
 ```javascript
-// andresponse:200 and extension:php// orAppName: Restaurant && Level: (Error or Warn)// multi value fieldstags: (success and info and security)
+// and
+response:200 and extension:php
+
+// or
+AppName: Restaurant && Level: (Error or Warn)
+
+// multi value fields
+tags: (success and info and security)
 ```
 
 #### Logs Count Histogram

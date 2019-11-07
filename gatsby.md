@@ -9,7 +9,11 @@ description: >-
 ## Getting started
 
 ```bash
-npm install -g gatsby-cligatsby new gatsby-sitecd gatsby-sitegatsby develop
+npm install -g gatsby-cli
+
+gatsby new gatsby-site
+cd gatsby-site
+gatsby develop
 ```
 
 ## Creating a blog

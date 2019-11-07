@@ -151,3 +151,37 @@ Update auth and go through all options again.
 amplify update auth
 ```
 
+#### jest-haste-map: @providesModule naming collision: Duplicate module name
+
+Blacklist aws amplify state folder in rn-cli.config.js in the root of the project
+
+```text
+// metro.config.js
+
+module.exports = {
+  resolver: {
+    blacklistRE: /#current-cloud-backend\/.*/
+  },
+  transformer: {
+    getTransformOptions: async () => ({
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: false,
+      },
+    }),
+  },
+};
+```
+
+```text
+//rn-cli.config.js
+
+const blacklist = require('metro').createBlacklist;
+
+module.exports = {
+  getBlacklistRE: function() {
+    return blacklist([/awsmobilejs\/.*/]);
+  }
+};
+```
+

@@ -10,13 +10,48 @@
 #### Terraform for APIM
 
 ```bash
-resource "azurerm_template_deployment" "cust_api" {  name                = "cust_api_template"  resource_group_name = "${var.api_management_rg_name}"  template_body = <<DEPLOY  ${file("${path.module}/cust.json")}  DEPLOY  parameters {    apimInstanceName = "${var.api_management_name}"    backendName      = "${var.backend_name}"  }  deployment_mode = "Incremental"}
+resource "azurerm_template_deployment" "cust_api" {
+  name                = "cust_api_template"
+  resource_group_name = "${var.api_management_rg_name}"
+
+  template_body = <<DEPLOY
+  ${file("${path.module}/cust.json")}
+  DEPLOY
+
+  parameters {
+    apimInstanceName = "${var.api_management_name}"
+    backendName      = "${var.backend_name}"
+  }
+
+  deployment_mode = "Incremental"
+}
 ```
 
 #### Azure API Manager Definition json
 
 ```javascript
-{  "type": "Microsoft.ApiManagement/service/apis/operations",  "name": "[concat(parameters('apimInstanceName'), '/', variables('custApiName'), '/create-cust')]",  "apiVersion": "2017-03-01",  "properties": {    "displayName": "Create Cust",    "method": "POST",    "urlTemplate": "/api/v1/inst/{id}/cust",    "templateParameters": [      {        "name": "id",        "type": "",        "required": true,        "values": []      }    ],    "description": ""  },  "dependsOn": [    "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimInstanceName'), variables('custApiName'))]"  ]},
+{
+  "type": "Microsoft.ApiManagement/service/apis/operations",
+  "name": "[concat(parameters('apimInstanceName'), '/', variables('custApiName'), '/create-cust')]",
+  "apiVersion": "2017-03-01",
+  "properties": {
+    "displayName": "Create Cust",
+    "method": "POST",
+    "urlTemplate": "/api/v1/inst/{id}/cust",
+    "templateParameters": [
+      {
+        "name": "id",
+        "type": "",
+        "required": true,
+        "values": []
+      }
+    ],
+    "description": ""
+  },
+  "dependsOn": [
+    "[resourceId('Microsoft.ApiManagement/service/apis', parameters('apimInstanceName'), variables('custApiName'))]"
+  ]
+},
 ```
 
 ## Service Fabric
