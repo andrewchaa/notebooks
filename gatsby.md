@@ -8,17 +8,13 @@ description: >-
 
 ## Getting started
 
-```
-npm install -g gatsby-cli
-
-gatsby new gatsby-site
-cd gatsby-site
-gatsby develop
+```bash
+npm install -g gatsby-cligatsby new gatsby-sitecd gatsby-sitegatsby develop
 ```
 
 ## Creating a blog
 
-```
+```bash
 gatsby new blog https://github.com/alxshelepenok/gatsby-starter-lumen
 ```
 
@@ -28,7 +24,7 @@ gatsby new blog https://github.com/alxshelepenok/gatsby-starter-lumen
 * Change the `pathPrefix` in your `config.js`
 * Run the standard deploy command
 
-```
+```bash
 npm run deploy
 ```
 

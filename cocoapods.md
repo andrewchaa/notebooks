@@ -8,8 +8,7 @@
 
 ## Getting Started
 
-```
-gem install cocoapods --user-install
-pod setup --verbose
+```bash
+gem install cocoapods --user-installpod setup --verbose
 ```
 

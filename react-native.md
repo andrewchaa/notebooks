@@ -10,16 +10,14 @@ description: Build native mobile apps using JavaScript and React
 
 #### Node, Watchman
 
-```
-brew install node
-brew install watchman
+```bash
+brew install nodebrew install watchman
 ```
 
 #### The React Native CLI & Expo CLI
 
-```
-npm install -g react-native-cli
-npm install -g expo-cli
+```bash
+npm install -g react-native-clinpm install -g expo-cli
 ```
 
 #### Xcode
@@ -30,18 +28,8 @@ Command Line Tools
 
 ### Creating and running a new application
 
-```
-react-native init AwesomeProject
-cd AwesomeProject
-react-native run-ios
-
-// or
-expo init AwesomeProject
-cd AwesomeProject/ios
-pod install 
-
-cd AwesomeProject
-npm start
+```bash
+react-native init AwesomeProjectcd AwesomeProjectreact-native run-ios// orexpo init AwesomeProjectcd AwesomeProject/iospod install cd AwesomeProjectnpm start
 ```
 
 ![](.gitbook/assets/image%20%2810%29.png)
@@ -60,66 +48,22 @@ Use `flex` in a component's style to have the component expand and shrink dynami
 
 ![](.gitbook/assets/image%20%288%29.png)
 
-    import React, { Component } from 'react';
-    import { AppRegistry, View } from 'react-native';
-
-    export default class FlexDimensionsBasics extends Component {
-      render() {
-        return (
-          // Try removing the `flex: 1` on the parent View.
-          // The parent will not have dimensions, so the children can't expand.
-          // What if you add `height: 300` instead of `flex: 1`?
-          <View style={{flex: 1}}>
-            <View style={{flex: 1, backgroundColor: 'powderblue'}} />
-            <View style={{flex: 2, backgroundColor: 'skyblue'}} />
-            <View style={{flex: 3, backgroundColor: 'steelblue'}} />
-          </View>
-        );
-      }
-    }
+```javascript
+import React, { Component } from 'react';import { AppRegistry, View } from 'react-native';export default class FlexDimensionsBasics extends Component {  render() {    return (      // Try removing the `flex: 1` on the parent View.      // The parent will not have dimensions, so the children can't expand.      // What if you add `height: 300` instead of `flex: 1`?      <View style={{flex: 1}}>        <View style={{flex: 1, backgroundColor: 'powderblue'}} />        <View style={{flex: 2, backgroundColor: 'skyblue'}} />        <View style={{flex: 3, backgroundColor: 'steelblue'}} />      </View>    );  }}
+```
 
 #### Declaring stylesheets in a separate file
 
 Be sure to name the file in .js extension. It's handy when you want to have the same styles across elements
 
-```
-import { StyleSheet } from 'react-native'
-
-const headerStyle = StyleSheet.create({
-  primary: {
-    backgroundColor: '#f8fbff',
-    height: 70,
-    elevation: 0,
-    shadowOpacity: 0
-  }
-})
-
-export { styles, headerStyle }
+```css
+import { StyleSheet } from 'react-native'const headerStyle = StyleSheet.create({  primary: {    backgroundColor: '#f8fbff',    height: 70,    elevation: 0,    shadowOpacity: 0  }})export { styles, headerStyle }
 ```
 
 Then you can import and use it
 
-```
-import { headerStyle } from '../components/styles';
-
-static navigationOptions = ({ navigation }) => {
-  return {
-    headerStyle: headerStyle.primary,
-    headerTitle: (
-      <HeaderLogoTitle>Registration List</HeaderLogoTitle>
-    ),
-    headerRight: (
-      <IconIon.Button
-        name="ios-add-circle"
-        backgroundColor='transparent'
-        style={{marginRight: 0}}
-        iconStyle={{color:'#F5740E', fontSize: 35}}
-        onPress={() => navigation.navigate('Form')}
-      />
-    ),
-  };
-};
-
+```javascript
+import { headerStyle } from '../components/styles';static navigationOptions = ({ navigation }) => {  return {    headerStyle: headerStyle.primary,    headerTitle: (      <HeaderLogoTitle>Registration List</HeaderLogoTitle>    ),    headerRight: (      <IconIon.Button        name="ios-add-circle"        backgroundColor='transparent'        style={{marginRight: 0}}        iconStyle={{color:'#F5740E', fontSize: 35}}        onPress={() => navigation.navigate('Form')}      />    ),  };};
 ```
 
 #### Flex box
@@ -129,67 +73,28 @@ static navigationOptions = ({ navigation }) => {
 
 #### Round shape view
 
-```
-<View style={{
-    marginTop: 15,
-    marginBottom: 10,
-    width: 52,
-    height: 52,
-    borderRadius: 150/2,
-    backgroundColor: '#F5740E',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }}>
-  <Text style={{
-    fontFamily: 'Segoe UI',
-    fontSize: 20,
-    fontWeight: '300',
-    color: '#FFFFFF'
-  }}>+</Text>
-</View>
-
+```javascript
+<View style={{    marginTop: 15,    marginBottom: 10,    width: 52,    height: 52,    borderRadius: 150/2,    backgroundColor: '#F5740E',    alignItems: 'center',    justifyContent: 'center',  }}>  <Text style={{    fontFamily: 'Segoe UI',    fontSize: 20,    fontWeight: '300',    color: '#FFFFFF'  }}>+</Text></View>
 ```
 
 ## Navigation
 
 #### Navigating to a new screen
 
-```
-<Button
-  title="Go to Details"
-  onPress={() => this.props.navigation.navigate('Details')}
-  />
+```jsx
+<Button  title="Go to Details"  onPress={() => this.props.navigation.navigate('Details')}  />
 ```
 
 #### Going back
 
-```
-<Button
- title="Go back"
- onPress={() => this.props.navigation.goBack()}
-/>
+```jsx
+<Button title="Go back" onPress={() => this.props.navigation.goBack()}/>
 ```
 
 #### Passing parameters to routes
 
-```
-<Button
-  title="Go to Details"
-  onPress={() => {
-    /* 1. Navigate to the Details route with params */
-    this.props.navigation.navigate('Details', {
-      itemId: 86,
-      otherParam: 'anything you want here',
-    });
-  }}
-/>
-
-class DetailsScreen extends React.Component {
-  render() {
-    /* 2. Get the param, provide a fallback value if not available */
-    const { navigation } = this.props;
-    const itemId = navigation.getParam('itemId', 'NO-ID');
-    const otherParam = navigation.getParam('otherParam', 'some default value');
+```jsx
+<Button  title="Go to Details"  onPress={() => {    /* 1. Navigate to the Details route with params */    this.props.navigation.navigate('Details', {      itemId: 86,      otherParam: 'anything you want here',    });  }}/>class DetailsScreen extends React.Component {  render() {    /* 2. Get the param, provide a fallback value if not available */    const { navigation } = this.props;    const itemId = navigation.getParam('itemId', 'NO-ID');    const otherParam = navigation.getParam('otherParam', 'some default value');
 ```
 
 #### 
@@ -198,23 +103,8 @@ class DetailsScreen extends React.Component {
 
 Use a stack with mode: 'modal', headerMode: 'none'
 
-```
-const AddNewStack = createStackNavigator(
-  { New: BoilerRegistrationForm}, 
-  { headerLayoutPreset: 'center' }
-);
-const ModalStack = createStackNavigator(
-  { Form: AddNewStack, Scan: ScanBoilerBarcode }, 
-  { headerMode: 'none', mode: 'modal' }
-);
-
-const RootStack = createBottomTabNavigator({
-  MyList: RegistrationStack,
-  Home: HomeStack,
-  New: ModalStack,
-  Account: AccountStack,
-  Settings: SettingStack
-},
+```javascript
+const AddNewStack = createStackNavigator(  { New: BoilerRegistrationForm},   { headerLayoutPreset: 'center' });const ModalStack = createStackNavigator(  { Form: AddNewStack, Scan: ScanBoilerBarcode },   { headerMode: 'none', mode: 'modal' });const RootStack = createBottomTabNavigator({  MyList: RegistrationStack,  Home: HomeStack,  New: ModalStack,  Account: AccountStack,  Settings: SettingStack},
 ```
 
 ## Using Components
@@ -223,31 +113,14 @@ const RootStack = createBottomTabNavigator({
 
 {% embed url="https://github.com/react-native-community/react-native-webview" %}
 
-```
-npm i --save react-native-webview
-react-native link react-native-webview
+```text
+npm i --save react-native-webviewreact-native link react-native-webview
 ```
 
 #### Showing indicator while loading
 
-```
-render() {
-  return (
-    <WebView 
-      source={{ uri: 'https://navienuk.com/news/' }}
-      startInLoadingState={true}
-      renderLoading={() => {
-        return (
-        <View style={{flex: 1, padding: 20}}>
-          <ActivityIndicator/>
-        </View>
-        )
-      }}
-      style={{  }}
-    />
-  );
-}
-
+```javascript
+render() {  return (    <WebView       source={{ uri: 'https://navienuk.com/news/' }}      startInLoadingState={true}      renderLoading={() => {        return (        <View style={{flex: 1, padding: 20}}>          <ActivityIndicator/>        </View>        )      }}      style={{  }}    />  );}
 ```
 
 #### Scroll up when the keyboard hides inputs
@@ -271,35 +144,8 @@ Use "Pause On Caught Exceptions" on Source tab
 * on launch.json, click "Add Configuration" button.
 * Add relevant debug settings
 
-```
-{
-    "name": "Debug in Exponent",
-    "cwd": "${workspaceFolder}",
-    "type": "reactnative",
-    "request": "launch",
-    "platform": "exponent"
-  },
-  {
-    "name": "Debug Android",
-    "cwd": "${workspaceFolder}",
-    "type": "reactnative",
-    "request": "launch",
-    "platform": "android"
-  },
-  {
-    "name": "Debug iOS",
-    "cwd": "${workspaceFolder}",
-    "type": "reactnative",
-    "request": "launch",
-    "platform": "ios"
-  },
-  {
-    "name": "Attach to packager",
-    "cwd": "${workspaceFolder}",
-    "type": "reactnative",
-    "request": "attach"
-  }
-
+```javascript
+{    "name": "Debug in Exponent",    "cwd": "${workspaceFolder}",    "type": "reactnative",    "request": "launch",    "platform": "exponent"  },  {    "name": "Debug Android",    "cwd": "${workspaceFolder}",    "type": "reactnative",    "request": "launch",    "platform": "android"  },  {    "name": "Debug iOS",    "cwd": "${workspaceFolder}",    "type": "reactnative",    "request": "launch",    "platform": "ios"  },  {    "name": "Attach to packager",    "cwd": "${workspaceFolder}",    "type": "reactnative",    "request": "attach"  }
 ```
 
 ### Install standalone react native debugger
@@ -308,7 +154,7 @@ Use "Pause On Caught Exceptions" on Source tab
 
 * Install the latest version
 
-```
+```bash
 brew update && brew cask install react-native-debugger
 ```
 
@@ -325,7 +171,7 @@ Check at the menu clicking on Debug -&gt; Toggle Slow Animations. Chances are yo
 
 #### See the list of all available simulators
 
-```
+```bash
 xcrun simctl list
 ```
 
@@ -337,12 +183,8 @@ Simply restart your MacBook
 
 #### Check platform
 
-```
-import {Platform, StyleSheet} from 'react-native';
-
-const styles = StyleSheet.create({
-  height: Platform.OS === 'ios' ? 200 : 100,
-});
+```javascript
+import {Platform, StyleSheet} from 'react-native';const styles = StyleSheet.create({  height: Platform.OS === 'ios' ? 200 : 100,});
 ```
 
 ## Troubleshooting
@@ -351,11 +193,8 @@ const styles = StyleSheet.create({
 
 Remove ios/ folder and regenerated the project
 
-```
-rm -rf ios/
-react-native eject // to generate the project as placeholder
-react-native link // to link all packages again
-react-native run-ios
+```text
+rm -rf ios/react-native eject // to generate the project as placeholderreact-native link // to link all packages againreact-native run-ios
 ```
 
 #### library not found for -lRNCPushNotificationIOS
@@ -366,8 +205,7 @@ Select push notification as build target. Sync target ios version with app's ios
 
 The latest react-native-webview uses webkit, not UIWebView. Make sure you unlink it first so that it doesn't reference old webview module.
 
-```
-react-native unlink react-native-webview
-react-native link react-native-webview
+```bash
+react-native unlink react-native-webviewreact-native link react-native-webview
 ```
 

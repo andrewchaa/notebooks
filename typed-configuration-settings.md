@@ -4,7 +4,7 @@
 
 #### Run app with file watch
 
-```
+```bash
 dotnet watch run
 ```
 
@@ -14,38 +14,14 @@ dotnet watch run
 
 By default, [app configuration](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2) is supported and configured out of the box. Just create a class for your config setting and do services.Configure
 
-```
-// typed config class
-public class CoinbaseSettings
-{
-    public string Secret { get; set; }
-    public string AccessKey { get; set; }
-    public string PassPhrase { get; set; }
-    public string HostUri { get; set; }
-}
-
-
-// Startup
-public void ConfigureServices(IServiceCollection services) 
-{
-    ...
-    services.Configure<CoinbaseSettings>(Configuration.GetSection("CoinbaseSettings"));
-}
+```csharp
+// typed config classpublic class CoinbaseSettings{    public string Secret { get; set; }    public string AccessKey { get; set; }    public string PassPhrase { get; set; }    public string HostUri { get; set; }}// Startuppublic void ConfigureServices(IServiceCollection services) {    ...    services.Configure<CoinbaseSettings>(Configuration.GetSection("CoinbaseSettings"));}
 ```
 
  The related settings are represented in [option pattern](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-2.2). Inject the option into the class that uses the settings.
 
-```
-private readonly CoinbaseSettings _coinbaseSettings;
-
-public PositionsController(IOptions<CoinbaseSettings> options)
-{
-    _coinbaseSettings = options.Value;
-}
-
-...
-
-var coinbaseApi = RestService.For<ICoinbaseProApi>(_coinbaseSettings.HostUri);
+```csharp
+private readonly CoinbaseSettings _coinbaseSettings;public PositionsController(IOptions<CoinbaseSettings> options){    _coinbaseSettings = options.Value;}...var coinbaseApi = RestService.For<ICoinbaseProApi>(_coinbaseSettings.HostUri);
 ```
 
 #### App.Config Transformations
@@ -54,92 +30,52 @@ In a not-so-idealistic situation, you have to deal with app.config, even though 
 
 Create App.config files
 
-```
-App.Config
-App.Debug.Config
+```text
+App.ConfigApp.Debug.Config
 ```
 
 Those files should begin with
 
-```
-<?xml version="1.0"?>
-<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-</configuration>
+```markup
+<?xml version="1.0"?><configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform"></configuration>
 ```
 
 Update your project .csproj file. This works out of the box for ASP.NET Core. For console app, you have to install [slow-cheetah](https://github.com/Microsoft/slow-cheetah)
 
-```
-<ItemGroup>
-  <None Update="App.config">
-    <TransformOnBuild>true</TransformOnBuild>
-  </None>
-  <None Update="App.Debug.config">
-    <IsTransformFile>true</IsTransformFile>
-    <DependentUpon>App.config</DependentUpon>
-  </None>
-  <None Update="App.Release.config">
-    <IsTransformFile>true</IsTransformFile>
-    <DependentUpon>App.config</DependentUpon>
-  </None>
-</ItemGroup>
+```markup
+<ItemGroup>  <None Update="App.config">    <TransformOnBuild>true</TransformOnBuild>  </None>  <None Update="App.Debug.config">    <IsTransformFile>true</IsTransformFile>    <DependentUpon>App.config</DependentUpon>  </None>  <None Update="App.Release.config">    <IsTransformFile>true</IsTransformFile>    <DependentUpon>App.config</DependentUpon>  </None></ItemGroup>
 ```
 
 #### Set environment variable on Service Fabric Web API
 
 **ApplicationPackageRoot / ApplicationManifest.xml**
 
-```
-<Parameter Name="WebApi_ASPNETCORE_ENVIRONMENT" DefaultValue="" />
-
-<EnvironmentOverrides CodePackageRef="code">
-  <EnvironmentVariable 
-     Name="ASPNETCORE_ENVIRONMENT" 
-     Value="[WebApi_ASPNETCORE_ENVIRONMENT]" />
-</EnvironmentOverrides>
+```markup
+<Parameter Name="WebApi_ASPNETCORE_ENVIRONMENT" DefaultValue="" /><EnvironmentOverrides CodePackageRef="code">  <EnvironmentVariable      Name="ASPNETCORE_ENVIRONMENT"      Value="[WebApi_ASPNETCORE_ENVIRONMENT]" /></EnvironmentOverrides>
 ```
 
 **ApplicationParameters / Local.1Node.xml, Local.5Node.xml**
 
-```
+```markup
 <Parameter Name="WebApi_ASPNETCORE_ENVIRONMENT" Value="Development" />
 ```
 
 **PackageRoot / ServiceManifest.xml**
 
-```
-<!-- Code package is your service executable. -->
-<CodePackage Name="Code" Version="1.0.0">
-  <EntryPoint>
-    <ExeHost>
-      <Program>ClearBank.CustomerAccounts.ServiceFabric.WebApi.exe</Program>
-      <WorkingFolder>CodePackage</WorkingFolder>
-    </ExeHost>
-  </EntryPoint>
-  <EnvironmentVariables>
-    <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value=""/>
-  </EnvironmentVariables>
-</CodePackage>
+```markup
+<!-- Code package is your service executable. --><CodePackage Name="Code" Version="1.0.0">  <EntryPoint>    <ExeHost>      <Program>ClearBank.CustomerAccounts.ServiceFabric.WebApi.exe</Program>      <WorkingFolder>CodePackage</WorkingFolder>    </ExeHost>  </EntryPoint>  <EnvironmentVariables>    <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value=""/>  </EnvironmentVariables></CodePackage>
 ```
 
 **Api.cs file**
 
-```
-.ConfigureAppConfiguration((context, configBuilder) =>
-{
-    var environment = context.HostingEnvironment.EnvironmentName;
-
-    configBuilder.SetBasePath(context.HostingEnvironment.ContentRootPath);
-    configBuilder.AddJsonFile("appsettings.json", true);
-    configBuilder.AddJsonFile($"appsettings.{environment}.json", true);
-})
+```csharp
+.ConfigureAppConfiguration((context, configBuilder) =>{    var environment = context.HostingEnvironment.EnvironmentName;    configBuilder.SetBasePath(context.HostingEnvironment.ContentRootPath);    configBuilder.AddJsonFile("appsettings.json", true);    configBuilder.AddJsonFile($"appsettings.{environment}.json", true);})
 ```
 
 **TestApiFactory.cs file**
 
-```
-private static readonly string EnvironmentName = 
-  Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
+```csharp
+private static readonly string EnvironmentName =   Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
 ```
 
 ## Controller
@@ -148,16 +84,8 @@ private static readonly string EnvironmentName =
 
 #### Plain Text result
 
-```
-[HttpGet("[action]")]
-public ContentResult Fps()
-{
-    var content = @"digraph G {
-        ServiceBus [shape=box, label="""", image=""/azure-service-bus.svg""]
-        ServiceBus -> Manager
-        }";
-    return Content(content);
-}
+```csharp
+[HttpGet("[action]")]public ContentResult Fps(){    var content = @"digraph G {        ServiceBus [shape=box, label="""", image=""/azure-service-bus.svg""]        ServiceBus -> Manager        }";    return Content(content);}
 ```
 
 ## Handling files
@@ -166,17 +94,7 @@ public ContentResult Fps()
 
 #### Read file content
 
-```
-var fileInfo = provider.GetFileInfo("content.json");
-var stream = fileInfo.CreateReadStream();
-var serializer = new JsonSerializer();
-
-ServicesManifest manifest;
-using (var reader = new StreamReader(stream))
-using (var textReader = new JsonTextReader(reader))
-{
-    manifest = serializer.Deserialize<ServicesManifest>(textReader);
-}
-
+```csharp
+var fileInfo = provider.GetFileInfo("content.json");var stream = fileInfo.CreateReadStream();var serializer = new JsonSerializer();ServicesManifest manifest;using (var reader = new StreamReader(stream))using (var textReader = new JsonTextReader(reader)){    manifest = serializer.Deserialize<ServicesManifest>(textReader);}
 ```
 

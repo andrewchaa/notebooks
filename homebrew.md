@@ -6,7 +6,7 @@
 
 Fix the permission
 
-```
+```bash
 sudo chown -R "$(whoami)":admin /usr/local/lib
 ```
 

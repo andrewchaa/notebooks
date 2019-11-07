@@ -79,17 +79,8 @@ When you lost the provisioning profile, you would need to download it again.
 * Check if the new version is there
 * If the new version doesn't appear, it might have some issues on info.plist. The common reason is lack of permission description.
 
-```
-<key>NSLocationWhenInUseUsageDescription</key>
-<string>To correctly locate installation place</string>
-<key>NSMicrophoneUsageDescription</key>
-<string>Need microphone access for uploading audios</string>
-<key>NSCameraUsageDescription</key>
-<string>To scan barcode</string>
-<key>NSSpeechRecognitionUsageDescription</key>
-<string>To understand user speech</string>
-<key>NSPhotoLibraryAddUsageDescription</key>
-<string>To load image gallery</string>
+```markup
+<key>NSLocationWhenInUseUsageDescription</key><string>To correctly locate installation place</string><key>NSMicrophoneUsageDescription</key><string>Need microphone access for uploading audios</string><key>NSCameraUsageDescription</key><string>To scan barcode</string><key>NSSpeechRecognitionUsageDescription</key><string>To understand user speech</string><key>NSPhotoLibraryAddUsageDescription</key><string>To load image gallery</string>
 ```
 
 ### Create a new certificate

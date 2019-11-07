@@ -8,11 +8,7 @@ With the extension, you can easily add transformation files and preview them
 
 The format should be like this.
 
-```
-<appSettings>
-  <add key="blob" 
-       value="...." 
-       xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-</appSettings>
+```aspnet
+<appSettings>  <add key="blob"        value="...."        xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /></appSettings>
 ```
 

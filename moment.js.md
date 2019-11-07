@@ -2,16 +2,8 @@
 
 #### Getting Started
 
-```
-// install
-npm i moment
-
-moment() // now
-const day = moment('2019-08-23')
-const day = moment(1318781876406);
-moment('20130208T080910') //Short date and time up to seconds
-
-moment().utc() // utc
+```javascript
+// installnpm i momentmoment() // nowconst day = moment('2019-08-23')const day = moment(1318781876406);moment('20130208T080910') //Short date and time up to secondsmoment().utc() // utc
 ```
 
 ## Format
@@ -20,7 +12,7 @@ moment().utc() // utc
 var date = new Date();
 ```
 
-```
+```javascript
 var formattedDate = moment(date).format('DD/MM/YYYY');
 ```
 
@@ -28,16 +20,13 @@ var formattedDate = moment(date).format('DD/MM/YYYY');
 
 The parser ignores non-alphanumeric characters, so both of the following will return the same thing
 
-```
-moment("12-25-1995", "MM-DD-YYYY");
-moment("12/25/1995", "MM-DD-YYYY");
+```javascript
+moment("12-25-1995", "MM-DD-YYYY");moment("12/25/1995", "MM-DD-YYYY");
 ```
 
 ## Add
 
-```
-{moment(r.installationDate, 'DD/MM/YYYY')
-  .add(7, 'year')
-  .format('DD/MM/YYYY')}
+```javascript
+{moment(r.installationDate, 'DD/MM/YYYY')  .add(7, 'year')  .format('DD/MM/YYYY')}
 ```
 
