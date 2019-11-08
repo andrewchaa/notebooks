@@ -37,6 +37,7 @@
 * [Ruby](ruby.md)
 * [Shell](bash.md)
 * [slow-cheetah](slow-cheetah.md)
+* [Terraform](terraform.md)
 
 ## Tools
 
