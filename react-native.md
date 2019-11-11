@@ -371,5 +371,13 @@ The latest react-native-webview uses webkit, not UIWebView. Make sure you unlink
 ```bash
 react-native unlink react-native-webview
 react-native link react-native-webview
+
 ```
+
+#### Multiple commands produce \*.ttf
+
+The problem seems to be caused by the new autolinking feature in React Native 0.60 - the line `use_native_modules!` in `ios/Podfile` means when you do `pod install`, any pods found in `node_modules` are automatically linked. This means that links to all font files are added to `[CP] Copy Pods Resources` when you do `pod install`.
+
+* Go to project / target / navien / Build Phase
+* Remove duplicate reference fonts in "Copy Bundle Resources" NOT in "\[CP\] Copy Pods Resources" on 
 
