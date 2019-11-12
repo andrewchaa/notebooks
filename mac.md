@@ -34,13 +34,104 @@ brew cask install visual-studio-code
 
 Open shell command by pressing SHFT + CMD + P and "install 'code' command in PATH to open code from terminal. 
 
-Install Node.js
+#### Git
+
+```bash
+brew install git
+```
+
+.gitconfig
+
+```bash
+[alias]
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+  # Pretty log output
+  hist = log --graph --pretty=format:'%Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset [%an]' --abbrev-commit --date=relative
+
+[color]
+  # Use colors in Git commands that are capable of colored output when
+  # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+```
+
+Basic config
+
+```bash
+git config --global user.name "Your Name Here"
+git config --global user.email "your_email@youremail.com"
+```
+
+Global .gitignore
+
+```bash
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+```
+
+```bash
+git config --global core.excludesfile ~/.gitignore
+```
+
+#### VS Code
+
+Preferences &gt; Settings
+
+```bash
+{
+  "editor.tabSize": 2,
+  "editor.rulers": [80],
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "workbench.editor.enablePreview": false
+}
+```
+
+Install Xcode
+
+Xcode: [https://apps.apple.com/us/app/xcode/id497799835?mt=12](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
+
+Make sure to install Command Line Tools
+
+![](.gitbook/assets/image%20%284%29.png)
+
+
+
+### Languages
+
+#### Node
 
 ```bash
 brew install node
 node -–version
 npm --versrion
 ```
+
+#### React / React Native
 
 Install Watchman: [https://facebook.github.io/watchman/](https://facebook.github.io/watchman/)
 
@@ -55,14 +146,6 @@ Install React Native
 npm install -g react-native-cli
 react-native --version
 ```
-
-Install Xcode
-
-Xcode: [https://apps.apple.com/us/app/xcode/id497799835?mt=12](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-
-Make sure to install Command Line Tools
-
-![](.gitbook/assets/image%20%284%29.png)
 
 Install Cocoapods: [https://cocoapods.org/](https://cocoapods.org/)
 
