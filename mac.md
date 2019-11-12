@@ -1,12 +1,38 @@
+---
+description: Setting your new shiny Mac!
+---
+
 # Mac
 
-## Set up for Development
+## Resource
 
-Install HomeBrew: [https://brew.sh/](https://brew.sh/)
+* [https://github.com/nicolashery/mac-dev-setup](https://github.com/nicolashery/mac-dev-setup)
+
+## Set up
+
+### Apps
+
+#### HomeBrew: [https://brew.sh/](https://brew.sh/)
 
 ```bash
 brew --verion
 ```
+
+#### iTerm2
+
+```bash
+brew cask install iterm2
+```
+
+Install darcular them: [https://draculatheme.com/iterm/](https://draculatheme.com/iterm/)
+
+#### Code
+
+```bash
+brew cask install visual-studio-code
+```
+
+Open shell command by pressing SHFT + CMD + P and "install 'code' command in PATH to open code from terminal. 
 
 Install Node.js
 
