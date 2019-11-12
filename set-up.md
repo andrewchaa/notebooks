@@ -4,7 +4,7 @@
 
 
 
-#### [Generating a new SSH key](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key) <a id="generating-a-new-ssh-key"></a>
+#### Generating a new SSH key
 
 1. Open Terminal.
 2. Paste the text below, substituting in your GitHub email address.
@@ -31,7 +31,7 @@
    > Enter passphrase (empty for no passphrase): [Type a passphrase]> Enter same passphrase again: [Type passphrase again]
    ```
 
-#### [Adding your SSH key to the ssh-agent](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent) <a id="adding-your-ssh-key-to-the-ssh-agent"></a>
+#### Adding your SSH key to the ssh-agent <a id="adding-your-ssh-key-to-the-ssh-agent"></a>
 
 Before adding a new SSH key to the ssh-agent to manage your keys, you should have [checked for existing SSH keys](https://help.github.com/en/articles/checking-for-existing-ssh-keys) and [generated a new SSH key](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key). When adding your SSH key to the agent, use the default macOS `ssh-add` command, and not an application installed by [macports](https://www.macports.org/), [homebrew](http://brew.sh/), or some other external source.
 
