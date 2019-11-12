@@ -205,3 +205,9 @@ export PATH=${PATH}:$ANDROID_HOME/tools/bin
 export PATH=${PATH}:$ANDROID_HOME/emulator
 ```
 
+#### react native debugger
+
+```text
+brew update && brew cask install react-native-debugger
+```
+
