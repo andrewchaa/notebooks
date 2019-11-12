@@ -381,3 +381,7 @@ The problem seems to be caused by the new autolinking feature in React Native 0.
 * Go to project / target / navien / Build Phase
 * Remove duplicate reference fonts in "Copy Bundle Resources" NOT in "\[CP\] Copy Pods Resources" on 
 
+#### Unrecognised font family on iOS
+
+Open the workspace in Xcode and add the font to Resources
+

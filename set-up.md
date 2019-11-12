@@ -61,7 +61,11 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
    If you don't have Apple's standard version installed, you may receive an error. For more information on resolving this error, see "[Error: ssh-add: illegal option -- K](https://help.github.com/en/articles/error-ssh-add-illegal-option-k)."
 
-4. [Add the SSH key to your GitHub account](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account).
+4. Add the SSH key to your GitHub account.
+
+```bash
+pbcopy < ~/.ssh/id_rsa.pub
+```
 
 #### Use VS Code as your Diff / Merge editor
 
