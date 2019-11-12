@@ -119,9 +119,36 @@ Make sure to install Command Line Tools
 
 ![](.gitbook/assets/image%20%284%29.png)
 
+#### Fork: [https://git-fork.com/](https://git-fork.com/)
 
+## Languages
 
-### Languages
+### Ruby
+
+#### rbenv
+
+```text
+brew install rbenv
+```
+
+After installation, add the following line to your `.zshrc`:
+
+```text
+eval "$(rbenv init -)"
+```
+
+And reload it with:
+
+```text
+source ~/.zshrc
+```
+
+#### Install ruby
+
+```bash
+rbenv install --list
+rbenv install 2.6.5
+```
 
 #### Node
 
@@ -133,14 +160,14 @@ npm --versrion
 
 #### React / React Native
 
-Install Watchman: [https://facebook.github.io/watchman/](https://facebook.github.io/watchman/)
+Watchman: [https://facebook.github.io/watchman/](https://facebook.github.io/watchman/)
 
 ```bash
 brew install watchman
 watchman –version
 ```
 
-Install React Native
+React Native
 
 ```bash
 npm install -g react-native-cli
