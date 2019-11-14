@@ -26,6 +26,7 @@ description: >-
 | [reactstrap](https://github.com/reactstrap/reactstrap) | Simple React Bootstrap 4 components | react, css, bootstrap |
 | [reactotron](https://github.com/infinitered/reactotron) | A desktop app for inspecting your React JS and React Native projects. macOS, Linux, and Windows. | react, react native |
 | [Redux Starter Kit](https://redux-starter-kit.js.org/) | A simple batteries-included toolset to make using Redux easier | javascript, react, redux |
+| Resource Monitor | Windows 10's built-in process monitor. You can find and kill process by name and by id |  |
 | [saveSvgAsPng](https://github.com/exupero/saveSvgAsPng) | Save SVGs as PNGs from the browser. | javascript |
 | [Semantic UI](https://semantic-ui.com/) | User Interface is the language of the Web | HTML, CSS |
 | [slow-cheetah](https://github.com/microsoft/slow-cheetah) | Tooling for XML and JSON file transforms on build from Visual Studio and MSBuild | .net |

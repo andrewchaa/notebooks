@@ -31,8 +31,7 @@ npm i --save aws-sdk
 
 #### Create build pipeline files
 
-{% tabs %}
-{% tab title="buildspec.yml" %}
+{% code title="buildspec.yml" %}
 ```yaml
 version: 0.2
 phases:
@@ -42,8 +41,7 @@ phases:
       - npm test
 
 ```
-{% endtab %}
-{% endtabs %}
+{% endcode %}
 
 #### Create an artefact bucket
 
