@@ -14,6 +14,13 @@ val customer = Customer("Joe Smith")
 Translated as Java static function and it doesn't hide member function
 
 ```kotlin
-val list = mutableListOf(1, 2, 3)list.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'list'fun MutableList<Int>.swap(index1: Int, index2: Int) {    val tmp = this[index1] // 'this' corresponds to the list    this[index1] = this[index2]    this[index2] = tmp}fun <T> MutableList<T>.swap(index1: Int, index2: Int) {    val tmp = this[index1] // 'this' corresponds to the list    this[index1] = this[index2]    this[index2] = tmp}
+fun String?.isEmptyOrNull(): Boolean {
+    return this == "" || this == null
+}
+
+infix fun <T> T.eq(other: T) {
+    if (this == other) println("OK")
+    else println("Error: $this != $other")
+}
 ```
 
