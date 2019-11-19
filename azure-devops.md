@@ -42,6 +42,23 @@ steps:
 
 ```
 
+## Build Pipeline
+
+### File matching patterns
+
+* `*` matches zero or more characters within a file or directory name
+* `?` matches any single character within a file or directory name.
+* `[]` matches a set or range of characters within a file or directory name.
+* `**` recursive wildcard. For example, `/hello/**/*` matches all descendants of `/hello`.
+
+#### Extended globbing
+
+* `?(hello|world)` - matches `hello` or `world` zero or one times
+* `*(hello|world)` - zero or more occurrences
+* `+(hello|world)` - one or more occurrences
+* `@(hello|world)` - exactly once
+* `!(hello|world)` - not `hello` or `world`
+
 ## Release Pipeline
 
 ### Conditions
