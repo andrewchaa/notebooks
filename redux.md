@@ -417,3 +417,31 @@ export default registrationSaga;
 * reducer start action
 * saga handler function
 
+### Alert in Saga
+
+```javascript
+function showAlert(){
+  return new Promise((resolve, reject) => {
+    Alert.alert(
+      'Gas Form Photo',
+      'Do you want to use this photo?', 
+      [
+        {text: 'Yes', onPress: () => resolve(true)},
+        {text: 'No', onPress: () => resolve(false)}
+      ],
+      { cancelable: false }
+    )
+  })
+}
+
+var usePhoto = yield showAlert()
+if (usePhoto) {
+  yield put(setPhotoSelected(true))
+  yield NavigationService.navigate({ routeName :'Form' })
+} else {
+  yield put(setSnapPreview(false))
+  yield NavigationService.navigate({ routeName: 'Snap' })
+}
+
+```
+
