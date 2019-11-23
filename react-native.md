@@ -194,8 +194,6 @@ class DetailsScreen extends React.Component {
     const otherParam = navigation.getParam('otherParam', 'some default value');
 ```
 
-#### 
-
 #### Opening a full screen modal
 
 Use a stack with mode: 'modal', headerMode: 'none'
@@ -217,6 +215,41 @@ const RootStack = createBottomTabNavigator({
   Account: AccountStack,
   Settings: SettingStack
 },
+```
+
+### Navigate in redux saga
+
+```bash
+// Navigation Service
+const config = {};
+
+export function setNavigator(nav) {
+  if (nav) {
+    config.navigator = nav;
+  }
+}
+
+export function navigate(routeName, params) {
+  if (config.navigator && routeName) {
+    config.navigator.navigate(routeName)
+  }
+}
+
+// Screen
+render() {
+  const { navigation, photo } = this.props;
+  NavigationService.setNavigator(navigation)
+
+// Saga
+var usePhoto = yield showAlert()
+if (usePhoto) {
+  yield put(setPhotoSelected(true))
+  yield NavigationService.navigate({ routeName :'Form' })
+} else {
+  yield put(setSnapPreview(false))
+  yield NavigationService.navigate({ routeName: 'Snap' })
+}
+
 ```
 
 ## Using Components
