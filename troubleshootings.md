@@ -2,7 +2,13 @@
 
 ## SQLs
 
-### sequence
+#### Default Guid value in column
+
+```text
+ALTER TABLE #Test ADD [GIANGGUID] uniqueidentifier NOT NULL DEFAULT NEWID();
+```
+
+#### sequence
 
 ```text
 var sequence = 
