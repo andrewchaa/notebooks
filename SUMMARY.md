@@ -37,11 +37,11 @@
 * [Ruby](ruby.md)
 * [Shell](bash.md)
 * [slow-cheetah](slow-cheetah.md)
+* [Sql Server](troubleshootings.md)
 * [Terraform](terraform.md)
 
 ## Tools
 
-* [Sql Server](tools/troubleshootings.md)
 * [Visual Studio](tools/visual-studio.md)
 * [VS Code](tools/vs-code.md)
 * [Azure Data Studio](tools/azure-data-studio.md)
