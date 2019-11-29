@@ -1,6 +1,23 @@
 # dynamodb
 
-## Query
+## Queries
+
+### Scan
+
+```text
+let params = { TableName: registrationsTable }
+
+dynamodb.scan(params, (err, data) => {
+  if (err) {
+    res.statusCode = 500;
+    res.json({ error: 'Could not load items: ' + err });
+  } else {
+    res.json(data.Items);
+  }
+})
+```
+
+### Query
 
 Any query requires partition key. If you want to query by a different attribute, create GSI, Global Secondary Index.
 
