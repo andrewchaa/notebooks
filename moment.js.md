@@ -24,6 +24,13 @@ var date = new Date();
 var formattedDate = moment(date).format('DD/MM/YYYY');
 ```
 
+#### date + hour
+
+```javascript
+loginDateTimeStamp: 
+  moment().utc().format('DD/MM/YYYY HH:mm:ss')
+```
+
 ## Parse
 
 The parser ignores non-alphanumeric characters, so both of the following will return the same thing
