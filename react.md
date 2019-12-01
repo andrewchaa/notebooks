@@ -110,6 +110,14 @@ updateRegistration({ registrationid,
   })
 ```
 
+#### Redirect
+
+```javascript
+<Route path="/">
+  <Redirect to="/registrations" />
+</Route>
+```
+
 ## Basics
 
 #### Binding this to class function
