@@ -117,7 +117,7 @@ Xcode: [https://apps.apple.com/us/app/xcode/id497799835?mt=12](https://apps.appl
 
 Make sure to install Command Line Tools
 
-![](.gitbook/assets/image%20%284%29.png)
+![](.gitbook/assets/image%20%285%29.png)
 
 #### Fork: [https://git-fork.com/](https://git-fork.com/)
 
@@ -194,7 +194,7 @@ Install Android Studio: [https://developer.android.com/studio](https://developer
 
 Set up Android Studio SDK
 
-![](.gitbook/assets/image%20%2813%29.png)
+![](.gitbook/assets/image%20%2814%29.png)
 
 Set Android Studio Environment Variables
 
