@@ -48,7 +48,7 @@ public PositionsController(IOptions<CoinbaseSettings> options)
 var coinbaseApi = RestService.For<ICoinbaseProApi>(_coinbaseSettings.HostUri);
 ```
 
-#### App.Config Transformations
+### App.Config Transformations
 
 In a not-so-idealistic situation, you have to deal with app.config, even though ASP.NET Core supports appSettings.json out of the box. Still it's possible. You just need a bit of magic to your project file. 
 
@@ -85,7 +85,7 @@ Update your project .csproj file. This works out of the box for ASP.NET Core. Fo
 </ItemGroup>
 ```
 
-#### Set environment variable on Service Fabric Web API
+### Set environment variable on Service Fabric Web API
 
 **ApplicationPackageRoot / ApplicationManifest.xml**
 
@@ -143,6 +143,18 @@ private static readonly string EnvironmentName =
 ```
 
 ### Typed Configuration for appsettings.json
+
+### Tips
+
+#### TimeSpan config
+
+```csharp
+{
+  "SeatingDuration": "2:30:00"
+}
+
+var seatingDuration = Configuration.GetValue<TimeSpan>("SeatingDuration");
+```
 
 
 
