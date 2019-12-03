@@ -35,6 +35,7 @@
 * [React Native](react-native.md)
 * [Redux](redux.md)
 * [Ruby](ruby.md)
+* [Service Fabric](service-fabric.md)
 * [Shell](bash.md)
 * [slow-cheetah](slow-cheetah.md)
 * [Sql Server](troubleshootings.md)

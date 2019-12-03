@@ -1,0 +1,30 @@
+# Service Fabric
+
+## Reliable Service
+
+### lifecycle
+
+#### Startup
+
+1. The service is constructed.
+2. Then, in parallel, two things happen:
+   * `StatelessService.CreateServiceInstanceListeners()` is invoked and any returned listeners are opened. `ICommunicationListener.OpenAsync()` is called on each listener.
+   * The service's `StatelessService.RunAsync()` method is called.
+3. If present, the service's `StatelessService.OnOpenAsync()` method is called. This call is an uncommon override, but it is available. Extended service initialization tasks can be started at this time.
+
+Keep in mind that there is no ordering between the calls to create and open the listeners and **RunAsync**. The listeners can open before **RunAsync** is started. Similarly, you can invoke **RunAsync** before the communication listeners are open or even constructed. If any synchronization is required, it is left as an exercise to the implementer. Here are some common solutions:
+
+* Sometimes listeners can't function until some other information is created or work is done. For stateless services, that work can usually be done in other locations, such as the following:
+  * In the service's constructor.
+  * During the `CreateServiceInstanceListeners()` call.
+  * As a part of the construction of the listener itself.
+* Sometimes the code in **RunAsync** doesn't start until the listeners are open. In this case, additional coordination is necessary. One common solution is that there is a flag within the listeners that indicates when they have finished. This flag is then checked in **RunAsync** before continuing to actual work.
+
+#### Shutdown
+
+1. In parallel:
+   * Any open listeners are closed. `ICommunicationListener.CloseAsync()` is called on each listener.
+   * The cancellation token passed to `RunAsync()` is canceled. A check of the cancellation token's `IsCancellationRequested` property returns true, and if called, the token's `ThrowIfCancellationRequested` method throws an `OperationCanceledException`.
+2. After `CloseAsync()` finishes on each listener and `RunAsync()` also finishes, the service's `StatelessService.OnCloseAsync()` method is called, if present. OnCloseAsync is called when the stateless service instance is going to be gracefully shut down. This can occur when the service's code is being upgraded, the service instance is being moved due to load balancing, or a transient fault is detected. It is uncommon to override `StatelessService.OnCloseAsync()`, but it can be used to safely close resources, stop background processing, finish saving external state, or close down existing connections.
+3. After `StatelessService.OnCloseAsync()` finishes, the service object is destructed.
+
