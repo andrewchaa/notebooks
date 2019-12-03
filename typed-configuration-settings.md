@@ -142,6 +142,10 @@ private static readonly string EnvironmentName =
   Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
 ```
 
+### Typed Configuration for appsettings.json
+
+
+
 ## Controller
 
 ### Response types
