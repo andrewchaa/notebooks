@@ -1,8 +1,6 @@
 # Service Fabric
 
-## Reliable Service
-
-### lifecycle
+## lifecycle
 
 #### Startup
 
@@ -27,4 +25,37 @@ Keep in mind that there is no ordering between the calls to create and open the 
    * The cancellation token passed to `RunAsync()` is canceled. A check of the cancellation token's `IsCancellationRequested` property returns true, and if called, the token's `ThrowIfCancellationRequested` method throws an `OperationCanceledException`.
 2. After `CloseAsync()` finishes on each listener and `RunAsync()` also finishes, the service's `StatelessService.OnCloseAsync()` method is called, if present. OnCloseAsync is called when the stateless service instance is going to be gracefully shut down. This can occur when the service's code is being upgraded, the service instance is being moved due to load balancing, or a transient fault is detected. It is uncommon to override `StatelessService.OnCloseAsync()`, but it can be used to safely close resources, stop background processing, finish saving external state, or close down existing connections.
 3. After `StatelessService.OnCloseAsync()` finishes, the service object is destructed.
+
+## Errors
+
+### Global Error Handler
+
+It doesn't have built-in global error handler like ASP.NET Core, so make sure you wrap the top-level method call with try catch block and handle the error message for logging. Otherwise, you will have an app that crashes silently.
+
+```csharp
+protected override async Task RunAsync(CancellationToken cancellationToken)
+{
+    while (true)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        try
+        {
+            await _processor.Run();
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, $"{nameof(Worker)} has crashed.");
+            throw;
+        }
+
+        var interval = TimeSpan.Parse(_options.Interval);
+        _logger.LogInformation($"The execution is complete, now sleeping for {interval} ....");
+        
+        await Task.Delay(interval, cancellationToken);
+    }
+}
+```
+
+
 
