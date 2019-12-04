@@ -45,5 +45,34 @@ resource "azurerm_cosmosdb_sql_container" "cosmos-container" {
 }
 ```
 
+## Insert document
 
+#### Register Cosmos client
+
+```csharp
+Services.AddSingleton<ICosmosDbRepository>(s =>
+    {
+        var options = s.GetService<IOptions<CosmosDbOptions>>();
+        var client = new CosmosClient(options.Value.ConnectionString);
+        return new CosmosDbRepository(client, "clients", "eventsLog");
+    });
+```
+
+#### Upsert a document
+
+```csharp
+public async Task Insert(EventLog eventLog)
+{
+    var eventLogData = new 
+    {
+        id = eventLog.EventId,
+        eventLog.EntityId,
+        eventLog.DateTimeStamp,
+        eventLog.EventName,
+        eventLog.EventNameSequence,
+        eventLog.Event
+    };
+    await _container.UpsertItemAsync(eventLogData, new PartitionKey(eventLogData.ClientId.ToString()));
+}
+```
 
