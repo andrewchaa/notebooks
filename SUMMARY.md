@@ -49,3 +49,7 @@
 * [VS Code](tools/vs-code.md)
 * [Azure Data Studio](tools/azure-data-studio.md)
 
+## Others
+
+* [Share trading](others/share-trading.md)
+
