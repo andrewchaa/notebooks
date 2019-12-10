@@ -35,29 +35,35 @@ System Preference &gt; Accessibility &gt; Pointer Control &gt; Trackpad Options
 brew --verion
 ```
 
-#### iTerm2
-
-```bash
-brew cask install iterm2
-```
-
-Install darcular them: [https://draculatheme.com/iterm/](https://draculatheme.com/iterm/)
-
-#### Code
+### VS Code
 
 ```bash
 brew cask install visual-studio-code
 ```
 
+#### PATH
+
 Open shell command by pressing SHFT + CMD + P and "install 'code' command in PATH to open code from terminal. 
 
-#### Git
+#### Preferences &gt; Settings
+
+```bash
+{
+  "editor.tabSize": 2,
+  "editor.rulers": [80],
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "workbench.editor.enablePreview": false
+}
+```
+
+### Git
 
 ```bash
 brew install git
 ```
 
-.gitconfig
+#### .gitconfig
 
 ```bash
 [alias]
@@ -112,20 +118,6 @@ Thumbs.db
 
 ```bash
 git config --global core.excludesfile ~/.gitignore
-```
-
-#### VS Code
-
-Preferences &gt; Settings
-
-```bash
-{
-  "editor.tabSize": 2,
-  "editor.rulers": [80],
-  "files.insertFinalNewline": true,
-  "files.trimTrailingWhitespace": true,
-  "workbench.editor.enablePreview": false
-}
 ```
 
 Install Xcode
