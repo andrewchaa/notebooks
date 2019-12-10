@@ -37,9 +37,9 @@ brew --verion
 
 ### VS Code
 
-```bash
-brew cask install visual-studio-code
-```
+{% embed url="https://code.visualstudio.com/docs/?dv=osx" %}
+
+If it doesn't open on Mac Catalina, go to Security & Privacy and choose "Open Anyway"
 
 #### PATH
 
