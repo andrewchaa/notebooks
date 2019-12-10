@@ -35,6 +35,12 @@ System Preference &gt; Accessibility &gt; Pointer Control &gt; Trackpad Options
 brew --verion
 ```
 
+### Fira Code
+
+{% embed url="https://github.com/tonsky/FiraCode" %}
+
+
+
 ### VS Code
 
 {% embed url="https://code.visualstudio.com/docs/?dv=osx" %}
@@ -51,11 +57,17 @@ Open shell command by pressing SHFT + CMD + P and "install 'code' command in PAT
 {
   "editor.tabSize": 2,
   "editor.rulers": [80],
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "workbench.editor.enablePreview": false
 }
 ```
+
+#### Fira Code
+
+
 
 ### Git
 
