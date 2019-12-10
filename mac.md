@@ -8,6 +8,14 @@ description: Setting your new shiny Mac!
 
 * [https://github.com/nicolashery/mac-dev-setup](https://github.com/nicolashery/mac-dev-setup)
 
+## Adjustment
+
+### Three finger drag
+
+System Preference &gt; Accessibility &gt; Pointer Control &gt; Trackpad Options
+
+![](.gitbook/assets/image%20%2821%29.png)
+
 ## Apps
 
 ### Rectangle
