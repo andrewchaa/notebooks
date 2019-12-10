@@ -37,6 +37,8 @@ $ brew install zsh
 
 {% embed url="https://sourabhbajaj.com/mac-setup/iTerm/zsh.html" %}
 
+{% embed url="https://github.com/sorin-ionescu/prezto" %}
+
 
 
 ## Apps
