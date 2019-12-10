@@ -39,7 +39,7 @@ To submit to testflight, you need distribution profile
 3. Choose signing request file and continue
 4. Now the certificate is ready. download and install it by double-clicking it.
 
-![](.gitbook/assets/image%20%2820%29.png)
+![](.gitbook/assets/image%20%2821%29.png)
 
 #### Creating a Profile
 

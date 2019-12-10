@@ -29,7 +29,7 @@
 * [Kotlin](kotlin.md)
 * [lodash](lodash.md)
 * [moment.js](moment.js.md)
-* [Mac](mac.md)
+* [Mac Set-up](mac.md)
 * [Moq](moq.md)
 * [Postman](postman.md)
 * [Powershell](powershell.md)

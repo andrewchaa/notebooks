@@ -2,19 +2,26 @@
 description: Setting your new shiny Mac!
 ---
 
-# Mac
+# Mac Set-up
 
 ## Resource
 
 * [https://github.com/nicolashery/mac-dev-setup](https://github.com/nicolashery/mac-dev-setup)
 
-## Adjustment
+## System preferences
+
+In **Apple Icon &gt; System Preferences**:
+
+* Trackpad &gt; Tap to click
+* Keyboard &gt; Key Repeat &gt; Fast \(all the way to the right\)
+* Keyboard &gt; Delay Until Repeat &gt; Short \(all the way to the right\)
+* Dock &gt; Automatically hide and show the Dock
 
 ### Three finger drag
 
 System Preference &gt; Accessibility &gt; Pointer Control &gt; Trackpad Options
 
-![](.gitbook/assets/image%20%2821%29.png)
+![](.gitbook/assets/image%20%2822%29.png)
 
 ## Apps
 
@@ -204,7 +211,7 @@ Install Android Studio: [https://developer.android.com/studio](https://developer
 
 Set up Android Studio SDK
 
-![](.gitbook/assets/image%20%2814%29.png)
+![](.gitbook/assets/image%20%2815%29.png)
 
 Set Android Studio Environment Variables
 
