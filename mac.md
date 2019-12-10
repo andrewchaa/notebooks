@@ -10,18 +10,34 @@ description: Setting your new shiny Mac!
 
 ## System preferences
 
-In **Apple Icon &gt; System Preferences**:
+### Track Pad / Keyboard
 
 * Trackpad &gt; Tap to click
 * Keyboard &gt; Key Repeat &gt; Fast \(all the way to the right\)
 * Keyboard &gt; Delay Until Repeat &gt; Short \(all the way to the right\)
 * Dock &gt; Automatically hide and show the Dock
 
+### Change computer name
+
+1. Click on the **Apple** icon on the upper left corner of your **Mac** screen. ...
+2. In the System Preferences window, select the blue "Sharing" folder.
+3. In the "Sharing" window, simply click into the text box next to "Computer **Name**" at the top and enter your new computer **name**.
+
 ### Three finger drag
 
 System Preference &gt; Accessibility &gt; Pointer Control &gt; Trackpad Options
 
 ![](.gitbook/assets/image%20%2822%29.png)
+
+## zsh
+
+```text
+$ brew install zsh
+```
+
+{% embed url="https://sourabhbajaj.com/mac-setup/iTerm/zsh.html" %}
+
+
 
 ## Apps
 
@@ -38,8 +54,6 @@ brew --verion
 ### Fira Code
 
 {% embed url="https://github.com/tonsky/FiraCode" %}
-
-
 
 ### VS Code
 
@@ -64,10 +78,6 @@ Open shell command by pressing SHFT + CMD + P and "install 'code' command in PAT
   "workbench.editor.enablePreview": false
 }
 ```
-
-#### Fira Code
-
-
 
 ### Git
 
