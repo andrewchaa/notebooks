@@ -8,11 +8,13 @@ description: Setting your new shiny Mac!
 
 * [https://github.com/nicolashery/mac-dev-setup](https://github.com/nicolashery/mac-dev-setup)
 
-## Set up
+## Apps
 
-### Apps
+### Rectangle
 
-#### HomeBrew: [https://brew.sh/](https://brew.sh/)
+[https://rectangleapp.com/](https://rectangleapp.com/)
+
+### HomeBrew: [https://brew.sh/](https://brew.sh/)
 
 ```bash
 brew --verion
