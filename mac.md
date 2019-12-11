@@ -23,6 +23,14 @@ description: Setting your new shiny Mac!
 2. In the System Preferences window, select the blue "Sharing" folder.
 3. In the "Sharing" window, simply click into the text box next to "Computer **Name**" at the top and enter your new computer **name**.
 
+### Control Strip on Touch Bar
+
+1. Click on System Preferences in the drop down menu.
+2. Click on Keyboard.
+3. Click on the Keyboard tab.
+4. Click on Customize Control Strip.
+5. Drag Screen Lock to the bottom, so that you can lock the screen
+
 ### Three finger drag
 
 System Preference &gt; Accessibility &gt; Pointer Control &gt; Trackpad Options
