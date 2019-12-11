@@ -152,7 +152,11 @@ Thumbs.db
 git config --global core.excludesfile ~/.gitignore
 ```
 
-Install Xcode
+### Fork
+
+{% embed url="https://git-fork.com/" %}
+
+### Install Xcode
 
 Xcode: [https://apps.apple.com/us/app/xcode/id497799835?mt=12](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 
