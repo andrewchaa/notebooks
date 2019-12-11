@@ -53,6 +53,7 @@ $ brew install zsh
 
 * Rectangle: [https://rectangleapp.com/](https://rectangleapp.com/)
 * Fork: [https://git-fork.com/](https://git-fork.com/)
+* Notion: [https://www.notion.so/desktop](https://www.notion.so/desktop)
 
 ### HomeBrew: [https://brew.sh/](https://brew.sh/)
 
