@@ -51,9 +51,8 @@ $ brew install zsh
 
 ## Apps
 
-### Rectangle
-
-[https://rectangleapp.com/](https://rectangleapp.com/)
+* Rectangle: [https://rectangleapp.com/](https://rectangleapp.com/)
+* Fork: [https://git-fork.com/](https://git-fork.com/)
 
 ### HomeBrew: [https://brew.sh/](https://brew.sh/)
 
@@ -151,10 +150,6 @@ Thumbs.db
 ```bash
 git config --global core.excludesfile ~/.gitignore
 ```
-
-### Fork
-
-{% embed url="https://git-fork.com/" %}
 
 ### Install Xcode
 
