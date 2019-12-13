@@ -26,29 +26,35 @@ To submit to testflight, you need distribution profile
 
 > TestFlight apps submitted to iTunesConnect need to be signed with an App Store Distribution Profile. TestFlight no longer accepts apps submitted with an Ad Hoc profile.
 
-#### Certificate
+### Create a Certificate
 
-1. Star Creating certificate, selecting iOS Distribution on App Store and AdHoc
-2. Create a certificate signing request
-   1. Launch Keychain Access
-   2. Keychain Access &gt; Certificate Assistant &gt; Request a Certificate from a Certificate Authority.
-   3. Enter an email address in the User Email Address field.
-   4. In the Common Name field, enter a name for the key \(for example, Gita Kumar Dev Key\).
-   5. Leave the CA Email Address field empty
-   6. Choose “Saved to disk”, and click Continue.
-3. Choose signing request file and continue
-4. Now the certificate is ready. download and install it by double-clicking it.
+1. Start Creating certificate, selecting iOS Distribution on App Store and AdHoc
+2. Upload a Certificate Signing Request
+   1. Create a certificate signing request
+      1. Launch Keychain Access
+      2. Keychain Access &gt; Certificate Assistant &gt; Request a Certificate from a Certificate Authority.
+      3. Enter an email address in the User Email Address field.
+      4. In the Common Name field, enter a name for the key \(for example, Gita Kumar Dev Key\).
+      5. Leave the CA Email Address field empty
+      6. Choose “Saved to disk”, and click Continue.
+   2. Choose signing request file and continue
+3. Now the certificate is ready. 
+4. Download and install it by double-clicking it.
+5. Make sure to save a backup copy of your private and public keys somewhere secure
 
 ![](.gitbook/assets/image%20%2821%29.png)
 
-#### Creating a Profile
+### Creating a Profile
 
-1. Start and select Distribution for TestFlight distribution
-2. Select app id for distribution
-3. Generate a provisioning profile by selecting a certificate
-4. Download and install the profile
+1. Register a new provisioning Profile on AppConnect
+2. Distribution &gt; AppStore
+3. Click "Continue"
+4. Select an available AppId and Continue
+5. Select an available certificate and continue
+6. Enter Provisioning Profile Name and click "Generate"
+7. Download
 
-#### Downloading a profile
+### Downloading a profile
 
 When you lost the provisioning profile, you would need to download it again. 
 
