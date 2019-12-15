@@ -53,6 +53,7 @@ To submit to testflight, you need distribution profile
 5. Select an available certificate and continue
 6. Enter Provisioning Profile Name and click "Generate"
 7. Download
+8. Double click the following file to install your Provisioning Profile.
 
 ### Downloading a profile
 
