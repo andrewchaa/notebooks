@@ -1,5 +1,13 @@
 # javascript
 
+## Node
+
+#### Kill process to run npm
+
+```javascript
+pkill -f node
+```
+
 ## Types
 
 ### Array
