@@ -10,6 +10,7 @@ description: Jest is a delightful JavaScript Testing Framework with a focus on s
 
 ```text
 npm i -g jest
+npm i --save-dev jest
 ```
 
 ### Set up
