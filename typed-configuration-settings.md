@@ -144,6 +144,10 @@ private static readonly string EnvironmentName =
 
 ### Typed Configuration for appsettings.json
 
+### Dependency Injection
+
+
+
 ### Tips
 
 #### TimeSpan config
