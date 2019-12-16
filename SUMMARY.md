@@ -25,6 +25,7 @@
 * [Json.NET](json.net.md)
 * [javascript](javascript.md)
 * [Jekyll](jekyll.md)
+* [Jest](jest.md)
 * [Kibana](kibana.md)
 * [Kotlin](kotlin.md)
 * [lodash](lodash.md)

@@ -42,7 +42,7 @@ To submit to testflight, you need distribution profile
 4. Download and install it by double-clicking it.
 5. Make sure to save a backup copy of your private and public keys somewhere secure
 
-![](.gitbook/assets/image%20%2821%29.png)
+![](.gitbook/assets/image%20%2822%29.png)
 
 ### Creating a Profile
 

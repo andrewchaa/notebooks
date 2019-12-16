@@ -8,3 +8,8 @@
 * Buy and then place stop order at 3%
 * Buy 50-60 pounds worth of shares for each item
 
+## Learnings
+
+* 보통 오후가 되면 가격이 하락한다. 아침 일찍 사면 손해다.
+* 점심 먹고 난 후가 거래하기 좋은 듯. 영국장, 미국장 다 선다. 
+
