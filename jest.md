@@ -4,7 +4,15 @@ description: Jest is a delightful JavaScript Testing Framework with a focus on s
 
 # Jest
 
-## Set up
+## Getting started
+
+### Install CLI
+
+```text
+npm i -g jest
+```
+
+### Set up
 
 ```text
 // package.json
