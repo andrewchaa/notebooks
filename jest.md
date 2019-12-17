@@ -15,7 +15,7 @@ npm i --save-dev jest
 
 ### Set up
 
-```text
+```javascript
 // package.json
 "scripts": {
   "test": "jest"
