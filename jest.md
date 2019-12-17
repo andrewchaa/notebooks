@@ -6,11 +6,14 @@ description: Jest is a delightful JavaScript Testing Framework with a focus on s
 
 ## Getting started
 
-### Install CLI
+### CLI
 
 ```text
 npm i -g jest
 npm i --save-dev jest
+
+jest    // to run tests
+jest -u // to update snapshot
 ```
 
 ### Set up
