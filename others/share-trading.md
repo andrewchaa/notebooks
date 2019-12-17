@@ -14,3 +14,7 @@
 * 점심 먹고 난 후가 거래하기 좋은 듯. 영국장, 미국장 다 선다. 
 * Stop Sell은 1%가 적당하다. 큰 손해를 보지 않는다.
 
+## Theories
+
+* Don't sell rising one. Just adjust stops for more profit
+
