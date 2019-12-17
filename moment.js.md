@@ -1,17 +1,24 @@
 # moment.js
 
-#### Getting Started
+## Getting Started
 
 ```javascript
-// install
+// installation
 npm i moment
 
+// now
 moment() // now
-const day = moment('2019-08-23')
-const day = moment(1318781876406);
+
+// day
+let day = moment('2019-08-23')
+day = moment(1318781876406)
+day = moment('17/12/2019', 'DD/MM/YYYY')
+
+
 moment('20130208T080910') //Short date and time up to seconds
 
-moment().utc() // utc
+// utc
+moment().utc()
 ```
 
 ## Format
@@ -47,4 +54,13 @@ moment("12/25/1995", "MM-DD-YYYY");
   .add(7, 'year')
   .format('DD/MM/YYYY')}
 ```
+
+### Query
+
+```javascript
+moment().isAfter(Moment|String|Number|Date|Array);
+moment().isAfter(Moment|String|Number|Date|Array, String);
+```
+
+
 
