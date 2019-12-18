@@ -16,5 +16,6 @@
 
 ## Theories
 
-* Don't sell rising one. Just adjust stops for more profit
+* Don't sell rising one. Just adjust stops to be trailing for more future profit
+* Buy popular shares if they are in good momentum. It attract more people and is likely to maintain its momentum
 
