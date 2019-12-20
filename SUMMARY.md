@@ -28,6 +28,7 @@
 * [Jest](jest.md)
 * [Kibana](kibana.md)
 * [Kotlin](kotlin.md)
+* [Kubernetes](kubernetes.md)
 * [lodash](lodash.md)
 * [moment.js](moment.js.md)
 * [Mac Set-up](mac.md)
