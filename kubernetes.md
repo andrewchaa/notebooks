@@ -24,11 +24,13 @@ Select **Create a resource** &gt; **Containers** &gt; **Container Registry**.
 
 ![Creating a container registry in the Azure portal](https://docs.microsoft.com/en-us/azure/container-registry/media/container-registry-get-started-portal/qs-portal-01.png)
 
-Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. For this quickstart create a new resource group in the `West US` location named `myResourceGroup`, and for **SKU**, select 'Basic'. Select **Create** to deploy the ACR instance.
+Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. 
+
+In case of Registry name, make sure you put all in lowercase to avoid authentication issue when log in, due to case-sensitivity.
 
 ![Create container registry in the Azure portal](https://docs.microsoft.com/en-us/azure/container-registry/media/container-registry-get-started-portal/qs-portal-03.png)
 
-In this quickstart you create a _Basic_ registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry SKUs](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus).
+For details on available service tiers, see [Container registry SKUs](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus).
 
 When the **Deployment succeeded** message appears, select the container registry in the portal.
 
@@ -59,6 +61,7 @@ Before you can push an image to your registry, you must tag it with the fully qu
 Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace `<acrLoginServer>` with the login server name of your ACR instance.Copy
 
 ```text
+docker image ls -a
 docker tag hello-world <acrLoginServer>/hello-world:v1
 ```
 
@@ -104,9 +107,5 @@ This message shows that your installation appears to be working correctly.
 [...]
 ```
 
-### Clean up resources <a id="clean-up-resources"></a>
 
-To clean up your resources, navigate to the **myResourceGroup** resource group in the portal. Once the resource group is loaded click on **Delete resource group** to remove the resource group, the container registry, and the container images stored there.
-
-![Delete resource group in the Azure portal](https://docs.microsoft.com/en-us/azure/container-registry/media/container-registry-get-started-portal/qs-portal-08.png)
 
