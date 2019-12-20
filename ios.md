@@ -173,7 +173,7 @@ xcrun simctl list devices
 react-native run-ios --simulator="iPhone 11 Pro" 
 ```
 
-
+Make sure you copy the simulator name and paste it as simulator name. 
 
 ## Troubleshooting
 
