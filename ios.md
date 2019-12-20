@@ -123,7 +123,39 @@ When you lost the provisioning profile, you would need to download it again.
 * Click on AppIcon
 * Add icons
 
-## Troubleshooting
+### Upload screenshots
+
+Use simulator and take screenshots. Once the screenshot is taken, adjust the image size according to this spec. \([https://help.apple.com/app-store-connect/\#/devd274dd925](https://help.apple.com/app-store-connect/#/devd274dd925)\)
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">6.5 inch (iPhone 11 Pro Max, iPhone 11, iPhone XS Max, iPhone XR)</th>
+      <th
+      style="text-align:left">
+        <p>1242 x 2688 pixels (portrait)</p>
+        <p>2688 x 1242 pixels (landscape)</p>
+        </th>
+        <th style="text-align:left">Required if app runs on iPhone</th>
+        <th style="text-align:left">Upload 6.5-inch screenshots</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">5.8 inch (iPhone 11 Pro, iPhone X, iPhone XS)</td>
+      <td style="text-align:left">
+        <p>1125 x 2436 pixels (portrait)</p>
+        <p>2436 x 1125 pixels (landscape)</p>
+      </td>
+      <td style="text-align:left">Required if app runs on iPhone and 6.5 inch screenshots are not provided</td>
+      <td
+      style="text-align:left">
+        <p>Default: scaled 6.5-inch screenshots</p>
+        <p>Alternative: upload 5.8-inch screenshots</p>
+        </td>
+    </tr>
+  </tbody>
+</table>## Troubleshooting
 
 #### Installing additional require components
 
