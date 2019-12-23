@@ -442,6 +442,25 @@ if (usePhoto) {
   yield put(setSnapPreview(false))
   yield NavigationService.navigate({ routeName: 'Snap' })
 }
+```
 
+You can use promise directly
+
+```javascript
+try {
+  yield API.post(registrationApiName, registrationPath, { body: body })
+} catch (error) {
+  yield new Promise((resolve, reject) => {
+    Alert.alert(
+      'Error',
+      error.response.data.error, 
+      [ {text: 'Ok', onPress: () => resolve(true)} ],
+      { cancelable: false }
+    )
+  })
+
+  yield put(addToListFail())
+  return;
+}
 ```
 

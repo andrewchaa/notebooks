@@ -145,6 +145,8 @@ amplify function invoke installersLambda
 
 Then call the api http://localhost:3000/registrations
 
+* x-amz-user-agent: aws-amplify/2.2.0 react-native
+* 
 ## Storage
 
 #### Add storage
