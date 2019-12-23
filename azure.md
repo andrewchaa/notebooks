@@ -68,36 +68,5 @@ resource "azurerm_template_deployment" "cust_api" {
 5. Click on "Download in PFX/PEM format
 6. Install it locally by double-clicking it
 
-## Subscriptions
 
-### Tenants, users, and subscriptions <a id="tenants-users-and-subscriptions"></a>
-
-You might have some confusion over the difference between tenants, users, and subscriptions within Azure. 
-
-* Tenant: the Azure Active Directory entity that encompasses a whole organization. This tenant has at least one _subscription_ and _user_. 
-* User: an individual and is associated with only one tenant, the organization that they belong to. Users are those accounts that sign in to Azure to create, manage, and use resources. A user may have access to multiple _subscriptions_, which are the agreements with Microsoft to use cloud services, including Azure. Every resource is associated with a subscription.
-
-### Change the active subscription <a id="change-the-active-subscription"></a>
-
-To access the resources for a subscription, switch your active subscription or use the `--subscription` argument. Switching your subscription for all commands is done with [az account set](https://docs.microsoft.com/en-us/cli/azure/account#az-account-set).
-
-To switch your active subscription:
-
-1. Get a list of your subscriptions with the [az account list](https://docs.microsoft.com/en-us/cli/azure/account#az-account-list) command
-
-   ```text
-   az account list --output table
-   ```
-
-2. Use `az account set` with the subscription ID or name you want to switch to
-
-   ```text
-   az account set --subscription "My Demos"
-   ```
-
-To run only a single command with a different subscription, use the `--subscription` argument. This argument takes either a subscription ID or subscription name:Azure CLICopyTry It
-
-```text
-az vm create --subscription "My Demos" --resource-group MyGroup --name NewVM --image Ubuntu
-```
 
