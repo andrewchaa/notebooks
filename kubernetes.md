@@ -141,11 +141,6 @@ Integrate an existing ACR with existing AKS clusters by supplying valid values f
 
 ```text
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
-```
-
-or,Copy
-
-```text
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
 
@@ -153,11 +148,6 @@ You can also remove the integration between an ACR and an AKS cluster with the f
 
 ```text
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
-```
-
-orCopy
-
-```text
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 ```
 
@@ -173,9 +163,9 @@ az acr import  -n <myContainerRegistry> --source docker.io/library/nginx:latest 
 
 #### Deploy the sample image from ACR to AKS <a id="deploy-the-sample-image-from-acr-to-aks"></a>
 
-Ensure you have the proper AKS credentialsAzure CLICopy
+Ensure you have the proper AKS credentials
 
-```text
+```bash
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
