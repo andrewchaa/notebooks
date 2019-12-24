@@ -207,7 +207,7 @@ You can monitor the deployment by running:Copy
 kubectl get pods
 ```
 
-You should have two running pods.Copy
+You should have two running pods.
 
 ```text
 NAME                                 READY   STATUS    RESTARTS   AGE
