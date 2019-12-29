@@ -11,7 +11,8 @@ description: >-
 #### Install amplify
 
 ```bash
-npm install -g @aws-amplify/cliamplify configure
+npm install -g @aws-amplify/cli
+amplify configure
 ```
 
 ## React
