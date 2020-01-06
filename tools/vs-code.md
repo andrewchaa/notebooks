@@ -27,12 +27,24 @@
 "editor.detectIndentation": false
 ```
 
-### Extensions to install
+### Extensions
 
 **JavaScript**
 
 * Live Server
 * Bracket Pair Colorizer
+
+#### Prettier
+
+```javascript
+// prettier.config.js
+module.exports = {
+  trailingComma: "es5",
+  tabWidth: 4,
+  semi: false,
+  singleQuote: true
+};
+```
 
 ## Keyboard Shortcuts
 
