@@ -1,6 +1,10 @@
 # Table of contents
 
-* [Resources](README.md)
+* [Coding in the wild](README.md)
+
+## Resources
+
+* [Tutorials](resources/tutorials.md)
 * [ASP.NET Core](typed-configuration-settings.md)
 * [AWS](aws.md)
 * [AWS Amplify](aws-amplify.md)

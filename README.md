@@ -4,7 +4,7 @@ description: >-
   legacy chokes your neck ...
 ---
 
-# Resources
+# Coding in the wild
 
 | Title | Description | Tags |
 | :--- | :--- | :--- |
