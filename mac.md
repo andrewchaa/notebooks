@@ -35,7 +35,7 @@ description: Setting your new shiny Mac!
 
 System Preference &gt; Accessibility &gt; Pointer Control &gt; Trackpad Options
 
-![](.gitbook/assets/image%20%2823%29.png)
+![](.gitbook/assets/image%20%2824%29.png)
 
 ## zsh
 
@@ -91,7 +91,7 @@ Open shell command by pressing SHFT + CMD + P and "install 'code' command in PAT
 
 #### Show function keys on touchbar
 
-![](.gitbook/assets/image%20%2817%29.png)
+![](.gitbook/assets/image%20%2818%29.png)
 
 ### Git
 
@@ -239,7 +239,7 @@ Install Android Studio: [https://developer.android.com/studio](https://developer
 
 Set up Android Studio SDK
 
-![](.gitbook/assets/image%20%2815%29.png)
+![](.gitbook/assets/image%20%2816%29.png)
 
 Set Android Studio Environment Variables
 

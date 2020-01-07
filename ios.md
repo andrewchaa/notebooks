@@ -42,7 +42,7 @@ To submit to testflight, you need distribution profile
 4. Download and install it by double-clicking it.
 5. Make sure to save a backup copy of your private and public keys somewhere secure
 
-![](.gitbook/assets/image%20%2822%29.png)
+![](.gitbook/assets/image%20%2823%29.png)
 
 ### Creating a Profile
 
@@ -115,13 +115,69 @@ When you lost the provisioning profile, you would need to download it again.
 5. Leave the CA Email Address field empty.
 6. Choose “Saved to disk”, and click Continue.
 
-![](.gitbook/assets/image%20%288%29.png)
+![](.gitbook/assets/image%20%289%29.png)
 
-## Set iOS App Icon for App Store Publish
+### Set iOS App Icon for App Store Publish
 
 * Select Images.xcassets
 * Click on AppIcon
 * Add icons
+
+### Upload screenshots
+
+Use simulator and take screenshots. Once the screenshot is taken, adjust the image size according to this spec. \([https://help.apple.com/app-store-connect/\#/devd274dd925](https://help.apple.com/app-store-connect/#/devd274dd925)\)
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">6.5 inch (iPhone 11 Pro Max, iPhone 11, iPhone XS Max, iPhone XR)</th>
+      <th
+      style="text-align:left">
+        <p>1242 x 2688 pixels (portrait)</p>
+        <p>2688 x 1242 pixels (landscape)</p>
+        </th>
+        <th style="text-align:left">Required if app runs on iPhone</th>
+        <th style="text-align:left">Upload 6.5-inch screenshots</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">5.8 inch (iPhone 11 Pro, iPhone X, iPhone XS)</td>
+      <td style="text-align:left">
+        <p>1125 x 2436 pixels (portrait)</p>
+        <p>2436 x 1125 pixels (landscape)</p>
+      </td>
+      <td style="text-align:left">Required if app runs on iPhone and 6.5 inch screenshots are not provided</td>
+      <td
+      style="text-align:left">
+        <p>Default: scaled 6.5-inch screenshots</p>
+        <p>Alternative: upload 5.8-inch screenshots</p>
+        </td>
+    </tr>
+  </tbody>
+</table>## Release on App Store
+
+* Do not use transparent png. It's blocked. Use JPEG instead
+
+## Simulators
+
+To list available simulators
+
+```markup
+xcrun simctl list devices
+
+== Devices ==
+-- iOS 13.3 --
+    iPhone 8 (AB6ACAAA-32DC-480C-BE38-0ECE6F936F5D) (Shutdown) 
+    iPhone 8 Plus (6815DC29-7FBC-451A-B778-0426566DF706) (Shutdown) 
+    iPhone 11 (CE403319-298C-405B-BD18-073760E94EE8) (Shutdown) 
+    iPhone 11 Pro (24DACD28-2194-4B87-A67F-CA6FCF7449A6) (Shutdown) 
+    iPhone 11 Pro Max (B4C90D87-362E-4A2E-904C-DE1ED6F93025) (Shutdown) 
+    
+react-native run-ios --simulator="iPhone 11 Pro" 
+```
+
+Make sure you copy the simulator name and paste it as simulator name. 
 
 ## Troubleshooting
 
