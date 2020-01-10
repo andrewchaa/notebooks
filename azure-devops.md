@@ -72,3 +72,26 @@ steps:
 * Short-circuits after first match
 * Example: `notIn('D', 'A', 'B', 'C')` \(returns True\)
 
+### Manage the names for new releases
+
+The names of releases for a release pipeline are, by default, sequentially numbered. The first release is named **Release-1**, the next release is **Release-2**, and so on. You can change this naming scheme by editing the release name format mask. In the **Options** tab of a release pipeline, edit the **Release name format** property in the **General** page.
+
+When specifying the format mask, you can use the following pre-defined variables.
+
+| Variable | Description |
+| :--- | :--- |
+| **Rev:rr** | An auto-incremented number with at least the specified number of digits. |
+| **Date / Date:MMddyy** | The current date, with the default format **MMddyy**. Any combinations of M/MM/MMM/MMMM, d/dd/ddd/dddd, y/yy/yyyy/yyyy, h/hh/H/HH, m/mm, s/ss are supported. |
+| **System.TeamProject** | The name of the project to which this build belongs. |
+| **Release.ReleaseId** | The ID of the release, which is unique across all releases in the project. |
+| **Release.DefinitionName** | The name of the release pipeline to which the current release belongs. |
+| **Build.BuildNumber** | The number of the build contained in the release. If a release has multiple builds, this is the number of the [primary build](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/artifacts?view=azure-devops#primary-source). |
+| **Build.DefinitionName** | The pipeline name of the build contained in the release. If a release has multiple builds, this is the pipeline name of the [primary build](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/artifacts?view=azure-devops#primary-source). |
+| **Artifact.ArtifactType** | The type of the artifact source linked with the release. For example, this can be **Azure Pipelines** or **Jenkins**. |
+| **Build.SourceBranch** | The branch of the [primary artifact source](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/artifacts?view=azure-devops#primary-source). For Git, this is of the form **master** if the branch is **refs/heads/master**. For Team Foundation Version Control, this is of the form **branch** if the root server path for the workspace is **$/teamproject/branch**. This variable is not set for Jenkins or other artifact sources. |
+| _Custom variable_ | The value of a global configuration property defined in the release pipeline. |
+
+For example, the release name format `Release $(Rev:rrr) for build $(Build.BuildNumber) $(Build.DefinitionName)` will create releases with names such as **Release 002 for build 20170213.2 MySampleAppBuild**.
+
+
+
