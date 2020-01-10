@@ -1,5 +1,9 @@
 # Azure DevOps
 
+## Resources
+
+* [https://docs.microsoft.com/en-us/azure/devops/pipelines/release/index?view=azure-devops](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/index?view=azure-devops)
+
 ## Creating a pipeline for ASP.NET Core Web App
 
 #### azure-pipelines.yml
