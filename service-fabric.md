@@ -57,46 +57,5 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-## Tips
 
-### Using appsettings.json on .NET project
-
-#### Install dependencies
-
-```csharp
-Microsoft.Extensions.Configuration.EnvironmentVariables
-Microsoft.Extensions.Configuration.Json
-microsoft.extensions.dependencyinjection
-```
-
-#### Create Options class to hold configuration variable
-
-```csharp
-public class TestOptions
-{
-    public string ConnectionString {  get; set; }
-}
-```
-
-#### Wire-up IServiceCollection
-
-```csharp
-private static readonly IServiceCollection Services = new ServiceCollection();
-public static IServiceProvider Build() {
-
-  var configBuilder = new ConfigurationBuilder();
-  
-  configBuilder.AddEnvironmentVariables("ASPNETCORE_");
-  configBuilder.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-  configBuilder.AddEnvironmentVariables("Customers:");
-  configBuilder.AddJsonFile($"appsettings.{environment}.json", true);
-  
-  Services.Configure<WorkerOptions>(config.GetSection("Worker"))
-  
-  var serviceBusSettings = 
-    services.GetRequiredService<IOptions<ServiceBusOptions>>().Value;
-    
-  return Services.BuildServiceProvider();  
-}
-```
 

@@ -73,7 +73,21 @@ it('renders the component correctly', () => {
 }
 ```
 
-#### mocking
+## Mocking
+
+#### Verify if it's called
+
+```javascript
+jest.mock('aws-amplify')
+import { Auth } from 'aws-amplify'
+
+it('should sign out the user if a user clicks SignOut', () => {
+  wrapper.find('[data-action="signOut"]').simulate('click')
+  expect(Auth.signOut).toHaveBeenCalledTimes(1)
+})
+```
+
+### Mock return value
 
 ```javascript
 jest.mock('react-native-device-info', () => {
