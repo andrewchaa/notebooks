@@ -108,10 +108,19 @@ For React and React Native apps, the simplest way to add authentication flows in
 import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';import Amplify from 'aws-amplify';// Get the aws resources configuration parametersimport awsconfig from './aws-exports'; // if you are using Amplify CLIAmplify.configure(awsconfig);// ...export default withAuthenticator(App);
 ```
 
-#### Get UserId
+### User details
+
+#### UserId
 
 ```javascript
-const user = yield Auth.currentAuthenticatedUser()const { attributes: { sub }} = user
+const user = yield Auth.currentAuthenticatedUser()
+const { attributes: { sub }} = user
+```
+
+#### User Group
+
+```javascript
+user.signInUserSession.accessToken.payload["cognito:groups"]
 ```
 
 ## RESTful API
