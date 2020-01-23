@@ -91,7 +91,7 @@ public static IServiceProvider Build() {
   configBuilder.AddEnvironmentVariables("Customers:");
   configBuilder.AddJsonFile($"appsettings.{environment}.json", true);
 
-    var config = configBuilder.Build();
+  var config = configBuilder.Build();
   Services.Configure<WorkerOptions>(config.GetSection("Worker"))
   
   var serviceBusSettings = 
