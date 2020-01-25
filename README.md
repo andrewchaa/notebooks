@@ -16,6 +16,7 @@ description: >-
 | [fastlane](https://fastlane.tools/) | The easiest way to build and release mobile apps | mobile, build |
 | [graphviz-react](https://github.com/DomParfitt/graphviz-react) | React component for displaying Graphviz graphs | javascript, react, graphviz |
 | [immer](https://github.com/immerjs/immer) | Create the next immutable state by mutating the current one | javascript, react |
+| [material](https://github.com/Daemonite/material) | Material Design for Bootstrap 4 [http://daemonite.github.io/material/](http://daemonite.github.io/material/) | bootstrap, template |
 | [react navigation](https://reactnavigation.org/en/) | Routing and navigation for your React Native apps | react, react native |
 | [react-native-circular-progress](https://github.com/bartgryszko/react-native-circular-progress) | React Native component for creating animated, circular progress with ReactART | react |
 | [react native debugger](https://github.com/jhen0409/react-native-debugger) | The standalone app based on official debugger of React Native, and includes React Inspector / Redux DevTools | react native |
