@@ -57,7 +57,7 @@ navien-backoffice-dev-artifacts
 
 ## CLI
 
-#### Installation
+### Installation
 
 ```bash
 # update pip
@@ -65,7 +65,20 @@ curl https://bootstrap.pypa.io/get-pip.py | python3
 
 # install awscli
 pip install awscli
+
+# configure
+aws configure
 ```
+
+### Cognito
+
+```bash
+aws cognito-idp list-users --user-pool-id eu-west-1_xxxxx --filter "sub=\"c41d95e9-65bf-4d3b-9c08-xxxxxxxxx\""
+```
+
+
+
+
 
 
 
