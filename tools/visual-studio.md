@@ -8,3 +8,11 @@
 * show error list: ctrl \, e
 * show solution explorer: shft + alt + l
 
+## Editor Config
+
+### Disable ConfigureAwait\(false\) warning
+
+```text
+dotnet_diagnostic.CA2007.severity = silent
+```
+
