@@ -1,4 +1,8 @@
-# Bash
+# bash / zsh
+
+## Shortcuts
+
+* ctrl + u: clear the entire line
 
 ## File System
 

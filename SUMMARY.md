@@ -10,7 +10,7 @@
 * [AWS Amplify](aws-amplify.md)
 * [Azure](azure.md)
 * [Azure DevOps](azure-devops.md)
-* [Bash](bash-2.md)
+* [bash / zsh](bash-2.md)
 * [C\#](c.md)
 * [Cocoapods](cocoapods.md)
 * [Cosmos Database](cosmos-database.md)
