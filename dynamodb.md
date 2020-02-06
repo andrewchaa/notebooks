@@ -1,11 +1,15 @@
 # dynamodb
 
-## Queries
+## Scan
 
-### Scan
+* TableName: table name
+* IndexName: index name. Use GSI for sorting purpose
 
 ```text
-let params = { TableName: registrationsTable }
+let params = {
+  TableName: registrationsTable,
+  IndexName: 'warrantyYear-index'
+}
 
 dynamodb.scan(params, (err, data) => {
   if (err) {
