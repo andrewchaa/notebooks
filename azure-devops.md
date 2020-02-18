@@ -65,6 +65,11 @@ steps:
 
 ## Release Pipeline
 
+### Variables
+
+* Relese.EnvironmentName
+* Release.Environments.{stage-name}.status
+
 ### Conditions
 
 #### notIn
@@ -75,6 +80,7 @@ steps:
 * Ordinal ignore-case comparison for Strings
 * Short-circuits after first match
 * Example: `notIn('D', 'A', 'B', 'C')` \(returns True\)
+* and\(succeeded\(\), notIn\(variables\['Release.EnvironmentName'\], 'blue', 'green'\)\)
 
 ### Manage the names for new releases
 
