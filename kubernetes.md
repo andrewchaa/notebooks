@@ -215,3 +215,49 @@ nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
 nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
 
+## Helm
+
+### Resources
+
+* helm chart: [https://github.com/helm/charts/tree/master/stable/sonatype-nexus](https://github.com/helm/charts/tree/master/stable/sonatype-nexus) 
+* kubernetes service: [https://kubernetes.io/docs/concepts/services-networking/service/](https://kubernetes.io/docs/concepts/services-networking/service/) 
+* router: [https://docs.traefik.io/](https://docs.traefik.io/) 
+* kube browse: [http://127.0.0.1:8001/](http://127.0.0.1:8001/) 
+* permission to system service account: kubectl create clusterrolebinding kubernetes-dashboard -n kube-system --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 
+* installing helm: choco install kubernetes-helm
+
+#### Load Balancer 
+
+* public load balancer: provide outbound connections for virtual machines \(VMs\) inside your virtual network 
+* internal \(private\) load balancer: where private IPs are needed at the frontend only
+
+```bash
+# browse dashboard 
+az aks browse --resource-group experimental --name clearbank-packagemanager
+
+# to get the current context and delete the old context 
+kubectl config current-context 
+kubectl config delete-context myAKSCluster 
+az aks show --resource-group experimental --name clearbank-packagemanager
+
+# to create the context 
+az aks get-credentials --name clearbank-packagemanager --resource-group experimental
+
+# to give permission to dashboard role 
+kubectl create clusterrolebinding kubernetes-dashboard -n kube-system --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+
+# installing nexus 
+helm repo list
+helm search repo stable
+
+# To install sonatype-nexus 
+helm install stable/sonatype-nexus --generate-name 
+helm install -f .\sonatype-values.yaml stable/sonatype-nexus --generate-name 
+helm upgrade sonatype-nexus-1582554190 -f .\sonatype-values.yaml stable/sonatype-nexus
+
+# to list 
+helm list
+```
+
+
+
