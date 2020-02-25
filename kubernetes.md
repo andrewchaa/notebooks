@@ -255,6 +255,8 @@ helm install stable/sonatype-nexus --generate-name
 helm install -f .\sonatype-values.yaml stable/sonatype-nexus --generate-name 
 helm upgrade sonatype-nexus-1582554190 -f .\sonatype-values.yaml stable/sonatype-nexus
 
+helm upgrade sonatype-nexus-1582642012 stable/sonatype-nexus -f .\sonatype-values.yaml
+
 # to list 
 helm list
 ```
