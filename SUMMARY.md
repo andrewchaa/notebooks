@@ -27,6 +27,7 @@
 * [Homebrew](homebrew.md)
 * [HTML](html.md)
 * [iOS](ios.md)
+* [git](git.md)
 * [Json.NET](json.net.md)
 * [javascript](javascript.md)
 * [Jekyll](jekyll.md)

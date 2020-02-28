@@ -4,6 +4,27 @@
 
 ## Commands
 
+```bash
+# list all containers
+docker container ls -a
+
+# list running container
+docker ps
+
+# stop docker container
+docker container stop 05c1acbd2102
+
+# remove container
+docker container rm 05c1acbd2102
+
+# check log
+docker logs -f nexus
+```
+
+
+
+#### 
+
 #### docker-compose
 
 Automate building container images and the deployment of multi-container applications
