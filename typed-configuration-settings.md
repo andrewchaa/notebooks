@@ -1,10 +1,14 @@
 # ASP.NET Core
 
-## Command Line
-
-#### Run app with file watch
+## CLI
 
 ```bash
+# create test project
+mkdir EventStormingSample.Test
+cd EventStormingSample.Test
+dotnet new nunit
+
+# run app and watch file change
 dotnet watch run
 ```
 
