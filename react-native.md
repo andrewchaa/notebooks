@@ -26,7 +26,7 @@ npm install -g expo-cli
 
 Command Line Tools
 
-![](.gitbook/assets/image%20%2826%29.png)
+![](.gitbook/assets/image%20%2829%29.png)
 
 ### Creating and running a new application
 
@@ -44,7 +44,7 @@ cd AwesomeProject
 npm start
 ```
 
-![](.gitbook/assets/image%20%2812%29.png)
+![](.gitbook/assets/image%20%2814%29.png)
 
 
 
@@ -58,7 +58,7 @@ Use `flex` in a component's style to have the component expand and shrink dynami
 
 
 
-![](.gitbook/assets/image%20%2810%29.png)
+![](.gitbook/assets/image%20%2812%29.png)
 
 ```javascript
 import React, { Component } from 'react';
@@ -297,7 +297,7 @@ use [https://github.com/APSL/react-native-keyboard-aware-scroll-view](https://gi
 
 Use "Pause On Caught Exceptions" on Source tab
 
-![](.gitbook/assets/image%20%2820%29.png)
+![](.gitbook/assets/image%20%2823%29.png)
 
 ### On VS Code
 

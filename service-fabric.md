@@ -101,3 +101,16 @@ public static IServiceProvider Build() {
 }
 ```
 
+### RDP into a virtual machine scale set instance or a cluster node
+
+* Go to Resource Group of a SF cluster
+* Find Load Balancer
+* Inbound NAT rules
+* RDP into the destination IP: Port
+
+![](.gitbook/assets/image%20%283%29.png)
+
+![](.gitbook/assets/image.png)
+
+
+

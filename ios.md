@@ -20,7 +20,7 @@ If you don't have any user, add testers on [Users and Access](https://appstoreco
 
 > A provisioning profile is a collection of digital entities that uniquely ties developers and devices to an authorised iPhone Development Team and enables a device to be used for testing
 
-![](.gitbook/assets/image%20%283%29.png)
+![](.gitbook/assets/image%20%285%29.png)
 
 To submit to testflight, you need distribution profile
 
@@ -42,7 +42,7 @@ To submit to testflight, you need distribution profile
 4. Download and install it by double-clicking it.
 5. Make sure to save a backup copy of your private and public keys somewhere secure
 
-![](.gitbook/assets/image%20%2824%29.png)
+![](.gitbook/assets/image%20%2827%29.png)
 
 ### Creating a Profile
 
@@ -115,7 +115,7 @@ When you lost the provisioning profile, you would need to download it again.
 5. Leave the CA Email Address field empty.
 6. Choose “Saved to disk”, and click Continue.
 
-![](.gitbook/assets/image%20%289%29.png)
+![](.gitbook/assets/image%20%2811%29.png)
 
 ### Set iOS App Icon for App Store Publish
 
@@ -187,5 +187,5 @@ Required for react native build
 
 Go to Preferences &gt; Component
 
-![](.gitbook/assets/image%20%282%29.png)
+![](.gitbook/assets/image%20%284%29.png)
 
