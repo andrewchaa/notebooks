@@ -114,3 +114,16 @@ az account set --subscription "team-xxxxxxx"
 terraform plan
 ```
 
+## Errors
+
+features error
+
+```bash
+provider "azurerm" {
+  version         = ">= 2.0"
+  features {}
+}
+```
+
+
+
