@@ -85,3 +85,13 @@ git branch -a
 git checkout origin/address-issue --track
 ```
 
+## Rolling back changes
+
+```bash
+# remove a file from cache / commit / index
+
+git rm --cached .\terraform\.terraform\plugins\windows_amd64\lock.json
+```
+
+
+
