@@ -99,5 +99,18 @@ resource "azurerm_cosmosdb_sql_container" "cosmos-container" {
 }
 ```
 
+## Running it locally
 
+```bash
+# list all the subscriptions
+az account list --output table
+
+# set the current subscription
+az account set --subscription "team-xxxxxxx"
+
+# comment out backend.tf
+
+# plan
+terraform plan
+```
 
