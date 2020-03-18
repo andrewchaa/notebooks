@@ -148,9 +148,50 @@ private static readonly string EnvironmentName =
 
 ### Typed Configuration for appsettings.json
 
-### Dependency Injection
+### Build Dependencies
 
+```csharp
+public class ServiceRegistrations
+{
+    private static readonly IServiceCollection Services = new ServiceCollection();
 
+    public static IServiceProvider Build()
+    {
+        var configBuilder = new ConfigurationBuilder();
+
+        configBuilder.AddEnvironmentVariables("ASPNETCORE_");
+        configBuilder.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+        configBuilder.AddEnvironmentVariables("FpsMetadata:");
+#if DEBUG
+        configBuilder.AddJsonFile($"appsettings.Development.json", true);
+#endif
+        var config = configBuilder.Build();
+
+        Services.AddLogging(config);
+        Services.Configure<CosmosDbOptions>(config.GetSection("CosmosDb"))
+            .Configure<ServiceBusOptions>(config.GetSection("ServiceBus"))
+            .Configure<ElasticLoggingOptions>(config.GetSection("ElasticLogging"))
+            ;
+
+        Services.AddTransient<IEnumerable<IHealthCheck>>(sp =>
+        {
+            var serviceBusSettings = sp.GetRequiredService<IOptions<ServiceBusOptions>>().Value;
+            return new List<IHealthCheck>
+            {
+                new AzureServiceBusTopicHealthCheck(serviceBusSettings.ConnectionString, EventNames.FpsAcknowledgementSentEvent)
+            };
+        });
+
+        Services.AddTransient<IAppHealthCheck, AppHealthCheck>()
+            .AddTransient<ITopicClientFactory, ServiceBusTopicClientFactory>()
+            ;
+
+        Services.AddMediatR(typeof(EventListenersServiceRegistrations).Assembly);
+
+        return Services.BuildServiceProvider();
+    }
+}
+```
 
 ### Tips
 
