@@ -112,5 +112,7 @@ public static IServiceProvider Build() {
 
 ![](.gitbook/assets/image.png)
 
+### The target "Package" does not exist in the project on Azure Devops
 
+The culprit was the path to the package. I've manually changed the location of project file. It was referencing the package folder ../ It should have been ../../packages Update sfproj manually in VS Code
 
