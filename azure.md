@@ -54,6 +54,35 @@ resource "azurerm_template_deployment" "cust_api" {
 },
 ```
 
+## Service Bus
+
+### Subscribe to topic message
+
+```csharp
+var managementClient = new ManagementClient(_serviceBusOptions.ConnectionString);
+var subscriptionExists = await managementClient.SubscriptionExistsAsync(
+    EventNames.AckSentEvent,
+    SubscriptionName);
+if (!subscriptionExists)
+{
+    await managementClient.CreateSubscriptionAsync(new SubscriptionDescription(
+        EventNames.FpsAcknowledgementSentEvent,
+        SubscriptionName));
+}
+
+var subscriptionClient = new SubscriptionClient(_serviceBusOptions.ConnectionString,
+    EventNames.FpsAcknowledgementSentEvent, 
+    SubscriptionName);
+var handler = new AckSentEventMessageHandler(subscriptionClient, _mediator, _logger);
+subscriptionClient.RegisterMessageHandler(handler.MessageHandler,
+    new MessageHandlerOptions(ExceptionReceivedHandler)
+    {
+        MaxConcurrentCalls = 15,
+        AutoComplete = false
+    });
+
+```
+
 ## Service Fabric
 
 #### Installing client admin certificate to connect to cluster manager
