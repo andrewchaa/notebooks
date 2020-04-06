@@ -80,7 +80,25 @@ subscriptionClient.RegisterMessageHandler(handler.MessageHandler,
         MaxConcurrentCalls = 15,
         AutoComplete = false
     });
+```
 
+### Compatibility between Brokered message and .NET core message
+
+```csharp
+try
+{
+    var serializer = DataContractBinarySerializer<AckSentEvent>.Instance;
+    using (var stream = new MemoryStream(messageBody))
+    {
+        return (AckSentEvent)serializer.ReadObject(stream);
+    }
+}
+catch (Exception e)
+{
+    _logger.LogWarning(e,"Cannot serialize with DataContractBinarySerializer");
+    var message = Encoding.UTF8.GetString(messageBody);
+    return JsonConvert.DeserializeObject<AckSentEvent>(message);
+}
 ```
 
 ## Service Fabric
