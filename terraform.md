@@ -48,7 +48,9 @@ DEPLOY
 }
 ```
 
-#### CosmosDB
+## Creating Resources
+
+### CosmosDB
 
 1. Create account
 2. Create sql database
@@ -96,6 +98,21 @@ resource "azurerm_cosmosdb_sql_container" "cosmos-container" {
   account_name        = "${azurerm_cosmosdb_account.cosmos-account.name}"
   database_name       = "${azurerm_cosmosdb_sql_database.cosmos-database.name}"
   partition_key_path  = "/Id"
+}
+```
+
+## Variables
+
+### Output Values
+
+```text
+output "cosmos_db_endpoint" {
+  value = "${azurerm_cosmosdb_account.metadata-cosmos-account.endpoint}"
+}
+
+output "cosmos_db_primary_master_key" {
+  value     = "${azurerm_cosmosdb_account.metadata-cosmos-account.primary_master_key}"
+  sensitive = true
 }
 ```
 
