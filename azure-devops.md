@@ -63,6 +63,14 @@ steps:
 * `@(hello|world)` - exactly once
 * `!(hello|world)` - not `hello` or `world`
 
+### The target "Package" does not exists in the service fabric project
+
+SF project downloads Azure Fabric MS Build package and import the target. On Azure DevOps, the packages are downloaded at the root directory. So make sure the project imports the package from the project root directory
+
+```markup
+<Import Project="..\..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.6.9\build\Microsoft.VisualStudio.Azure.Fabric.Application.props"
+```
+
 ## Release Pipeline
 
 ### Variables
