@@ -148,48 +148,80 @@ private static readonly string EnvironmentName =
 
 ### Typed Configuration for appsettings.json
 
+## Dependency Injection
+
 ### Build Dependencies
 
 ```csharp
-public class ServiceRegistrations
+private static readonly IServiceCollection Services = new ServiceCollection();
+
+public static IServiceCollection ConfigureServices()
 {
-    private static readonly IServiceCollection Services = new ServiceCollection();
+    var configBuilder = new ConfigurationBuilder();
 
-    public static IServiceProvider Build()
-    {
-        var configBuilder = new ConfigurationBuilder();
-
-        configBuilder.AddEnvironmentVariables("ASPNETCORE_");
-        configBuilder.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-        configBuilder.AddEnvironmentVariables("FpsMetadata:");
+    configBuilder.AddEnvironmentVariables("ASPNETCORE_");
+    configBuilder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 #if DEBUG
-        configBuilder.AddJsonFile($"appsettings.Development.json", true);
+    configBuilder.AddJsonFile($"appsettings.Development.json", true);
+    configBuilder.AddEnvironmentVariables("FpsMetadata:");
 #endif
-        var config = configBuilder.Build();
 
-        Services.AddLogging(config);
-        Services.Configure<CosmosDbOptions>(config.GetSection("CosmosDb"))
-            .Configure<ServiceBusOptions>(config.GetSection("ServiceBus"))
-            .Configure<ElasticLoggingOptions>(config.GetSection("ElasticLogging"))
-            ;
+    var config = configBuilder.Build();
+    Services.Configure<CosmosDbOptions>(config.GetSection("CosmosDb"))
+        .Configure<ServiceBusOptions>(config.GetSection("ServiceBus"))
+        .Configure<ElasticLoggingOptions>(config.GetSection("ElasticLogging"))
+        ;
+    Services.AddLogging(config);
 
-        Services.AddTransient<IEnumerable<IHealthCheck>>(sp =>
+    Services.AddTransient<IEnumerable<IHealthCheck>>(sp =>
+    {
+        var serviceBusSettings = sp.GetRequiredService<IOptions<ServiceBusOptions>>().Value;
+        var cosmosDbSettings = sp.GetRequiredService<IOptions<CosmosDbOptions>>().Value;
+
+        return new List<IHealthCheck>
         {
-            var serviceBusSettings = sp.GetRequiredService<IOptions<ServiceBusOptions>>().Value;
-            return new List<IHealthCheck>
-            {
-                new AzureServiceBusTopicHealthCheck(serviceBusSettings.ConnectionString, EventNames.FpsAcknowledgementSentEvent)
-            };
+            new AzureServiceBusTopicHealthCheck(serviceBusSettings.ConnectionString, EventNames.AcknowledgementEvent),
+            new CosmosDbHealthCheck(cosmosDbSettings.ConnectionString)
+        };
+    });
+
+    Services.AddTransient<IAppHealthCheck, AppHealthCheck>()
+        .AddTransient<ITopicClientFactory, ServiceBusTopicClientFactory>()
+        .AddSingleton<ICosmosDbRepository>(x =>
+        {
+            var cosmosDbOptions = x.GetRequiredService<IOptions<CosmosDbOptions>>().Value;
+            var client = new CosmosClient(cosmosDbOptions.ConnectionString);
+            var container = client.GetContainer("fps-metadata", "metadata");
+            return new CosmosDbRepository(container);
         });
 
-        Services.AddTransient<IAppHealthCheck, AppHealthCheck>()
-            .AddTransient<ITopicClientFactory, ServiceBusTopicClientFactory>()
-            ;
+    Services.AddMediatR(typeof(ListenersServiceRegistrations).Assembly,
+        typeof(CreateMetadataInfoCommand).Assembly);
 
-        Services.AddMediatR(typeof(EventListenersServiceRegistrations).Assembly);
+    return Services;
+}
 
-        return Services.BuildServiceProvider();
-    }
+public static IServiceProvider Build()
+{
+    return ConfigureServices()
+        .BuildServiceProvider();
+}
+```
+
+### Replacing dependencies
+
+```csharp
+[SetUp]
+public void Setup()
+{
+    _cosmosContainer = new Mock<Container>();
+
+    _services = ListenersServiceRegistrations.ConfigureServices();
+    _services.RemoveAll<ICosmosDbRepository>();
+    _services.AddSingleton<ICosmosDbRepository>(x => new CosmosDbRepository(_cosmosContainer.Object));
+    
+    var serviceProvider = _services.BuildServiceProvider();
+    _mediator = serviceProvider.GetRequiredService<IMediator>();
 }
 ```
 
