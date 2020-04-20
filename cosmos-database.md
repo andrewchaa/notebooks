@@ -1,12 +1,12 @@
-# Cosmos Database
+# Cosmos DB
 
-## Create a database with terraform
+## Provision The database and container with Terraform
 
 ```text
-resource "azurerm_cosmosdb_account" "sample-account" {
-  name                = "${var.organisation}-${var.system}-${var.environment}-${var.location}"
-  location            = "${azurerm_resource_group.sample.location}"
-  resource_group_name = "${azurerm_resource_group.sample.name}"
+resource "azurerm_cosmosdb_account" "metadata-cosmos-account" {
+  name                = "${var.organisation}-${var.system}-${var.environment}-metadata-${var.location}"
+  location            = "${azurerm_resource_group.metadata_rg.location}"
+  resource_group_name = "${azurerm_resource_group.metadata_rg.name}"
   offer_type          = "Standard"
   kind                = "GlobalDocumentDB"
   enable_automatic_failover = false
@@ -14,6 +14,8 @@ resource "azurerm_cosmosdb_account" "sample-account" {
   consistency_policy {
     consistency_level       = "Eventual"
   }
+
+  is_virtual_network_filter_enabled = local.enable_virtual_network_filter
 
   dynamic "virtual_network_rule" {
     for_each = ["${data.azurerm_subnet.service_fabric.id}"]
@@ -23,31 +25,40 @@ resource "azurerm_cosmosdb_account" "sample-account" {
   }
 
   geo_location {
-    location          = "${azurerm_resource_group.sample.location}"
+    location          = "${azurerm_resource_group.metadata_rg.location}"
     failover_priority = 0
   }
 
   ip_range_filter = local.firewall_ip_range_filter
 }
 
-resource "azurerm_cosmosdb_sql_database" "cosmos-database" {
-  name                = "customers"
-  resource_group_name = "${azurerm_resource_group.sample.name}"
-  account_name        = "${azurerm_cosmosdb_account.sample-account.name}"
+resource "azurerm_cosmosdb_sql_database" "metadata-cosmos-database" {
+  name                = "metadata"
+  resource_group_name = "${azurerm_resource_group.metadata_rg.name}"
+  account_name        = "${azurerm_cosmosdb_account.metadata-cosmos-account.name}"
 }
 
-resource "azurerm_cosmosdb_sql_container" "cosmos-container" {
-  name                = "eventsLog"
-  resource_group_name = "${azurerm_resource_group.sample.name}"
-  account_name        = "${azurerm_cosmosdb_account.sample-account.name}"
-  database_name       = "${azurerm_cosmosdb_sql_database.cosmos-database.name}"
-  partition_key_path  = "/PartitionId"
+resource "azurerm_cosmosdb_sql_container" "metadata-cosmos-container" {
+  name                = "metadata"
+  resource_group_name = "${azurerm_resource_group.metadata_rg.name}"
+  account_name        = "${azurerm_cosmosdb_account.metadata-cosmos-account.name}"
+  database_name       = "${azurerm_cosmosdb_sql_database.metadata-cosmos-database.name}"
+  partition_key_path  = "/TransactionId"
+}
+
+output "cosmos_db_endpoint" {
+  value = "${azurerm_cosmosdb_account.metadata-cosmos-account.endpoint}"
+}
+
+output "cosmos_db_primary_master_key" {
+  value     = "${azurerm_cosmosdb_account.metadata-cosmos-account.primary_master_key}"
+  sensitive = true
 }
 ```
 
-## Insert document
+## Operations
 
-#### Register Cosmos client
+### Upsert document
 
 ```csharp
 Services.AddSingleton<ICosmosDbRepository>(s =>
@@ -56,11 +67,7 @@ Services.AddSingleton<ICosmosDbRepository>(s =>
         var client = new CosmosClient(options.Value.ConnectionString);
         return new CosmosDbRepository(client, "clients", "eventsLog");
     });
-```
-
-#### Upsert a document
-
-```csharp
+    
 public async Task Insert(EventLog eventLog)
 {
     var eventLogData = new 
@@ -74,5 +81,23 @@ public async Task Insert(EventLog eventLog)
     };
     await _container.UpsertItemAsync(eventLogData, new PartitionKey(eventLogData.ClientId.ToString()));
 }
+```
+
+## Performance
+
+### Capacity calculator
+
+[https://cosmos.azure.com/capacitycalculator/](https://cosmos.azure.com/capacitycalculator/)
+
+![](.gitbook/assets/image%20%283%29.png)
+
+### The size of an item
+
+```text
+x-ms-resource-usage: documentSize=1;documentsSize=1009;documentsCount=230;collectionSize=1069;
+
+1 KB for the document
+1009 KB for the all documents
+1069 KB for all documents + metadata
 ```
 

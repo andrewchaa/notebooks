@@ -6,7 +6,7 @@
 
 With the extension, you can easily add transformation files and preview them
 
-![right click and click on &quot;Add Transform&quot;](.gitbook/assets/image%20%288%29.png)
+![right click and click on &quot;Add Transform&quot;](.gitbook/assets/image%20%289%29.png)
 
 The format should be like this.
 

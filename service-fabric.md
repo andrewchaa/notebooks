@@ -108,7 +108,7 @@ public static IServiceProvider Build() {
 * Inbound NAT rules
 * RDP into the destination IP: Port
 
-![](.gitbook/assets/image%20%283%29.png)
+![](.gitbook/assets/image%20%284%29.png)
 
 ![](.gitbook/assets/image.png)
 

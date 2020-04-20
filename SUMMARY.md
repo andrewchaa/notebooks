@@ -13,7 +13,7 @@
 * [bash / zsh](bash-2.md)
 * [C\#](c.md)
 * [Cocoapods](cocoapods.md)
-* [Cosmos Database](cosmos-database.md)
+* [Cosmos DB](cosmos-database.md)
 * [D3](d3.md)
 * [Detox](detox.md)
 * [Docker](docker.md)
