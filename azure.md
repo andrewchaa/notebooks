@@ -101,6 +101,21 @@ catch (Exception e)
 }
 ```
 
+### List all topics
+
+```csharp
+var managementClient = new ManagementClient(_connectionString);
+var topicDescriptions = new List<TopicDescription>();
+
+for (int skip = 0; skip < 1000; skip += 100)
+{
+    var topics = await managementClient.GetTopicsAsync(100, skip);
+    if (!topics.Any()) break;
+
+    topicDescriptions.AddRange(topics);
+}
+```
+
 ## Service Fabric
 
 #### Installing client admin certificate to connect to cluster manager
