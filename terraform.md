@@ -101,6 +101,92 @@ resource "azurerm_cosmosdb_sql_container" "cosmos-container" {
 }
 ```
 
+### Import ARM \(Azure Resource Manager\) Template
+
+```javascript
+# cosmos.tf
+
+resource "azurerm_template_deployment" "metadata-cosmos-db" {
+  name                = "metadata_template"
+  resource_group_name = "${azurerm_resource_group.metadata_rg.name}"
+
+  template_body = <<DEPLOY
+  ${file("${path.module}/cosmos-db.json")}
+  DEPLOY
+
+  # these key-value pairs are passed into the ARM Template's `parameters` block
+  parameters = {
+    accountName      = azurerm_cosmosdb_account.metadata-cosmos-account.name
+    databaseName     = "metadata"
+    containerName    = "metadata"
+  }
+
+  deployment_mode = "Incremental"
+  depends_on = [azurerm_cosmosdb_account.metadata-cosmos-account]
+}
+
+# cosmos.json
+
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "accountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Cosmos DB account name, max length 44 characters"
+      }
+    },
+    "databaseName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name for the SQL database"
+      }
+    },
+    "containerName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name for the container"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases",
+      "name": "[concat(parameters('accountName'), '/', parameters('databaseName'))]",
+      "apiVersion": "2019-08-01",
+      "properties": {
+        "resource": {
+          "id": "[parameters('databaseName')]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers",
+      "name": "[concat(parameters('accountName'), '/', parameters('databaseName'), '/', parameters('containerName'))]",
+      "apiVersion": "2019-08-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.DocumentDB/databaseAccounts/sqlDatabases', parameters('accountName'), parameters('databaseName'))]"
+      ],
+      "properties": {
+        "resource": {
+          "id": "[parameters('containerName')]",
+          "partitionKey": {
+            "paths": [
+              "/TransactionId"
+            ],
+            "kind": "Hash"
+          },
+          "indexingPolicy": {
+            "indexingMode": "none"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
 ## Variables
 
 ### Output Values

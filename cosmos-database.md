@@ -101,3 +101,9 @@ x-ms-resource-usage: documentSize=1;documentsSize=1009;documentsCount=230;collec
 1069 KB for all documents + metadata
 ```
 
+## Security
+
+### Firewall and virtual networks
+
+Sometimes, the firewall doesn't allow your local machine to connect to it. Update firewall settings. The exception message will tell you which IP it's blocking. If you use VPN, your ip address will be different from your public IP as the traffic routes through your corporate VPN
+
