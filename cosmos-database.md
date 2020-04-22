@@ -161,6 +161,27 @@ No Indexing
 }    
 ```
 
+## Resiliency
+
+Multi-region accounts with a single-write region
+
+* enable automatic failover
+* define two regions
+
+```javascript
+  enable_automatic_failover = true
+  geo_location {
+    location          = "${azurerm_resource_group.metadata_rg.location}"
+    failover_priority = 0
+  }
+
+  geo_location {
+    location          = "uksouth"
+    failover_priority = 1
+  }
+
+```
+
 ## Queries
 
 ```text
