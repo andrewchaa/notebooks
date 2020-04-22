@@ -101,6 +101,15 @@ x-ms-resource-usage: documentSize=1;documentsSize=1009;documentsCount=230;collec
 1069 KB for all documents + metadata
 ```
 
+## Queries
+
+```text
+SELECT * FROM c 
+ WHERE c.TransactionId = 'b848c6cc-9da5-4792-b554-34c80426a610'
+```
+
+Note: Queries are only for selection. You can't delete a document by query.
+
 ## Security
 
 ### Firewall and virtual networks
