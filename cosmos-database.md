@@ -2,14 +2,14 @@
 
 ## Provision The database and container with Terraform
 
-```text
+```javascript
 resource "azurerm_cosmosdb_account" "metadata-cosmos-account" {
   name                = "${var.organisation}-${var.system}-${var.environment}-metadata-${var.location}"
   location            = "${azurerm_resource_group.metadata_rg.location}"
   resource_group_name = "${azurerm_resource_group.metadata_rg.name}"
   offer_type          = "Standard"
   kind                = "GlobalDocumentDB"
-  enable_automatic_failover = false
+  enable_automatic_failover = true
 
   consistency_policy {
     consistency_level       = "Eventual"
@@ -27,6 +27,11 @@ resource "azurerm_cosmosdb_account" "metadata-cosmos-account" {
   geo_location {
     location          = "${azurerm_resource_group.metadata_rg.location}"
     failover_priority = 0
+  }
+
+  geo_location {
+    location          = "uksouth"
+    failover_priority = 1
   }
 
   ip_range_filter = local.firewall_ip_range_filter
