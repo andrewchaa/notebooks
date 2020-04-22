@@ -101,6 +101,61 @@ x-ms-resource-usage: documentSize=1;documentsSize=1009;documentsCount=230;collec
 1069 KB for all documents + metadata
 ```
 
+### Indexing
+
+Opt-out policy to selectively exclude some property paths
+
+```javascript
+{
+  "indexingMode": "consistent",
+  "includedPaths": [
+    {
+      "path": "/*"
+    }
+   ],
+   "excludedPaths": [
+     {
+       "path": "/path/to/single/excluded/property/?"
+     },
+     {
+       "path": "/path/to/root/of/multiple/excluded/properties/*"
+     }
+   ]
+}
+```
+
+Opt-in polic to selectively include some property paths
+
+```javascript
+{
+  "indexingMode": "consistent",
+  "includedPaths": [
+    {
+      "path": "/path/to/included/property/?"
+    },
+    {
+      "path": "/path/to/root/of/multiple/included/properties/*"
+    }
+  ],
+  "excludedPaths": [
+    {
+      "path": "/*"
+    }
+  ]
+}
+```
+
+No Indexing
+
+```javascript
+{
+  "indexingMode": "none",
+  "automatic": false,
+  "includedPaths": [],
+  "excludedPaths": []
+}    
+```
+
 ## Queries
 
 ```text
@@ -109,6 +164,8 @@ SELECT * FROM c
 ```
 
 Note: Queries are only for selection. You can't delete a document by query.
+
+### 
 
 ## Security
 
