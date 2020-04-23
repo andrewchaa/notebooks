@@ -15,6 +15,7 @@
 * [Cocoapods](cocoapods.md)
 * [Cosmos DB](cosmos-database.md)
 * [D3](d3.md)
+* [Dapper](dapper.md)
 * [Detox](detox.md)
 * [Docker](docker.md)
 * [Domain Driven Design](domain-driven-design.md)
