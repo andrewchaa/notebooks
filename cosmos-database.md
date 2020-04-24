@@ -1,6 +1,8 @@
 # Cosmos DB
 
-## Provision The database and container with Terraform
+## Provision The database and container 
+
+### Terraform
 
 ```javascript
 resource "azurerm_cosmosdb_account" "metadata-cosmos-account" {
@@ -60,6 +62,14 @@ output "cosmos_db_primary_master_key" {
   sensitive = true
 }
 ```
+
+### Partition and Partition Key
+
+* It should be unique and able to distribute the load evenly
+* Date is not a good idea as all load will go into the same date partition
+* id is for document. PartitionKey is for the partition
+* Partition can have only one document. 
+* It's better to have Partition that is a natural group like CompanyId, City, ... etc
 
 ## Operations
 

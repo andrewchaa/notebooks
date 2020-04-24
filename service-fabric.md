@@ -26,6 +26,15 @@ Keep in mind that there is no ordering between the calls to create and open the 
 2. After `CloseAsync()` finishes on each listener and `RunAsync()` also finishes, the service's `StatelessService.OnCloseAsync()` method is called, if present. OnCloseAsync is called when the stateless service instance is going to be gracefully shut down. This can occur when the service's code is being upgraded, the service instance is being moved due to load balancing, or a transient fault is detected. It is uncommon to override `StatelessService.OnCloseAsync()`, but it can be used to safely close resources, stop background processing, finish saving external state, or close down existing connections.
 3. After `StatelessService.OnCloseAsync()` finishes, the service object is destructed.
 
+### Application Upgrade
+
+You can choose from two types of deployment: regular or upgrade. A regular deployment erases any previous deployment information and data on the cluster, while an upgrade deployment preserves it.
+
+#### Upgrade Modes
+
+* Monitored upgrade: automates the upgrade and application health check
+* UnmonitoredAuto: automates the upgrade but skips the application health check
+
 ## Errors
 
 ### Global Error Handler
