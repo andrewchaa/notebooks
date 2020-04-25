@@ -84,22 +84,40 @@ subscriptionClient.RegisterMessageHandler(handler.MessageHandler,
 
 ### Compatibility between Brokered message and .NET core message
 
+#### .NET Core client Reads .NET Framework Brokered Message
+
 ```csharp
-try
+private FpsAcknowledgementSentEvent Serialize(Message message)
 {
-    var serializer = DataContractBinarySerializer<AckSentEvent>.Instance;
-    using (var stream = new MemoryStream(messageBody))
+    try
     {
-        return (AckSentEvent)serializer.ReadObject(stream);
+        var jsonString = message.GetBody<string>();
+        return JsonConvert.DeserializeObject<AcknowledgementSent>(jsonString);
+    }
+    catch (Exception ex)
+    {
+        _logger.LogWarning(ex,"Cannot serialize the message");
+        return JsonConvert.DeserializeObject<AcknowledgementSent>(Encoding.UTF8.GetString(message.Body));
     }
 }
-catch (Exception e)
+```
+
+#### .NET Core Client Writes .NET Framework Brokered Message
+
+```csharp
+var @event = new Fixture().Build<AcknowledgementSent>().Create();
+var eventString = JsonConvert.SerializeObject(@event);
+
+var serializer = DataContractBinarySerializer<string>.Instance;
+using (var stream = new MemoryStream())
 {
-    _logger.LogWarning(e,"Cannot serialize with DataContractBinarySerializer");
-    var message = Encoding.UTF8.GetString(messageBody);
-    return JsonConvert.DeserializeObject<AckSentEvent>(message);
+    serializer.WriteObject(stream, eventString);
+    var message = new Message(stream.ToArray());
+    tasks.Add(_topicClient.SendAsync(message));
 }
 ```
+
+
 
 ### List all topics
 
