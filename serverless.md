@@ -81,5 +81,97 @@ In your terminal window you should see the response from AWS Lambda.
 }
 ```
 
+## Creating a function
 
+#### Handler
+
+```csharp
+using Amazon.Lambda.Core;
+using System;
+
+[assembly:LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
+
+namespace Navien.Installers.UserPoolFunctions
+{
+    public class Handler
+    {
+       public Response ListInstallers(Request request)
+       {
+           return new Response("Go Serverless v1.0! Your function executed successfully!", request);
+       }
+    }
+
+    public class Response
+    {
+      public string Message {get; set;}
+      public Request Request {get; set;}
+
+      public Response(string message, Request request){
+        Message = message;
+        Request = request;
+      }
+    }
+
+    public class Request
+    {
+      public string Key1 {get; set;}
+      public string Key2 {get; set;}
+      public string Key3 {get; set;}
+
+      public Request(string key1, string key2, string key3){
+        Key1 = key1;
+        Key2 = key2;
+        Key3 = key3;
+      }
+    }
+}
+```
+
+{% embed url="https://build.sh" %}
+
+```bash
+#!/bin/bash
+
+#install zip on debian OS, since microsoft/dotnet container doesn't have zip by default
+if [ -f /etc/debian_version ]
+then
+  apt -qq update
+  apt -qq -y install zip
+fi
+
+dotnet restore
+dotnet lambda package --configuration release --framework netcoreapp2.1 --output-package bin/release/netcoreapp2.1/userpoolfunctions.zip
+```
+
+#### serverless.yml
+
+```yaml
+service: userpoolfunctions
+provider:
+  name: aws
+  runtime: dotnetcore2.1
+
+# you can overwrite defaults here
+  stage: dev
+  region: eu-west-1
+
+# you can add statements to the Lambda function's IAM Role here
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "cognito-idp:DescribeUserPoolClient"
+      Resource: 
+        - "arn:aws:cognito-idp:eu-west-1:000000000:userpool/eu-west-1_xxxxxxx"
+package:
+  individually: true
+
+functions:
+  listInstallers:
+    handler: CsharpHandlers::Navien.Installers.UserPoolFunctions.Handler::ListInstallers
+
+    # you can add packaging information here
+    package:
+      artifact: bin/release/netcoreapp2.1/userpoolfunctions.zip
+
+```
 
