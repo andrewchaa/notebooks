@@ -48,6 +48,7 @@
 * [Redux](redux.md)
 * [Rider](rider.md)
 * [Ruby](ruby.md)
+* [serverless](serverless.md)
 * [Service Fabric](service-fabric.md)
 * [Shell](bash.md)
 * [slow-cheetah](slow-cheetah.md)
