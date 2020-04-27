@@ -1,5 +1,9 @@
 # AWS
 
+## Resources
+
+* .NET SDK: [https://docs.aws.amazon.com/sdk-for-net/index.html](https://docs.aws.amazon.com/sdk-for-net/index.html)
+
 ## API Gateway
 
 #### Enable CORS for an API Gateway REST API Resource
@@ -70,7 +74,9 @@ pip install awscli
 aws configure
 ```
 
-### Cognito
+## Cognito
+
+### List users
 
 ```bash
 aws cognito-idp list-users --user-pool-id eu-west-1_xxxxx --filter "sub=\"c41d95e9-65bf-4d3b-9c08-xxxxxxxxx\""
