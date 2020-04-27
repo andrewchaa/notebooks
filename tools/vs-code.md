@@ -50,6 +50,7 @@ module.exports = {
 
 | Keys | Description |
 | :--- | :--- |
+| ctrl + shft + k | delete the whole line |
 | ctrl - | go back to your previous location |
 | ctrl + \` | show terminal |
 | ctrl + 1 | focus on editor |
