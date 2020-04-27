@@ -59,6 +59,14 @@ module.exports = {
 | shft + alt + mouse | column select |
 | shft + alt + f | format document. You can format your JSON document |
 
+## Search
+
+#### Search in files with extension
+
+![](../.gitbook/assets/image%20%2814%29.png)
+
+
+
 ## Debugging
 
 * Install React Native Tools on VS Code
