@@ -83,7 +83,7 @@ In your terminal window you should see the response from AWS Lambda.
 
 ## Creating a function
 
-#### Handler
+### Handler
 
 ```csharp
 using Amazon.Lambda.Core;
@@ -95,21 +95,19 @@ namespace Navien.Installers.UserPoolFunctions
 {
     public class Handler
     {
-       public Response ListInstallers(Request request)
-       {
-           return new Response("Go Serverless v1.0! Your function executed successfully!", request);
-       }
-    }
+        public async Task<IList<UserType>> ListInstallers(Request request)
+        {
+            AWSCredentials credentials = new BasicAWSCredentials("xxxxxx", 
+                "xxxxxxxxxxxxxxxxx");
+            var client = new AmazonCognitoIdentityProviderClient(credentials);
+            var response = await client.ListUsersAsync(new ListUsersRequest
+            {
+                UserPoolId = "eu-west-1_xxxxxx"
+            });
 
-    public class Response
-    {
-      public string Message {get; set;}
-      public Request Request {get; set;}
-
-      public Response(string message, Request request){
-        Message = message;
-        Request = request;
-      }
+            return response.Users;
+            // return new Response("Go Serverless v1.0! Your function executed successfully!", request);
+        }
     }
 
     public class Request
@@ -127,7 +125,15 @@ namespace Navien.Installers.UserPoolFunctions
 }
 ```
 
-{% embed url="https://build.sh" %}
+#### Supply credentials
+
+```csharp
+AWSCredentials credentials = new BasicAWSCredentials("xxxxxx", 
+    "xxxxxxxxxxxxxxxxx");
+var client = new AmazonCognitoIdentityProviderClient(credentials);
+```
+
+### build.sh\_
 
 ```bash
 #!/bin/bash
@@ -143,7 +149,7 @@ dotnet restore
 dotnet lambda package --configuration release --framework netcoreapp2.1 --output-package bin/release/netcoreapp2.1/userpoolfunctions.zip
 ```
 
-#### serverless.yml
+### serverless.yml
 
 ```yaml
 service: userpoolfunctions
@@ -174,4 +180,6 @@ functions:
       artifact: bin/release/netcoreapp2.1/userpoolfunctions.zip
 
 ```
+
+
 
