@@ -50,14 +50,14 @@ module.exports = {
 
 | Action | Keys |
 | :--- | :--- |
-| ctrl + shft + k | delete the whole line |
+| delete the whole line | ctrl + shft + k |
 | go back to your previous location | alt + left arrow |
-| ctrl + \` | show terminal |
-| ctrl + 1 | focus on editor |
-| ctrl + 1, ctrl + 2 | switch across split panes |
-| ctrl + shft + g | git commit message box |
-| shft + alt + mouse | column select |
-| shft + alt + f | format document. You can format your JSON document |
+| show terminal | ctrl + \` |
+| focus on the editor | ctrl + 1 |
+| switch across split panes | ctrl + 1, ctrl + 2 |
+| focus on git commit message box | ctrl + shft + g |
+| column select | shft + alt + mouse |
+| format document | shft + alt + f |
 
 ## Search
 
