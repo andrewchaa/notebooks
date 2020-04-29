@@ -48,10 +48,10 @@ module.exports = {
 
 ## Keyboard Shortcuts
 
-| Keys | Description |
+| Action | Keys |
 | :--- | :--- |
 | ctrl + shft + k | delete the whole line |
-| ctrl - | go back to your previous location |
+| go back to your previous location | alt + left arrow |
 | ctrl + \` | show terminal |
 | ctrl + 1 | focus on editor |
 | ctrl + 1, ctrl + 2 | switch across split panes |
