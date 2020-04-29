@@ -55,6 +55,21 @@ It's because PS writes return values to console by default. You want to silence 
 $appName.Attributes.Append($attrib) | out-null
 ```
 
+## Network
+
+### Network Adapter Interfaces
+
+```bash
+Get-NetAdapter -Name "*"
+
+Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
+----                      --------------------                    ------- ------       ----------             ---------
+Ethernet 2                Cisco AnyConnect Secure Mobility Cli...      34 Up           00-xx-xx-xx-xx-00     646.8 Mbps
+Wi-Fi                     Intel(R) Dual Band Wireless-AC 8265          32 Up           18-xx-xx-xx-xx-71       650 Mbps
+
+Set-DnsClientServerAddress -InterfaceIndex 32 -ServerAddresses ("8.8.8.8", "8.8.4.4")
+```
+
 ## Operators
 
 ### Logical Operators
