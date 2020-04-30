@@ -69,7 +69,7 @@ pbcopy < ~/.ssh/id_rsa.pub
 
 #### Use VS Code as your Diff / Merge editor
 
-![](.gitbook/assets/image%20%2823%29.png)
+![](.gitbook/assets/image%20%2824%29.png)
 
 {% hint style="info" %}
 [GitExtensions](https://github.com/gitextensions/gitextensions) supports VS Code out of box
