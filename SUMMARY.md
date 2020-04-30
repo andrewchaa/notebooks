@@ -30,6 +30,7 @@
 * [HTML](html.md)
 * [iOS](ios.md)
 * [git](git.md)
+* [Google Sheet](google-sheet.md)
 * [Json.NET](json.net.md)
 * [javascript](javascript.md)
 * [Jekyll](jekyll.md)
