@@ -181,5 +181,25 @@ functions:
 
 ```
 
+## serverless.yml
 
+### HTTP Endpoints
+
+```yaml
+functions: 
+  get-index: 
+    handler: functions/get-index.handler
+    events:
+      - http: 
+          path: /
+          method: get
+          
+  get-restaurants: 
+    handler: functions/get-restaurants.handler
+    events:
+      - http:
+          path: /restaurants/
+          method: get
+    
+```
 
