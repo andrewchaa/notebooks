@@ -178,7 +178,18 @@ functions:
     # you can add packaging information here
     package:
       artifact: bin/release/netcoreapp2.1/userpoolfunctions.zip
+```
 
+### Output format of a Lambda function for proxy integration
+
+```javascript
+{
+    "isBase64Encoded": true|false,
+    "statusCode": httpStatusCode,
+    "headers": { "headerName": "headerValue", ... },
+    "multiValueHeaders": { "headerName": ["headerValue", "headerValue2", ...], ... },
+    "body": "..."
+}
 ```
 
 ## Configuration by serverless.yml
@@ -193,21 +204,21 @@ functions:
       - http: 
           path: /
           method: get
-          
-  get-restaurants: 
-    handler: functions/get-restaurants.handler
-    events:
-      - http:
-          path: /restaurants/
-          method: get
-          authorizer: aws_iam
 ```
 
-
-
-#### User Pool Authorizer
+#### Authorizer
 
 ```yaml
+# aws_iam
+get-restaurants: 
+  handler: functions/get-restaurants.handler
+  events:
+    - http:
+        path: /restaurants/
+        method: get
+        authorizer: aws_iam
+
+# user pool
 search-restaurants:
   handler: functions/search-restaurants.handler
   events:

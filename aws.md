@@ -42,7 +42,7 @@ When a browser receives a non-simple HTTP request, the [CORS protocol](https://f
 
 Enable CORS on API Gateway
 
-![](.gitbook/assets/image%20%288%29.png)
+![](.gitbook/assets/image%20%289%29.png)
 
 ## CI / CD
 
@@ -111,78 +111,11 @@ aws configure
 * Change password
 * Sign out
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">User</th>
-      <th style="text-align:left"></th>
-      <th style="text-align:left">
-        <p>Cognito</p>
-        <p>User Pool</p>
-      </th>
-      <th style="text-align:left"></th>
-      <th style="text-align:left">API Gateway</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">register -&gt;</td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">&lt;- verification email / sms</td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">confirm -&gt;</td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">&lt;- registration complete</td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">sign in -&gt;</td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">&lt;- id toke (JWT)</td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">POST { authorization: ... } -&gt;</td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">-&gt;</td>
-      <td style="text-align:left"></td>
-    </tr>
-    <tr>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">200</td>
-      <td style="text-align:left"></td>
-      <td style="text-align:left">&lt;-</td>
-      <td style="text-align:left"></td>
-    </tr>
-  </tbody>
-</table>### List users
+
+
+![](.gitbook/assets/image.png)
+
+### List users
 
 ```bash
 aws cognito-idp list-users --user-pool-id eu-west-1_xxxxx --filter "sub=\"c41d95e9-65bf-4d3b-9c08-xxxxxxxxx\""

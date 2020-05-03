@@ -21,7 +21,7 @@ var sequence =
 
 I've deleted my database and suddenly was unable to login as the deleted one was the default database for the login. I panicked for a while, but it was easy to fix, actually. Click on Options and change the database from Default to master
 
-![](.gitbook/assets/image%20%2811%29.png)
+![](.gitbook/assets/image%20%2812%29.png)
 
 ### Cannot open database "Database" requested by the login. The login failed. Login failed for user 'Company\MachineName$'.
 

@@ -19,5 +19,5 @@ Returns a conditional sum across a range.
 SUMIF(C$2:C$76, F2, D$2:D$76)
 ```
 
-![](.gitbook/assets/image.png)
+![](.gitbook/assets/image%20%281%29.png)
 

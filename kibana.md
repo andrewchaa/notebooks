@@ -19,5 +19,5 @@ tags: (success and info and security)
 2. Add Buckets, X-Axis: Aggregation of Date Histogram, Field: Timestamp, and Interval: Auto
 3. Split Series, Sub Aggregation of Terms, Field: Level.keyword, and Order: by Count, Descending
 
-![](.gitbook/assets/image%20%2816%29.png)
+![](.gitbook/assets/image%20%2817%29.png)
 

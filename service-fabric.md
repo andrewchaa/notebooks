@@ -117,9 +117,9 @@ public static IServiceProvider Build() {
 * Inbound NAT rules
 * RDP into the destination IP: Port
 
-![](.gitbook/assets/image%20%285%29.png)
+![](.gitbook/assets/image%20%286%29.png)
 
-![](.gitbook/assets/image%20%281%29.png)
+![](.gitbook/assets/image%20%282%29.png)
 
 ### The target "Package" does not exist in the project on Azure Devops
 
