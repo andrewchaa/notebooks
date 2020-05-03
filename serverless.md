@@ -200,6 +200,46 @@ functions:
       - http:
           path: /restaurants/
           method: get
+          authorizer: aws_iam
     
+```
+
+### iamRoleStatements
+
+```yaml
+plugins: 
+  - serverless-pseudo-parameters
+  
+provider:
+  name: aws
+  runtime: nodejs6.10
+  iamRoleStatements:
+    - Effect: Allow
+      Action: dynamodb:scan
+      Resource: arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/restaurants
+    - Effect: Allow
+      Action: execute-api:Invoke
+      Resource: arn:aws:execute-api:#{AWS::Region}:#{AWS::AccountId}:*/*/GET/restaurants
+```
+
+### Resources
+
+```yaml
+resources:
+  Resources:
+    restaurantsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: restaurants
+        AttributeDefinitions: 
+          - AttributeName: name
+            AttributeType: S
+        KeySchema:
+          - AttributeName: name
+            AttributeType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+          
 ```
 

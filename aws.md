@@ -6,7 +6,29 @@
 
 ## API Gateway
 
-#### Enable CORS for an API Gateway REST API Resource
+### Usage Plan
+
+* Meter your API usage. Enforce throttling and quota limit on each API key
+* Create API Key
+
+### Securing API Endpoints
+
+1. Rate limit: API Key
+2. IAM: AWS\_IAM
+3. Cognito: Cognito User Pool
+4. Custom Authorizer: Lambda
+
+#### API Key
+
+* Use usage plan and create an API Key
+* Select an endpoint. Settings &gt; API Key Required to true
+* Deploy the API
+
+#### AWS IAM
+
+
+
+### Enable CORS for an API Gateway REST API Resource
 
 [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) is a browser security feature that restricts cross-origin HTTP requests that are initiated from scripts running in the browser
 
