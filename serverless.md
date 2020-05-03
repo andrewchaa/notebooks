@@ -181,7 +181,7 @@ functions:
 
 ```
 
-## serverless.yml
+## Configuration by serverless.yml
 
 ### HTTP Endpoints
 
@@ -201,7 +201,21 @@ functions:
           path: /restaurants/
           method: get
           authorizer: aws_iam
-    
+```
+
+
+
+#### User Pool Authorizer
+
+```yaml
+search-restaurants:
+  handler: functions/search-restaurants.handler
+  events:
+    - http:
+        path: /restaurants/search
+        method: post
+        authorizer:
+          arn: arn:aws:coginto-idp:us-east-1:1111111:userpool/us-east-1_bxxxx
 ```
 
 ### iamRoleStatements

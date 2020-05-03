@@ -98,7 +98,91 @@ aws configure
 
 ## Cognito
 
-### List users
+* User Pool
+* Federated Identities
+* Sync
+
+### User Pool
+
+* Registration
+* Verify user email / phone
+* Secure sign-in
+* Forgotten password
+* Change password
+* Sign out
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">User</th>
+      <th style="text-align:left"></th>
+      <th style="text-align:left">
+        <p>Cognito</p>
+        <p>User Pool</p>
+      </th>
+      <th style="text-align:left"></th>
+      <th style="text-align:left">API Gateway</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">register -&gt;</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">&lt;- verification email / sms</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">confirm -&gt;</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">&lt;- registration complete</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">sign in -&gt;</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">&lt;- id toke (JWT)</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">POST { authorization: ... } -&gt;</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">-&gt;</td>
+      <td style="text-align:left"></td>
+    </tr>
+    <tr>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">200</td>
+      <td style="text-align:left"></td>
+      <td style="text-align:left">&lt;-</td>
+      <td style="text-align:left"></td>
+    </tr>
+  </tbody>
+</table>### List users
 
 ```bash
 aws cognito-idp list-users --user-pool-id eu-west-1_xxxxx --filter "sub=\"c41d95e9-65bf-4d3b-9c08-xxxxxxxxx\""
