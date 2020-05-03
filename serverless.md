@@ -6,6 +6,10 @@ description: >-
 
 # serverless
 
+## Resources
+
+* Examples: [https://github.com/serverless/examples](https://github.com/serverless/examples)
+
 ## Getting Started
 
 Run this command in your terminal:
@@ -27,8 +31,6 @@ serverless upgrade
 ```
 
 ## Hello World in C\#
-
-{% embed url="https://serverless.com/framework/docs/providers/aws/examples/hello-world/csharp/" %}
 
 ### Create a service
 
@@ -81,7 +83,14 @@ In your terminal window you should see the response from AWS Lambda.
 }
 ```
 
-## Creating a function
+## Creating a function in C\#
+
+### Packages to install 
+
+* Amazon.Lambda.APIGatewayEvents
+* Amazon.Lambda.Core
+* Amazon.Lambda.Logging.AspNetCore
+* Amazon.Lambda.Serialization.Json
 
 ### Handler
 
@@ -204,6 +213,7 @@ functions:
       - http: 
           path: /
           method: get
+          cors: true
 ```
 
 #### Authorizer
