@@ -215,6 +215,33 @@ output "cosmos_db_primary_master_key" {
 }
 ```
 
+## Conditional Configuration
+
+```bash
+resource "azurerm_cosmosdb_account" "metadata" {
+  enable_automatic_failover = var.environment == "prod"
+
+  dynamic "geo_location" {
+    for_each = var.environment == "prod" ? [local.primary_geo_location, local.failover_geo_location] : [local.primary_geo_location]
+    content {
+      location          = geo_location.value.location
+      failover_priority = geo_location.value.failover_priority
+    }
+  }
+
+# locals.tf
+failover_geo_location = {
+  location            = "ukwest"
+  failover_priority   = 1
+}
+
+primary_geo_location  = {
+  location            = azurerm_resource_group.metadata_rg.location
+  failover_priority   = 0
+}
+
+```
+
 ## Running it locally
 
 ```bash
