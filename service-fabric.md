@@ -68,6 +68,10 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 ## Tips
 
+### DNS Control Issue
+
+Service Fabric DNS Service controls the machine's DNS. If you have to change DNS settings, you need to stop it. Otherwise, the change wouldn't take effect.
+
 ### Using appsettings.json on .NET project
 
 #### Install dependencies
