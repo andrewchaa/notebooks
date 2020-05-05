@@ -275,6 +275,37 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-          
+```
+
+## Authentication
+
+### IdToken
+
+```javascript
+function init() {
+  AWS.config.region = AWS_REGION
+  AWSCognito.config.region = AWS_REGION
+  
+  var data = {
+    UserPoolId: COGNITO_USER_POOL_ID,
+    ClientId: CLIENT_ID
+  }
+  userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(data)
+  cognitoUser = userPool.getCurrentUser()
+  
+  if (cognitoUser != null) {
+    cognitoUser.getSession(function(err, session) {
+      idToken = session.idToken.jwtToken
+    }
+  })
+}
+
+function searchRestaurants() {
+  var xhr = new XMLHttpRequest()
+  xrh.open('POST', SEARCH_URL, true)
+  xhr.setRequestHeader("Content-Type", "application/json")
+  xhr.setRequestHeader("Authorization", idToken)
+  xhr.send(JSON.stringify({ theme })
+}
 ```
 
