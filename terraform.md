@@ -103,27 +103,9 @@ resource "azurerm_cosmosdb_sql_container" "cosmos-container" {
 
 ### Import ARM \(Azure Resource Manager\) Template
 
+#### cosmos.tf
+
 ```javascript
-# cosmos.tf
-
-resource "azurerm_template_deployment" "metadata-cosmos-db" {
-  name                = "metadata_template"
-  resource_group_name = "${azurerm_resource_group.metadata_rg.name}"
-
-  template_body = <<DEPLOY
-  ${file("${path.module}/cosmos-db.json")}
-  DEPLOY
-
-  # these key-value pairs are passed into the ARM Template's `parameters` block
-  parameters = {
-    accountName      = azurerm_cosmosdb_account.metadata-cosmos-account.name
-    databaseName     = "metadata"
-    containerName    = "metadata"
-  }
-
-  deployment_mode = "Incremental"
-  depends_on = [azurerm_cosmosdb_account.metadata-cosmos-account]
-}
 
 # cosmos.json
 
