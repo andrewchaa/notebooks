@@ -302,7 +302,7 @@ function init() {
 
 function searchRestaurants() {
   var xhr = new XMLHttpRequest()
-  xrh.open('POST', SEARCH_URL, true)
+  xhr.open('POST', SEARCH_URL, true)
   xhr.setRequestHeader("Content-Type", "application/json")
   xhr.setRequestHeader("Authorization", idToken)
   xhr.send(JSON.stringify({ theme })

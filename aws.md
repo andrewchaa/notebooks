@@ -26,7 +26,9 @@
 
 #### AWS IAM
 
-
+* Cognito Identity Pool has Authenticated / Unauthenticated Role: navien-backoffice-dev-00000000-authRole
+* The Authenticated Role \(navien-backoffice-dev-00000000-authRole\) has a list of policies: PolicyAPIGWapisauth
+* The policy \(PolicyAPIGWapisauth\) has "execute-api:Invoke" permission to the API Gateway resource: "arn:aws:execute-api:eu-west-1:0000000000:gpjbhizqdi/\*/GET/installers"
 
 ### Enable CORS for an API Gateway REST API Resource
 
