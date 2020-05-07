@@ -50,6 +50,51 @@ DEPLOY
 
 ## Creating Resources
 
+### API Management
+
+```bash
+resource "azurerm_api_management_api" "paymentgateway" {
+  name                = "paymentgateway-api"
+  api_management_name = var.api_management_name
+  resource_group_name = var.api_management_resource_group_name
+  revision            = 1
+  version             = 1
+  version_set_id      = module.apim_version_set.version_set_id
+  display_name        = "PaymentGateway Api"
+  path                = "paymentgateway"
+  protocols           = ["https"]
+}
+
+resource "azurerm_api_management_api_policy" "paymentgateway" {
+  api_name            = azurerm_api_management_api.paymentgateway.name
+  api_management_name = var.api_management_name
+  resource_group_name = var.api_management_resource_group_name
+  xml_content         = <<XML
+<policies>
+  <inbound>
+    <base />
+    <set-backend-service backend-id="${var.backend_name}"
+    sf-resolve-condition="@(context.LastError?.Reason == &quot;BackendConnectionFailure&quot;)"
+    sf-service-instance-name="${local.service_fabric_instance_name}" />    
+  </inbound>
+</policies>
+XML
+}
+
+data "azurerm_api_management_product" "paymentgateway" {
+  product_id          = var.api_management_product
+  api_management_name = var.api_management_name
+  resource_group_name = var.api_management_resource_group_name
+}
+
+resource "azurerm_api_management_product_api" "paymentgateway" {
+  api_name            = azurerm_api_management_api.paymentgateway.name
+  product_id          = data.azurerm_api_management_product.paymentgateway.product_id
+  api_management_name = var.api_management_name
+  resource_group_name = var.api_management_resource_group_name
+}
+```
+
 ### CosmosDB
 
 1. Create account
