@@ -150,13 +150,16 @@ private static readonly string EnvironmentName =
 
 ## Dependency Injection
 
-### Build Dependencies
-
-Install these packages first
+### Packages to install
 
 * Microsoft.Extensions.Configuration
-* Microsoft.Extensions.Configuration.Json
 * Microsoft.Extensions.Configuration.EnvironmentVariables
+* Microsoft.Extensions.Configuration.Json
+* Microsoft.Extensions.DependencyInjection
+* Microsoft.Extensions.Logging
+* Microsoft.Extensions.Logging.Abstractions
+
+### Build Dependencies
 
 ```csharp
 private static readonly IServiceCollection Services = new ServiceCollection();
