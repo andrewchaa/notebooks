@@ -152,6 +152,12 @@ private static readonly string EnvironmentName =
 
 ### Build Dependencies
 
+Install these packages first
+
+* Microsoft.Extensions.Configuration
+* Microsoft.Extensions.Configuration.Json
+* Microsoft.Extensions.Configuration.EnvironmentVariables
+
 ```csharp
 private static readonly IServiceCollection Services = new ServiceCollection();
 
@@ -163,7 +169,7 @@ public static IServiceCollection ConfigureServices()
     configBuilder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 #if DEBUG
     configBuilder.AddJsonFile($"appsettings.Development.json", true);
-    configBuilder.AddEnvironmentVariables("FpsMetadata:");
+    configBuilder.AddEnvironmentVariables("Metadata:");
 #endif
 
     var config = configBuilder.Build();
