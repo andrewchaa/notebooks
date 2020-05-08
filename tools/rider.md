@@ -2,5 +2,10 @@
 
 ## Keyboard Shortcuts
 
-* format code: alt + cmd + L 
+| Description | Shortcut |
+| :--- | :--- |
+| delete the line | cmd + shft + L |
+| format code | alt + cmd + L  |
+
+
 
