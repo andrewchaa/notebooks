@@ -157,7 +157,9 @@ private static readonly string EnvironmentName =
 * Microsoft.Extensions.Configuration.Json
 * Microsoft.Extensions.DependencyInjection
 * Microsoft.Extensions.Logging
+* Microsoft.Extensions.Logging.Console
 * Microsoft.Extensions.Logging.Abstractions
+* Microsoft.Extensions.Options.ConfigurationExtensions
 
 ### Build Dependencies
 

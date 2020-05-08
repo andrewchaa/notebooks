@@ -39,6 +39,7 @@
 * [Kotlin](kotlin.md)
 * [Kubernetes](kubernetes.md)
 * [lodash](lodash.md)
+* [Mediatr](mediatr.md)
 * [moment.js](moment.js.md)
 * [Mac](mac.md)
 * [Moq](moq.md)
