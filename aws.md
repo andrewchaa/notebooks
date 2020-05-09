@@ -104,6 +104,10 @@ aws configure
 * Federated Identities
 * Sync
 
+### Identity Pool
+
+Identity Pool has Authenticated Roles. When users authenticate through the pool, they will be given the permissions those roles have. 
+
 ### User Pool
 
 * Registration

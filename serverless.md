@@ -4,7 +4,7 @@ description: >-
   applications on any cloud.
 ---
 
-# serverless
+# Serverless Framework
 
 ## Resources
 
@@ -201,7 +201,7 @@ functions:
 }
 ```
 
-## Configuration by serverless.yml
+## Configuration
 
 ### HTTP Endpoints
 
