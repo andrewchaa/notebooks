@@ -2,7 +2,9 @@
 
 ## Shortcuts
 
-* ctrl + u: clear the entire line
+| command | shortcut |
+| :--- | :--- |
+| clear the entire line | ctrl + u |
 
 ## File System
 
