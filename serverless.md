@@ -92,54 +92,68 @@ In your terminal window you should see the response from AWS Lambda.
 * Amazon.Lambda.Logging.AspNetCore
 * Amazon.Lambda.Serialization.Json
 
-### Handler
+### Function Handler for API
 
 ```csharp
-using Amazon.Lambda.Core;
-using System;
-
-[assembly:LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
-
-namespace Navien.Installers.UserPoolFunctions
+[LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
+public async Task<APIGatewayProxyResponse> Run(APIGatewayProxyRequest request)
 {
-    public class Handler
+    var installerName = request.PathParameters["installerName"];
+    Console.WriteLine($"Getting the details of {installerName}");
+    var installer = await _mediator.Send(new GetInstallerQuery(installerName));             
+    
+    return new APIGatewayProxyResponse
     {
-        public async Task<IList<UserType>> ListInstallers(Request request)
+        StatusCode = 200,
+        Body = JsonConvert.SerializeObject(new InstallerResponse(installer)),
+        Headers = new Dictionary<string, string>()
         {
-            AWSCredentials credentials = new BasicAWSCredentials("xxxxxx", 
-                "xxxxxxxxxxxxxxxxx");
-            var client = new AmazonCognitoIdentityProviderClient(credentials);
-            var response = await client.ListUsersAsync(new ListUsersRequest
-            {
-                UserPoolId = "eu-west-1_xxxxxx"
-            });
-
-            return response.Users;
-            // return new Response("Go Serverless v1.0! Your function executed successfully!", request);
+            { "Access-Control-Allow-Origin" , "*"},
+            { "Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept" }
         }
-    }
-
-    public class Request
-    {
-      public string Key1 {get; set;}
-      public string Key2 {get; set;}
-      public string Key3 {get; set;}
-
-      public Request(string key1, string key2, string key3){
-        Key1 = key1;
-        Key2 = key2;
-        Key3 = key3;
-      }
-    }
+    };
 }
+
 ```
 
-#### Supply credentials
+### Service Registration
 
 ```csharp
-AWSCredentials credentials = new BasicAWSCredentials("xxxxxx", 
-    "xxxxxxxxxxxxxxxxx");
-var client = new AmazonCognitoIdentityProviderClient(credentials);
+private static readonly IServiceCollection Services = new ServiceCollection();
+
+public static IServiceCollection ConfigureServices()
+{
+    var configBuilder = new ConfigurationBuilder();
+    configBuilder.AddEnvironmentVariables();
+    configBuilder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+#if DEBUG
+    configBuilder.AddJsonFile($"appsettings.Development.json", true);
+#endif
+
+    var config = configBuilder.Build();
+    Services.Configure<AwsOptions>(config.GetSection("Aws"))
+        .Configure<CognitoOptions>(config.GetSection("Cognito"));
+    
+    Services.AddMediatR(typeof(ServiceRegistrations).Assembly, 
+        typeof(ListInstallersQuery).Assembly)
+        .AddSingleton<IInstallerRepository>(x =>
+        {
+            var awsOptions = x.GetService<IOptions<AwsOptions>>().Value;
+            var cognitoOptions = x.GetService<IOptions<CognitoOptions>>().Value;
+            return new InstallerRepository(
+                new BasicAWSCredentials(awsOptions.AccessKey, awsOptions.SecretKey),
+                cognitoOptions.UserPoolId
+            );
+        });
+
+    return Services;
+}
+
+public static IServiceProvider Build()
+{
+    return ConfigureServices()
+        .BuildServiceProvider();
+}
 ```
 
 ### build.sh\_
@@ -155,7 +169,7 @@ then
 fi
 
 dotnet restore
-dotnet lambda package --configuration release --framework netcoreapp2.1 --output-package bin/release/netcoreapp2.1/userpoolfunctions.zip
+dotnet lambda package --configuration release --framework netcoreapp2.1 --output-package bin/release/netcoreapp2.1/deploy-package.zip
 ```
 
 ### serverless.yml
