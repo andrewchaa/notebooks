@@ -9,6 +9,7 @@ description: >-
 ## Resources
 
 * Examples: [https://github.com/serverless/examples](https://github.com/serverless/examples)
+* Lambda C\# Intro: [https://docs.aws.amazon.com/lambda/latest/dg/lambda-csharp.html](https://docs.aws.amazon.com/lambda/latest/dg/lambda-csharp.html)
 
 ## Getting Started
 
@@ -154,6 +155,15 @@ public static IServiceProvider Build()
     return ConfigureServices()
         .BuildServiceProvider();
 }
+```
+
+### Logging
+
+```csharp
+AccountUsage accountUsage = accountSettings.AccountUsage;
+LambdaLogger.Log("ENVIRONMENT VARIABLES: " + JsonConvert.SerializeObject(System.Environment.GetEnvironmentVariables()));
+LambdaLogger.Log("CONTEXT: " + JsonConvert.SerializeObject(context));
+LambdaLogger.Log("EVENT: " + JsonConvert.SerializeObject(invocationEvent));
 ```
 
 ### build.sh\_
