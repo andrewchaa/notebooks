@@ -127,6 +127,61 @@ Identity Pool has Authenticated Roles. When users authenticate through the pool,
 aws cognito-idp list-users --user-pool-id eu-west-1_xxxxx --filter "sub=\"c41d95e9-65bf-4d3b-9c08-xxxxxxxxx\""
 ```
 
+#### List all users recursively
+
+```csharp
+public async Task<IEnumerable<Installer>> ListInstallers()
+{
+    var client = new AmazonCognitoIdentityProviderClient(_awsCredentials);
+
+    var installers = new List<Installer>();
+    
+    var initialResponse = await GetUserListReponse(client);
+    initialResponse
+        .Pipe(GetUsers)
+        .Pipe(x => installers.AddRange(x));
+
+    var paginationToken = initialResponse.PaginationToken;
+    while (!string.IsNullOrEmpty(paginationToken))
+    {
+        var response = await GetUserListReponse(client, paginationToken);
+        installers.AddRange(GetUsers(response));
+        paginationToken = response.PaginationToken;
+    }
+
+    return installers;
+    
+}
+
+private async Task<ListUsersResponse> GetUserListReponse(AmazonCognitoIdentityProviderClient client, 
+    string paginationToken = "")
+{
+    var request = new ListUsersRequest { UserPoolId = _userPoolId, Limit = 60 };
+    if (paginationToken != string.Empty)
+        request.PaginationToken = paginationToken;
+    
+    return await client.ListUsersAsync(request);
+}
+
+private static IEnumerable<Installer> GetUsers(ListUsersResponse response)
+{
+    return response.Users.Select(x => new Installer(
+            x.Attributes.GetValue("address"),
+            x.Attributes.GetValue("custom:business_name"),
+            x.Attributes.GetValue("email"),
+            x.Attributes.GetValue("family_name"),
+            x.Attributes.GetValue("custom:gassafe_number"),
+            x.Attributes.GetValue("given_name"),
+            x.Attributes.GetValue("sub"),
+            x.UserLastModifiedDate,
+            x.Attributes.GetValue("phone_number"),
+            x.Attributes.GetValue("custom:post_code"),
+            x.Username
+        )
+    );
+}
+```
+
 
 
 

@@ -229,6 +229,8 @@ functions:
 
 ### HTTP Endpoints
 
+#### Simple
+
 ```yaml
 functions: 
   get-index: 
@@ -238,6 +240,28 @@ functions:
           path: /
           method: get
           cors: true
+```
+
+#### Use Path Parameter
+
+```yaml
+functions: 
+  getInstaller:
+    handler: Navien.Installers.Lambdas::Navien.Installers.Lambdas.Functions.GetInstaller::Run
+
+    package:
+      artifact: bin/release/netcoreapp2.1/deploy-package.zip
+
+    events:
+      - http:
+          path: installers/{installerName}
+          method: get
+          request:
+            parameters:
+              paths:
+                installerName: true
+          cors: true
+          authorizer: aws_iam
 ```
 
 #### Authorizer
