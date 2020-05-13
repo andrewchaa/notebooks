@@ -90,6 +90,14 @@ SF project downloads Azure Fabric MS Build package and import the target. On Azu
 * Example: `notIn('D', 'A', 'B', 'C')` \(returns True\)
 * and\(succeeded\(\), notIn\(variables\['Release.EnvironmentName'\], 'blue', 'green'\)\)
 
+### Examples
+
+#### Run this job with Custom Condition
+
+```text
+and(succeeded(), eq(variables['run_terraform'], 'true'), not(startsWith(variables['Release.EnvironmentName'], 'test')))
+```
+
 ### Manage the names for new releases
 
 The names of releases for a release pipeline are, by default, sequentially numbered. The first release is named **Release-1**, the next release is **Release-2**, and so on. You can change this naming scheme by editing the release name format mask. In the **Options** tab of a release pipeline, edit the **Release name format** property in the **General** page.
