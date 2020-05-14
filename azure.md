@@ -148,6 +148,27 @@ for (int skip = 0; skip < 1000; skip += 100)
 5. Click on "Download in PFX/PEM format
 6. Install it locally by double-clicking it
 
+## Storage account
+
+### Static website on Blob storage
+
+Create a storage account with a resource group settings
+
+On Static website, select "enable" and specify default page, such as index.html. This will create $web on Blob service container
+
+Now you have an endpoint: [https://xxxx.z33.web.core.windows.net/](https://servicesoverview.z33.web.core.windows.net/)
+
+#### Custom domain
+
+* Create an Azure CDN: xxx.azureedge.net
+* Add a custom domain \(xxx.yourbank.co.uk\) to the CDN
+
+To enable HTTPS / SSL, 
+
+* Origin Origin type: change from storage to Custom origin Origin 
+* hostname: change from xxx.blob.core.windows.net to xxx.z33.web.core.windows.net
+* Origin host headser: fill in xxx.z33.web.core.windows.net
+
 ## Subscriptions
 
 ### Tenants, users, and subscriptions <a id="tenants-users-and-subscriptions"></a>

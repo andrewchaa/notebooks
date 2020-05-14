@@ -14,7 +14,16 @@ cd my-app
 npm start
 ```
 
-### Deploying App
+## Deploying App
+
+### Build production artifacts
+
+```bash
+npm run build or
+rimraf ./build && cross-env REACT_APP_STAGE=production react-scripts --max_old_space_size=4096 build
+```
+
+
 
 #### Increase memory if npm install fails on build pipeline
 
