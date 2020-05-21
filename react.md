@@ -127,6 +127,55 @@ updateRegistration({ registrationid,
 </Route>
 ```
 
+## Common layout
+
+### Use HOF
+
+```javascript
+// layout component
+import React from 'react'
+
+const DetailsPageLayout = ({children}) => {
+  return (
+    <div className="main-panel">
+    <div className="content" style={{ marginTop: 'auto' }}>
+      <div className="container-fluid">
+      { children }
+
+      </div>
+    </div>
+  </div>
+
+  )
+}
+
+export default DetailsPageLayout
+
+// page that uses the layout
+render() {
+  const { installer, registrations, installerLoading } = this.props
+
+  return (
+    <DetailsPageLayout>
+      <div className="row">
+        <div className="col-md-8">
+          <h3>Installer</h3>
+          {installerLoading && Loading()}
+          {!installerLoading && (
+            <div className="card">
+              <div className="card-body">
+                <InstallerDetails installer={installer} />
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </DetailsPageLayout>
+  )
+}
+
+```
+
 ## Basics
 
 #### Binding this to class function
