@@ -1,6 +1,6 @@
 # Git
 
-### Getting Started
+## Getting Started
 
 
 
@@ -91,6 +91,28 @@ git checkout origin/address-issue --track
 # remove a file from cache / commit / index
 
 git rm --cached .\terraform\.terraform\plugins\windows_amd64\lock.json
+```
+
+## Push to origin
+
+### Keep asking password
+
+Update the URL of origin remote using SSH instead of HTTPS
+
+Or
+
+Make Git store the username and password or cache it
+
+```bash
+# permanently store
+git config --global credential.helper store
+
+# caceh
+git config --global credential.helper cache
+
+# cache for the time
+git config --global credential.helper 'cache --timeout=600'
+
 ```
 
 
