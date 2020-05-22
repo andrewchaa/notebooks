@@ -227,6 +227,27 @@ resource "aws_db_instance" "example" {
 }
 ```
 
+### Application Insight
+
+```bash
+data "azurerm_resource_group" "app-insights" {
+  name     = "${var.organisation}-${var.system}-${var.environment}-app_insights-${var.location}"
+}
+
+resource "azurerm_application_insights" "app_insights" {
+  name                = "${var.organisation}-${var.system}-${var.environment}-jpm_paymentgateway-${var.location}"
+  location            = var.location
+  resource_group_name = data.azurerm_resource_group.app-insights.name
+  application_type    = "other"
+  retention_in_days   = 90
+  tags                = var.tags
+}
+
+output "jpm_paymentgateway_instrumentation_key" {
+  value = "${azurerm_application_insights.app_insights.instrumentation_key}"
+}
+```
+
 ## Variables
 
 ### Output Values
