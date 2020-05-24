@@ -31,6 +31,7 @@ description: >-
 | [saveSvgAsPng](https://github.com/exupero/saveSvgAsPng) | Save SVGs as PNGs from the browser. | javascript |
 | [Semantic UI](https://semantic-ui.com/) | User Interface is the language of the Web | HTML, CSS |
 | [slow-cheetah](https://github.com/microsoft/slow-cheetah) | Tooling for XML and JSON file transforms on build from Visual Studio and MSBuild | .net |
+| [tabler](https://github.com/tabler/tabler) | free and open-source HTML Dashboard UI Kit built on Bootstrap | html, css |
 | [validate.js](http://validatejs.org/) | a declarative way of validating javascript objects. | javascript |
 
 
