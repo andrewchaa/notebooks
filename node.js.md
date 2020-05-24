@@ -9,6 +9,6 @@ brew update
 brew install node
 
 # update
-brew update node
+brew upgrade node
 ```
 
