@@ -39,3 +39,12 @@ sudo chown -R "$(whoami)":admin /usr/local/lib
 aws dynamodb scan --table-name registrations-dev >| registrations.json
 ```
 
+## Network
+
+### Find process that uses 3000 and kill it
+
+```bash
+sudo lsof -i tcp:3000
+kill -9 <PID>                                       
+```
+
