@@ -127,6 +127,18 @@ updateRegistration({ registrationid,
 </Route>
 ```
 
+### CSS Loading Issue
+
+On a nested page, the stylesheet files aren't loaded if you specify the file by relative path. 
+
+```markup
+<!-- Not loading on nested pages -->
+<link rel="stylesheet" href="./plugins/fontawesome-free/css/all.min.css">
+
+<!-- Use absolute path -->
+<link rel="stylesheet" href="/http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+```
+
 ## Common layout
 
 ### Use HOF
