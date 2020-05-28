@@ -235,3 +235,39 @@ wrap the src in `{}`
      style={{opacity: .8}} />
 ```
 
+### input 
+
+Sometimes, you encounter "a component is changing an uncontrolled input of type text to be controlled error" It's because the value changes from null to something. Fix it by initialising the value. In my case, redux state initialState.
+
+```javascript
+const emptyRegistration = {
+  firstName: '',
+  lastName: '',
+  postCode: '',
+  emailAddress: '',
+  contactNo: '',
+  door: '',
+  street: '',
+  city: '',
+  county: '',
+  installationDate: '',
+  serialNumber: '',
+  model: '',
+  warrantyYear: '',
+  warrantyDate: '',
+  userId: '',
+  registrationId: '',
+}
+
+const registration = createSlice({
+  slice: 'registration',
+  initialState: {
+    loading: false,
+    registrations: [],
+    registration: emptyRegistration,
+  },
+
+```
+
+
+
