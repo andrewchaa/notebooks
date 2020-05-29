@@ -155,7 +155,9 @@ Use simulator and take screenshots. Once the screenshot is taken, adjust the ima
         </td>
     </tr>
   </tbody>
-</table>## Release on App Store
+</table>
+
+## Release on App Store
 
 * Do not use transparent png. It's blocked. Use JPEG instead
 
