@@ -305,6 +305,16 @@ az account set --subscription "team-xxxxxxx"
 terraform plan
 ```
 
+## Removing resources from state file
+
+Sometimes,  you have to remove some resources from the state file. It's becasue there are too many changes and terraform can't resolve what to remove and what to create.
+
+```bash
+terraform state rm rm module.apim_version_set
+```
+
+Make sure you remove the top-leve resource. In my case, rm module.apim\_version\_set.azurerm\_api\_management\_api\_version\_set.api\_version\_set failed
+
 ## Errors
 
 features error
