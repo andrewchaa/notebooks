@@ -63,6 +63,22 @@ import * as d3Graphviz from 'd3-graphviz';
 
 Make sure you put unique key value so that react can draw the node effectively
 
+## State
+
+State is similar to props but it is private and fully controlled by the component
+
+```javascript
+class InstallerPage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { showDialog: false }
+  }
+
+  return (
+  ...
+  <Dialog show={this.state.showDialog} />
+```
+
 ## Routing
 
 #### Install router

@@ -280,6 +280,19 @@ $config.configuration.common.logging.factoryAdapter.arg `
   | select -expand "value"
 ```
 
+## Service Fabric
+
+### Remove applications and types
+
+```bash
+$aps = Get-ServiceFabricApplication | ?{ $_.ApplicationName -like "*ClearBank.JPM.PaymentGateway.EventDispatcher*" }
+foreach($ap in $aps){
+  write-host $ap.ApplicationName
+  Remove-ServiceFabricApplication -ApplicationName $ap.ApplicationName -Force
+  Unregister-ServiceFabricApplicationType -ApplicationTypeName $ap.ApplicationTypeName -ApplicationTypeVersion $ap.ApplicationTypeVersion -Force
+}
+```
+
 ## XML
 
 #### Load into XML object
