@@ -48,6 +48,14 @@ DEPLOY
 }
 ```
 
+## CLI commands
+
+```text
+terraform fmt
+```
+
+Scans the currenty directory for configuration files and write them to a canonical format and style
+
 ## Creating Resources
 
 ### API Management
