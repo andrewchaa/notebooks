@@ -256,6 +256,26 @@ output "jpm_paymentgateway_instrumentation_key" {
 }
 ```
 
+## Providers
+
+A provider is responsible for understanding API interactions and exposing resources. 
+
+Azure releated providers are
+
+* Azure
+* Azure Active Directory
+
+```bash
+provider "azurerm" {
+  version = "=2.0.0"
+  features {}
+}
+
+provider "azuread" {
+  version = "=0.7.0"
+}
+```
+
 ## Variables
 
 ### Output Values
