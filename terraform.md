@@ -2,9 +2,25 @@
 
 ## Getting Started
 
-1. Configure provider
+1. Configure providers and version
 2. Create a resource group
 3. Create a virtual network within the resource group
+
+```bash
+provider "azurerm" {
+  version = ">= 2.14.0"
+  features {}
+}
+
+provider "azuread" {
+  version = ">= 0.7.0"
+}
+
+
+terraform {
+  required_version = ">= 0.12"
+}
+```
 
 ```text
 # Configure the Azure Provider
