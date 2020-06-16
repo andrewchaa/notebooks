@@ -148,17 +148,25 @@ private static readonly string EnvironmentName =
 
 ### Typed Configuration for appsettings.json
 
-### Adding Swagger
+### Add Swagger
 
 Install Swashbuckle.AspNetCore
 
-On Startup, UseSwagger
+On Startup, register swagger services and use them
 
 ```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    ....
+    services.AddSwaggerGen();
+}
+
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
     ....
-    app.UseSwagger().UseSwaggerUI();
+    app.UseSwagger()
+      .UseSwaggerUI(x => x.SwaggerEndpoint(
+      "/swagger/v1/swagger.json", "V1"));
 }
 ```
 
