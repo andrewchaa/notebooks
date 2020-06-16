@@ -148,6 +148,27 @@ private static readonly string EnvironmentName =
 
 ### Typed Configuration for appsettings.json
 
+Add config settings in appsettings.json
+
+```javascript
+"CosmosDb": {
+  "ConnectionString": "AccountEndpoint=#{cosmos_db_endpoint}#;AccountKey=#{cosmos_db_primary_master_key}#;"
+},
+```
+
+Match the Option class to the config section
+
+```csharp
+// Startup.cs
+public void ConfigureServices(IServiceCollection services)
+{
+    ....
+    services.Configure<CosmosDbOptions>(Configuration.GetSection("CosmosDb"));
+
+}
+
+```
+
 ### Add Swagger
 
 Install Swashbuckle.AspNetCore
