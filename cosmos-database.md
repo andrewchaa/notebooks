@@ -73,6 +73,18 @@ output "cosmos_db_primary_master_key" {
 
 ## Operations
 
+### Register the Repository
+
+```csharp
+// singleton is recommended
+services.AddSingleton<ITransactionRepository>(x =>
+{
+    var client = new CosmosClient(cosmosDbOptions.ConnectionString);
+    var container = client.GetContainer("dbName", "containerName");
+    return new TransactionRepository(container, x.GetService<ILogger<TransactionRepository>>());
+});
+```
+
 ### Upsert document
 
 ```csharp
