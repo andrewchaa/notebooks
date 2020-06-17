@@ -88,13 +88,6 @@ services.AddSingleton<ITransactionRepository>(x =>
 ### Upsert document
 
 ```csharp
-Services.AddSingleton<ICosmosDbRepository>(s =>
-    {
-        var options = s.GetService<IOptions<CosmosDbOptions>>();
-        var client = new CosmosClient(options.Value.ConnectionString);
-        return new CosmosDbRepository(client, "clients", "eventsLog");
-    });
-    
 public async Task Insert(EventLog eventLog)
 {
     var eventLogData = new 
