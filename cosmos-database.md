@@ -99,7 +99,10 @@ public async Task Insert(EventLog eventLog)
         eventLog.EventNameSequence,
         eventLog.Event
     };
-    await _container.UpsertItemAsync(eventLogData, new PartitionKey(eventLogData.ClientId.ToString()));
+    await _container.UpsertItemAsync(
+        eventLogData, 
+        new PartitionKey(eventLogData.ClientId.ToString())
+        );
 }
 ```
 
