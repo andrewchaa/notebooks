@@ -217,3 +217,7 @@ Note: Queries are only for selection. You can't delete a document by query.
 
 Sometimes, the firewall doesn't allow your local machine to connect to it. Update firewall settings. The exception message will tell you which IP it's blocking. If you use VPN, your ip address will be different from your public IP as the traffic routes through your corporate VPN
 
+## 
+
+
+
