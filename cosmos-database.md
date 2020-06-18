@@ -92,6 +92,7 @@ public async Task Insert(EventLog eventLog)
 {
     var eventLogData = new 
     {
+        // make sure you have id. Otherwise the request fails
         id = eventLog.EventId,
         eventLog.EntityId,
         eventLog.DateTimeStamp,
