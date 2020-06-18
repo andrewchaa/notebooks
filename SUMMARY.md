@@ -5,6 +5,7 @@
 ## Resources
 
 * [Tutorials](resources/tutorials.md)
+* [Application Insights](application-insights.md)
 * [Artillery](artillery.md)
 * [ASP.NET Core](typed-configuration-settings.md)
 * [AWS](aws.md)
