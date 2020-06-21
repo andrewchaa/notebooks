@@ -142,7 +142,17 @@ const formatNumber = (number) => {
 } 
 ```
 
-### String
+## String
+
+### interpolation
+
+```javascript
+  return `
+    ---
+    title: ${title}
+    `
+
+```
 
 #### lowercase
 
