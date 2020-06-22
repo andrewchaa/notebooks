@@ -89,6 +89,19 @@ export const filteredListSelector = createSelector(
 );
 ```
 
+## FileSystem
+
+### writeFileSync
+
+```javascript
+const content = await getContent(path)
+const date = await getDate(path)
+const frontMatter = await getFrontMatter(content.title, date, content.description)
+
+fs.writeFileSync(`./posts/${path}`, `${frontMatter}\n${content.body}`)
+
+```
+
 ## Node
 
 #### Kill process to run npm
