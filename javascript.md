@@ -10,6 +10,21 @@ const names = definitions
     .map(({name}) => name);
 ```
 
+### Join
+
+```javascript
+const elements = ['Fire', 'Air', 'Water'];
+
+console.log(elements.join());
+// expected output: "Fire,Air,Water"
+
+console.log(elements.join(''));
+// expected output: "FireAirWater"
+
+console.log(elements.join('-'));
+// expected output: "Fire-Air-Water"
+```
+
 ### Merge / flatten an array of arrays
 
 ```javascript
