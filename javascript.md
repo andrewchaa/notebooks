@@ -1,23 +1,16 @@
 # javascript
 
-## Node
+## Array
 
-#### Kill process to run npm
+### Extract property values as array from objects array
 
-```javascript
-pkill -f node
+```typescript
+const definitions = this.flattenManifest(manifest);
+const names = definitions
+    .map(({name}) => name);
 ```
 
-#### node-gym anomalies on mac
-
-* refer to Catalina's troubleshooting page: [https://github.com/nodejs/node-gyp/blob/master/macOS\_Catalina.md\#The-acid-test](https://github.com/nodejs/node-gyp/blob/master/macOS_Catalina.md#The-acid-test)
-* Install standalone developer tool [https://developer.apple.com/download/more/?=command%20line%20tools](https://developer.apple.com/download/more/?=command%20line%20tools)
-
-## Types
-
-### Array
-
-#### Merge / flatten an array of arrays
+### Merge / flatten an array of arrays
 
 ```javascript
 // use concat
@@ -28,15 +21,15 @@ var merged1 = [].concat.apply([], arrays);
 const merged2 = arrays.flat();
 ```
 
-#### Extract property values as array from objects array
+### Remove the first element
 
-```typescript
-const definitions = this.flattenManifest(manifest);
-const names = definitions
-    .map(({name}) => name);
+```javascript
+const arr = [1, 2, 3, 4]; 
+const theRemovedElement = arr.shift(); // theRemovedElement == 1
+console.log(arr); // [2, 3, 4]
 ```
 
-#### Sort
+### Sort
 
 ```javascript
 action.payload.sort(
@@ -46,7 +39,7 @@ action.payload.sort(
   )
 ```
 
-#### filter
+### filter
 
 ```javascript
 var numbers = [1, 3, 6, 8, 11];
@@ -70,6 +63,23 @@ export const filteredListSelector = createSelector(
   }
 );
 ```
+
+## Node
+
+#### Kill process to run npm
+
+```javascript
+pkill -f node
+```
+
+#### node-gym anomalies on mac
+
+* refer to Catalina's troubleshooting page: [https://github.com/nodejs/node-gyp/blob/master/macOS\_Catalina.md\#The-acid-test](https://github.com/nodejs/node-gyp/blob/master/macOS_Catalina.md#The-acid-test)
+* Install standalone developer tool [https://developer.apple.com/download/more/?=command%20line%20tools](https://developer.apple.com/download/more/?=command%20line%20tools)
+
+## Types
+
+## 
 
 ### Object
 
