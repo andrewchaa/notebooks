@@ -115,6 +115,18 @@ pkill -f node
 * refer to Catalina's troubleshooting page: [https://github.com/nodejs/node-gyp/blob/master/macOS\_Catalina.md\#The-acid-test](https://github.com/nodejs/node-gyp/blob/master/macOS_Catalina.md#The-acid-test)
 * Install standalone developer tool [https://developer.apple.com/download/more/?=command%20line%20tools](https://developer.apple.com/download/more/?=command%20line%20tools)
 
+## Regular expressions
+
+### Substitution
+
+```javascript
+  const body = lines.join('\n')
+    .replace(
+      /\.gitbook\/assets\/image%20%28([0-9]+)%29\.png/g, 
+      'assets\/image$1\.png'
+    )
+```
+
 ## Timer
 
 ### Pause
