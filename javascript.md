@@ -2,7 +2,17 @@
 
 ## Array
 
-### Extract property values as array from objects array
+### include
+
+Check if an element is in the array
+
+```javascript
+  var paths = response.data
+    .filter(x => !(['.gitbook', 'README.md', 'SUMMARY.md', 'drafts'].includes(x.path)))
+    .map(x => x.path)
+```
+
+### Map
 
 ```typescript
 const definitions = this.flattenManifest(manifest);
