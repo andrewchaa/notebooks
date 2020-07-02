@@ -79,7 +79,12 @@ output "cosmos_db_primary_master_key" {
 // singleton is recommended
 services.AddSingleton<ITransactionRepository>(x =>
 {
-    var client = new CosmosClient(cosmosDbOptions.ConnectionString);
+    var client = new CosmosClient(cosmosDbOptions.ConnectionString, 
+        new CosmosClientOptions
+        {
+            MaxRetryAttemptsOnRateLimitedRequests = cosmosDbOptions.MaxRetryAttemptsOnRateLimitedRequests,
+            MaxRetryWaitTimeOnRateLimitedRequests = cosmosDbOptions.MaxRetryWaitTimeOnRateLimitedRequests
+        });
     var container = client.GetContainer("dbName", "containerName");
     return new TransactionRepository(container, x.GetService<ILogger<TransactionRepository>>());
 });
