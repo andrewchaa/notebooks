@@ -27,12 +27,11 @@
 "editor.detectIndentation": false
 ```
 
-### Extensions
-
-**JavaScript**
+## Extensions
 
 * Live Server
 * Bracket Pair Colorizer
+* Color Highlight \(naumovs.color-highlight\): Highlight web colors in your editor
 
 #### Prettier
 
